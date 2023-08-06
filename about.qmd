@@ -1,0 +1,22 @@
+---
+open-graph: true
+title: "Vadym Yudenko"
+description: |
+  Be humble, hungry and kind. 
+  Be so good they can't ignore you.
+about:
+  template: trestles
+  links:
+    - icon: twitter
+      text: Linkedin
+      href: https://www.linkedin.com/in/vadym-yudenko/
+    - icon: github
+      text: Github
+      href: https://github.com/vyudenko
+    - icon: google
+      text: Google
+      href: google.com
+---
+
+
+

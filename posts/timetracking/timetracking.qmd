@@ -1,0 +1,122 @@
+---
+title: Tracking time
+description: |
+  Visualizing one's life.
+author: Vadym Yudenko
+date: 2023-07-14
+draft: true 
+categories:
+  - timetracking
+  - data
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, warning = FALSE, message = FALSE)
+```
+
+```{r}
+# devtools::install_github("liamgilbey/ggwaffle")
+library(ggwaffle)
+library(stargazer)
+library(tidyverse)
+library(ggExtra)
+library(ggthemes)
+library(corrr)
+library(corrplot)
+library(lubridate)
+library(reshape2)
+library(plotly)
+library(scales)
+```
+
+# Introduction
+
+```{r}
+data <- read.csv("KSE_life.csv")
+
+data_long <- gather(data, day, activity, -X)
+
+data_long$day <- sub("^X", "", data_long$day)
+
+data_long$datetime <- as.POSIXct(paste(data_long$day, data_long$X), format="%m.%d.%Y %H:%M")
+
+data_long <- data_long[, !(names(data_long) %in% c("day", "X"))]
+
+data_long$day_of_week <- weekdays(data_long$datetime)
+data_long$time_of_day <- ifelse(as.numeric(format(data_long$datetime, "%H")) < 12, "Morning",
+                         ifelse(as.numeric(format(data_long$datetime, "%H")) < 18, "Day", "Night"))
+
+data_long$time_column <- substr(as.character(data_long$datetime), 12, 16)
+data_long$time_column <- ifelse(data_long$time_column == "", "00:00", data_long$time_column)
+
+data_long <- data_long %>% 
+  mutate(category5 = case_when(
+    activity %in% c("Sleep", "Sport", "Communication") ~ activity,
+    activity %in% c("Study", "Work", "TM", "Planning", "Reading") ~ "Study/Work",
+    activity %in% c("Transport", "Misc", "Waste", "Food") ~ "Rest"
+  ))
+```
+
+```{r}
+p <- data_long %>% 
+  mutate(date = as.Date(datetime)) %>% 
+  ggplot(aes(date, time_column, fill = category5)) +
+  geom_tile(
+    aes(
+      text = str_replace_all(paste0(
+        "<b>", time_column, "</b><br>",
+        "Activity: ", category5, "<br>"), "NA", "missing")
+      )
+    ) +
+  labs(x = NULL, y = NULL, title = "Daily Behavioral Patterns") +
+  theme_minimal() +
+  theme(
+    legend.position = "none",
+    panel.grid = element_blank(),
+    plot.title = element_text(face = "bold", size = 14)
+    )
+
+ggplotly(p, tooltip = "text") %>%
+  layout(
+    xaxis = list(
+      type = "date",
+      tickformat = "%b %-d"
+    ),
+    yaxis = list(fixedrange = TRUE),
+    font = list(family = "IBM Plex Sans Condensed"),
+    hoverlabel = list(font = list(family = "IBM Plex Sans Condensed"), align = "left"),
+    # Add date range slider
+    xaxis2 = list(
+      type = "date",
+      tickformat = "%b %-d",
+      overlaying = "x",
+      side = "bottom"
+    ),
+    margin = list(l = 50, r = 50, t = 20, b = 50),
+    updatemenus = list(
+      list(
+        type = "buttons",
+        showactive = FALSE,
+        buttons = list(
+          list(
+            step = "all",
+            label = "Reset",
+            method = "relayout",
+            args = list("xaxis.range", list(NULL, NULL))
+          )
+        )
+      )
+    )
+  ) %>%
+  #rangeslider(start = data_long$datetime[287], end = data_long$datetime[1398]) %>%
+    plotly::config(
+      displayModeBar = TRUE,
+      displaylogo = FALSE,
+      modeBarButtonsToRemove = c("zoom2d", "pan2d", "zoomIn2d", "zoomOut2d",
+                                 "autoScale2d", "toggleSpikelines", "hoverClosestCartesian",
+                                 "hoverCompareCartesian", "toImage")
+      )
+
+```
+
+# Recomendations

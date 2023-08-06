@@ -1,0 +1,29 @@
+project:
+  type: website
+
+website:
+  title: "小鳥"
+  navbar:
+    right:
+      - href: index.qmd
+        text: Home
+      - text: Blog
+        href: blog.qmd
+      - href: about.qmd
+        text: About
+
+format:
+  html:
+    author: "Vadym Yudenko"
+    toc: true
+    toc-location: "left"
+    code-link: true
+    anchor-sections: true
+    fig-cap-location: margin
+    reference-location: margin
+    footnotes-hover: true
+    fontsize: 1em
+    css: styles.css
+
+editor: visual
+
