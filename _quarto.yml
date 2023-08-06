@@ -14,6 +14,9 @@ website:
 
 format:
   html:
+    theme: 
+      light: cerulean
+      dark: darkly
     author: "Vadym Yudenko"
     toc: true
     toc-location: "left"
