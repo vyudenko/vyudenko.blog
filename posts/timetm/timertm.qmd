@@ -393,11 +393,11 @@ Surprising? How peculiarly these times fall into one of natures patterns. One ca
 
 # Analysis
 
-In this part we are going to try and answer some of the hardest philosophical questions, most pertinent questions starting with...
+In this part we are going to try and answer some of the hardest philosophical questions, most pertinent questions starting with...[^7]
 
-## Who likes to talk more, women or men?[^7]
+[^7]: https://www.hsph.harvard.edu/news/features/do-women-talk-more-than-men/
 
-[^7]: \[https://www.hsph.harvard.edu/news/features/do-women-talk-more-than-men/)\](https://www.hsph.harvard.edu/news/features/do-women-talk-more-than-men/
+## Who likes to talk more, women or men?
 
 ::: panelset
 ::: panel

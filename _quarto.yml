@@ -3,6 +3,7 @@ project:
 
 website:
   title: "小鳥"
+  favicon: kotori\logo.png
   navbar:
     right:
       - href: index.qmd
@@ -26,7 +27,6 @@ format:
     reference-location: margin
     footnotes-hover: true
     fontsize: 1em
-    css: styles.css
 
 editor: visual
 
