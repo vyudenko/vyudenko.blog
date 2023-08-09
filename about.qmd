@@ -1,11 +1,9 @@
 ---
 open-graph: true
 title: "Vadym Yudenko"
-description: |
-  Be humble, hungry and kind. 
-  Be so good they can't ignore you.
 about:
   template: trestles
+  image: kotori.png
   links:
     - icon: twitter
       text: Linkedin
@@ -14,9 +12,16 @@ about:
       text: Github
       href: https://github.com/vyudenko
     - icon: google
-      text: Google
-      href: google.com
+      text: CV
+      href: https://drive.google.com/file/d/1_m219XQMiiki18tZxKOvl1ICCw9h1jRe/view?usp=sharing
 ---
 
+Vadym Yudenko is a Researcher at the Institute for Behavioral Studies at American University Kyiv. His research focuses on how war experiences impact decision-making, particularly regarding forced relocation, financial wellbeing, and perception of safety. He holds a BA in Management and Administration from KNEU and is completing an MSc in Business and Financial Economics from Kyiv School of Economics. Vadym is also studying Statistics and Data Science from MIT.
 
+## Education
 
+Kyiv School of Economics | Kyiv, Ukraine
+MSc of Economics | Sept 2022 - Jan 2024
+
+Kyiv National Economics University | Kyiv, Ukraine
+BSc of Business and Management | Sept 2018 - Jun 2022
