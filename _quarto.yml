@@ -5,7 +5,6 @@ project:
 website:
   title: "小鳥"
   favicon: kotori.png
-  site-url: https://vyudenko.github.io/kotori/
   navbar:
     right:
       - href: index.qmd
