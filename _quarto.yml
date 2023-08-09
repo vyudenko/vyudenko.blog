@@ -16,8 +16,8 @@ website:
 format:
   html:
     theme: 
-      light: cerulean
-      dark: darkly
+      light: litera
+      dark: slate
     author: "Vadym Yudenko"
     toc: true
     toc-location: "left"

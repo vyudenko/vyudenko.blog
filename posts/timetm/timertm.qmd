@@ -9,6 +9,7 @@ editor: visual
 categories:
   - toastmasters
   - logit/probit
+  - time
 ---
 
 ```{r setup, include=FALSE}
@@ -49,7 +50,16 @@ library(DT)
 
 # Introduction
 
-In Toastmasters you are always told to mind the time, there is a special role dedicated specifically to that. You, me, everyone has a limited time and we can't afford to waste it. When someone is wasting our time talking, you can't help but with they just shut up.
+"The most valuable thing we have is time" 
+
+You are at a nice party, music playing, drinks pouring, people laughing. You are with a group of friends enjoying a conversation. Then one person starts telling a funny story, everyone is laughing. But then after the story is over the person doesn't stop talking, forces another story and another talking endlessly and, effectively, hijacking the conversation. You can't help but feel frustrated: how come they don't let others talk, they take too much time! 
+
+We all had a situation in our life when someone is taking too much of our time. We 
+
+When someone wastes your precious time talking nonsense, you can't help but wish they just shut up. Nonsense part we can accept - people think differently, have strong opinions that this all good, but the sense of lost time is hard to forget. You feel like you could have spent this time differently, done smth useful. 
+
+
+In Toastmasters you are always told to mind the time, there is a special role dedicated specifically to that. You, me, everyone has a limited time and we can't afford to waste it. When someone is wasting our time talking, you can't help but wish they just shut up.
 
 That being said, there are cases when you find yourself clinging to the arms of your chair thinking "just keep talking".
 
@@ -73,21 +83,19 @@ For people who hear about Toastmasters for the first time. This is a place to pr
 
 3.  Evaluation session: everyone who came on stage during previous sessions is given feedback on how well they did.
 
-Toastmasters are more organized and formal compared to many speaking clubs. Many of its members are middle-aged with higher education[^1]. These people value their time and that is why among the evaluators there is a Timer (Ta-da!). Timer's responsibility is to keep track of time and show colored signs to a speaker. Without going into much detail, green is an early warning, yellow - soon the time will be up, red - time is up, finish your speech. Timer also tracks the time of each speaker and presents Timer Report - sine qua non[^2] of this article.
+Toastmasters are more organized and formal compared to many speaking clubs. Many of its members are [middle-aged with higher education](https://www.toastmasters.org/resources/statistics-and-data-hub). These people value their time and that is why among the evaluators there is a Timer (Ta-da!). Timer's responsibility is to keep track of time and show colored signs to a speaker. Without going into much detail, green is an early warning, yellow - soon the time will be up, red - time is up, finish your speech. Timer also tracks the time of each speaker and presents Timer Report - sine qua non[^1] of this article.
 
 </div>
 
-[^1]: <https://www.toastmasters.org/resources/statistics-and-data-hub>
-
-[^2]: a necessary condition without which something is not possible \[from Latin\]
+[^1]: A necessary condition without which something is not possible \[from Latin\]
 
 # Data
 
 Like a famished mouse looking for breadcrumbs under the bakers table an author was open-sourcing these reports from Telegram, Facebook, some were written by author himself and other were transcribed from videos of the meetings.
 
-Most of the data was collected from Ukrainian TMCs: Chamber[^3], Arttalkers, Changemakers, Dniprohills, KOMA (UA-speaking) and Svoya Sorochka (UA-speaking). There are some reports from Japanese and Polish TMCs, but we will not be focusing on them.
+Most of the data was collected from Ukrainian TMCs: Chamber[^2], Arttalkers, Changemakers, Dniprohills, KOMA (UA-speaking) and Svoya Sorochka (UA-speaking). There are some reports from Japanese and Polish TMCs, but we will not be focusing on them.
 
-[^3]: Special thanks goes to Chamber and their Timer reports, without you this project would've taken much-much longer.
+[^2]: Special thanks goes to Chamber and their Timer reports, without them this project would've taken much-much longer.
 
 <div>
 
@@ -99,7 +107,7 @@ Timer tracks everyone's time, as can be seen on the reports. Here we will be onl
 2.  Speech Time
 3.  Club
 4.  Date
-5.  TT winner[^4]
+5.  TT winner[^3]
 
 I have looked at too much timer reports *(see examples by clicking on each Tab).* It is as boring as being a Timer - manual work, under-appreciated and no one really cares. However, I was delighted to come across some very fine reports - a bright spark in otherwise gloom sea of boringness. These people turned a mundane, just-get-it-over-with role and created something worthwhile - a memory. For a lurking, opportunistic Toastmasters anthropologist (author) that is for sure.
 
@@ -191,11 +199,11 @@ But without these crazy reports, I wouldn't have went through with this article.
 
 </div>
 
-[^4]: There are many reports that don't include TT winner or times of some speakers. Moreover some speaker volunteer two or more times, which complicates analysis.
+[^3]: There are many reports that don't include TT winner or times of some speakers. Some speaker volunteer two or more times, which complicates analysis.
 
-In total there 180 unique meetings in the dataset. Our sample is representative, as the number of men and women[^5] is almost equal.
+In total there 180 unique meetings in the dataset. Our sample is representative, as the number of men and women[^4] is almost equal.
 
-[^5]: the gender of the speaker was assigned post hoc, based on the photos of the meeting, common sense and a little bit of prejudice :)
+[^4]: The gender of the speaker was assigned post hoc, based on the reports/photos of the meeting, common sense and a little bit of prejudice :)
 
     In cases where it was impossible to establish the gender of a speaker - the whole meeting is excluded.
 
@@ -222,6 +230,12 @@ data <- data %>%
     speaker_order = row_number() # Order of paricipants
   ) %>%
   ungroup()
+
+data_models <- data %>% 
+  filter(Time < 150) %>% 
+  select(2,3,6,7,12:18)
+
+
 ```
 
 ```{r}
@@ -233,9 +247,9 @@ kable(sex_data, align = "c", format = "html") %>%
   kable_styling(bootstrap_options = "striped")
 ```
 
-With regards to TT participants names there are a total of 312 unique names[^6].
+With regards to TT participants names there are a total of 312 unique names[^5].
 
-[^6]: In reports the same people were reported under slightly different names. For example: Alexey/Aleksey/Alex/Aleks/Oleksiy/Oleksey.... and their counterpart Cyrillic versions. To deal with this issue, I simply renamed these to Alex. Similar approach was with other names.
+[^5]: In reports the same people were reported under slightly different names. For example: Alexey/Aleksey/Alex/Aleks/Oleksiy/Oleksey.... and their counterpart Cyrillic versions. To deal with this issue, I simply renamed these to Alex. Similar approach was with other names.
 
     All Ukrainian names were translated to English.
 
@@ -306,8 +320,8 @@ generate_plot <- function(distribution) {
     y <- 0.5 * y1 + 0.5 * y2
     title <- "B"
   } else if (distribution == "mixed_normal") {
-    y <- dnorm(x, mean = 95, sd = 10)
-    y[x >= 80 & x <= 110] <- dunif(x[x >= 80 & x <= 110], min = 80, max = 110)
+    y <- dnorm(x, mean = 95, sd = 20)
+    y[x >= 60 & x <= 120] <- dunif(x[x >= 60 & x <= 120], min = 60, max = 120)
     title <- "C"
   } else if (distribution == "normal") {
     y <- dnorm(x, mean = 115, sd = 20)
@@ -353,7 +367,7 @@ density_plot <- ggplot(data, aes(x=Time)) +
   geom_vline(aes(xintercept=60), color="green", linetype="dotted", size=1) +
   annotate("rect", xmin=120, xmax=Inf, ymin=-Inf, ymax=Inf, alpha=0.1, fill="red") +
   labs(X = "Time, seconds", title = "Distribution of TT time",
-       subtitle = "Correct answer is D - Normal Distibution") +
+       subtitle = "Correct answer is D - Normal Distibution*") +
   theme_classic() +
   theme(plot.title = element_text(hjust = 0.5, size = 14, face = "bold", family = "Roboto"),
         axis.title = element_blank(),
@@ -373,13 +387,15 @@ box_plot <- ggplot(data, aes(x=Time)) +
   geom_vline(aes(xintercept=60), color="green", linetype="dotted", size=1) +
   annotate("rect", xmin=120, xmax=Inf, ymin=-Inf, ymax=Inf, alpha=0.1, fill="red") +
   theme_classic() +
+  labs(caption = "Shapiro-Wilk Test < 0.001 - Time isn't normally distributed, 
+       despite resembeling Normal distribution") +
   theme(plot.title = element_text(hjust = 0.5, size = 14, face = "bold", family = "Roboto"),
         panel.grid.major = element_line(),
         plot.subtitle = element_text(hjust = 0.5, size = 8, face = "italic", family = "Roboto"),
         axis.text = element_text(size = 10, family = "Roboto"),
         axis.text.x = element_text(angle = 0, hjust = 0.5),
         axis.text.y = element_blank(),
-        plot.caption = element_text(face = "bold", family = "Roboto"))
+        plot.caption = element_text(face = "italic", family = "Roboto"))
 
 
 # Arrange the plots vertically
@@ -393,9 +409,7 @@ Surprising? How peculiarly these times fall into one of natures patterns. One ca
 
 # Analysis
 
-In this part we are going to try and answer some of the hardest philosophical questions, most pertinent questions starting with...[^7]
-
-[^7]: https://www.hsph.harvard.edu/news/features/do-women-talk-more-than-men/
+In this part we are going to try and answer some of the hardest philosophical questions, most pertinent questions starting with...
 
 ## Who likes to talk more, women or men?
 
@@ -427,7 +441,7 @@ ggplot() +
 :::
 
 ::: panel
-[Regression]{.panel-name}
+[Time \~ Gender]{.panel-name}
 
 ```{r}
 mod1 <- lm(Time ~ Sex + tt_participant_sex_prop, data = data)
@@ -444,16 +458,21 @@ stargazer(mod1, mod11,
           omit.stat=c("f", "ser"),
           no.space=TRUE)
 ```
+:::
+:::
 
-Strangely enough, if in TT session you have more men - then TT session will be shorter by 585 seconds (\~10 mins). Why?
+Strangely enough, if the proportion of men in TT session increases - then TT session will be be sorter. Also, having more men speak during TT session is associated with lower TT times.
 
 The answer? The difference is not significant! The distributions closely resemble each other. Women don't speak longer than men!
 
-No, women actually speak a little less than men (at least in our sample)
-:::
-:::
+No, women actually speak a little less than men. However we cannot say that women ACTUALLY talk less! In the current study we only observe time taken to speak, however within these 2 minutes on stage, they might talk more (on average) than me. There seem to be report that women communicate ideas differently and [use more words](https://www.imd.org/research-knowledge/leadership/articles/women-talk-too-much-simply-isnt-true-data-show/) like ah/uh/m-m-m/you know/so/like[^6].
+
+
+[^6]: Foreshadowing a future ah-counter perspective on winning TT?!
 
 ## Do we speak longer online?
+
+In person conversations/presentation have you deal with people - you see/hear/feel/smell them every second of your speech. There are so many signals communicated non-verbally that we don't even notice them. During in person meetings when you take too long to finish people start fidgeting, yawning, looking away, and you know you don't want to make them uncomfortable so you quickly wrap up your speech. Online you deal with avatars, the only means of communication with them (your audience) is by observing their reaction. Perhaps this makes you go overtime more often than you would've had you given a particular speech in person. We test this below:
 
 ::: panelset
 ::: panel
@@ -484,7 +503,7 @@ ggplot() +
 :::
 
 ::: panel
-[Regression]{.panel-name}
+[Time \~ Online/Offline]{.panel-name}
 
 ```{r}
 mod2 <- lm(Time ~ ON_OFF, data = data)
@@ -502,17 +521,9 @@ stargazer(mod2, mod22,
           no.space=TRUE)
 ```
 
-Since the strat of covid TT session times have increased by 160 secs (\~1.5 speakers).
-
-However this could be due to many other factors, like how many prepared speeches there were, how long the meeting is overal. This being said, not having to go to in-person meetings allows for longer meetings (!)
-
-Doesn't look like it either. We can conclude that as n -\> \inf speeches will follow a Normal distribution.
-:::
+Whether the meeting is online or offline has no effect on speech lengths, however there is a strong association with total TT session time: on average online TT sessions are longer than in-person ones by 160 secs (\~1.5 speakers). One possible explanation to this is the fact that one doesn't have to go home after the metting, working from home and joining the meeting without spending hours commuting enables all participants to answer a question during TT.
 :::
 
-## Have we started speaking longer?
-
-::: panelset
 ::: panel
 [Individual Time]{.panel-name}
 
@@ -546,7 +557,7 @@ data %>%
   ggplot(aes(x = tt_time, y = Year, fill = Year)) +
   geom_density_ridges_gradient(scale = 3, rel_min_height = 0.01) +
   scale_x_continuous(breaks = seq(0, max(data$tt_time, na.rm = TRUE), by = 300)) +
-  labs(title = 'Lengths of TT sessions through from 2018 to 2022', x = "TT session length, seconds") +
+  labs(title = 'Lengths of TT sessions from 2018 to 2022', x = "TT session length, seconds") +
   theme_classic() +
   theme(plot.title = element_text(hjust = 0.5, size = 14, face = "bold", family = "Roboto"),
         axis.title.y = element_blank(),
@@ -559,7 +570,7 @@ data %>%
 :::
 
 ::: panel
-[Regression]{.panel-name}
+[Time \~ Year]{.panel-name}
 
 ```{r}
 mod_q3 <- lm(Time ~ Year, data = data)
@@ -576,13 +587,13 @@ stargazer(mod_q3, mod_q31,
           no.space=TRUE)
 ```
 
-While the distribution of individual speeches remains Normal throughout the years, TT sessions became longer and take up to 40(!) minutes.
-
-There could be some
+While the distribution of individual speeches remains "Normal" throughout the years, TT sessions became longer and take up to 40(!) minutes.
 :::
 :::
 
 ## Are there differences on the club level?
+
+Further exploring the data, we look at whether some of the differences can be explained by looking at distributions on club levels.
 
 ::: panelset
 ::: panel
@@ -634,28 +645,7 @@ data %>%
 :::
 
 ::: panel
-[TT participants]{.panel-name}
-
-```{r}
-data %>% 
-  filter(Club %in% c("Chamber", "Dniprohills", "Arttalkers", "Dniprohills/Arttalkers", "KOMA", "Changemakers", "Svoya Rubashka")) %>% 
-  ggplot(aes(x = tt_participants, y = Club, fill = Club)) +
-  geom_density_ridges_gradient(scale = 3, rel_min_height = 0.01) +
-  scale_x_continuous(breaks = seq(0, max(data$tt_participants, na.rm = TRUE), by = 4)) +
-  labs(title = 'Number of participants') +
-  theme_classic() +
-  theme(plot.title = element_text(hjust = 0.5, size = 14, face = "bold", family = "Roboto"),
-        panel.grid.major = element_line(),
-        plot.subtitle = element_text(hjust = 0.5, size = 8, face = "italic", family = "Roboto"),
-        axis.text.x = element_text(hjust = 0.5, family = "Roboto"),
-        axis.title = element_blank(), 
-        plot.caption = element_text(face = "bold", family = "Roboto"),
-        legend.position = "none")
-```
-:::
-
-::: panel
-[Gender]{.panel-name}
+[Men/Women Club]{.panel-name}
 
 ```{r}
 # Custom function to convert x-axis values to "Women majority" and "Male majority"
@@ -684,6 +674,8 @@ data %>%
     plot.caption = element_text(face = "bold", family = "Roboto"),
     legend.position = "none")
 ```
+
+Individual times don't seem to vary that much across clubs, however KOMA (Ukrainian-speaking club) is an exception. The mean of their speakers' Time is higher and variance is even higher. As for distribution of gender of participants one can see the clubs that have more women or men participating. This part could be improved with more data.
 :::
 :::
 
@@ -720,7 +712,7 @@ ggflowchart(flowchart,
 # nrennie.rbind.io/blog/introducing-ggflowchart
 ```
 
-Flowchart made with ggflowchart [@ggflowchart]
+Flowchart made with [ggflowchart](https://nrennie.rbind.io/blog/introducing-ggflowchart/)
 
 **What do you think plays the biggest role in winning TT?**
 
@@ -737,8 +729,6 @@ check_question(c("Being on time"), options = c("Eye contact", "Being on time", "
 -   [The last speaker has a higher probability of winning TT](#heading1);
 
 -   [The longer the speech the less likely is winning](#heading2);
-
--   [Women are more likely to win, when there are few women participating in TT](#heading3);
 
 -   [Bonus: how to name your baby so it wins TT](#heading4)
 
@@ -816,7 +806,7 @@ stargazer(mod10, mod11,
 # plot data
 plot(x = data_logit$speaker_order, 
      y = data_logit$TT,
-     main = "Probit and Logit Models Model of the Probability of Winning TT, Given Speaker Order",
+     main = "Probit and Logit Models Model of the P(Winning TT | Speaker Order)",
      xlab = "Speaker Order",
      ylab = "Win probability",
      pch = 20,
@@ -847,9 +837,9 @@ legend("topleft",
 :::
 :::
 
-Waiting and speaking later during TT session does indeed increases the probability of winning by a whopping 0.09%!
+Waiting and speaking later during TT session does indeed increases the probability of winning by a whopping 0.9%!
 
-This would be rather upsetting, yet this is a great news, because you can't expect to win over the audience by just waiting and giving a killer speech at the end of TT session. But one thing is clear as day here - the only people who don't win are those that don't try!
+This is a great news, because you can't expect to win by just waiting and giving a speech at the end of TT session. There a lot that goes into giving a great speech and a lot more into winning, but speaker order doesn't seem to be it. But one thing is clear as day here - the only people who don't win are those that don't try!
 
 ## Hypothesis 2: {#heading2}
 
@@ -862,7 +852,7 @@ This would be rather upsetting, yet this is a great news, because you can't expe
 ```{r}
 st <- "In TM those who speak for longer than 150 seconds
           are disqualified - they cannot win. However,
-          clubs in this sample such a practice is not present."
+          in clubs in this sample such a practice is not present."
 
 ggplot() +
   geom_histogram(data = filter(data, TT == "1"), aes(x = Time), fill = "blue", alpha = 0.5) +
@@ -892,9 +882,7 @@ Since we have a dozen of TT winners who spoke over 150 seconds, we will remove t
 
 ```{r, code_folding=TRUE}
 mod5 <- glm(TT ~ Time, data = data_logit, family=binomial(link="logit"))
-mod55 <- glm(TT ~ Time, data = data_logit, family=binomial(link="probit"))
 mod6 <- glm(TT ~ Time, data = filter(data_logit, Time < 150), family=binomial(link="logit"))
-mod66 <- glm(TT ~ Time, data = filter(data_logit, Time < 150), family=binomial(link="probit"))
 stargazer(mod5, mod6,
           column.labels = c("Model with outliers", "Model w/o outliers"),
           covariate.labels = c("Time of TT speech"),
@@ -911,13 +899,13 @@ stargazer(mod5, mod6,
 :::
 
 ::: panel
-[Probit \| Logit]{.panel-name}
+[Logit \| Logit]{.panel-name}
 
 ```{r}
 # plot data
 plot(x = data_logit$Time, 
      y = data_logit$TT,
-     main = "Probit and Logit Models Model of the Probability of Winning TT, Given the Time",
+     main = "Probit and Logit Models Model of the P(Winning TT | Time)",
      xlab = "Speech time, seconds",
      ylab = "Win probability",
      pch = 20,
@@ -954,43 +942,7 @@ Regardless of outliers, model is statistically significant. Interestingly, that 
 
 Think about how this finding plays out in your life.
 
-When you have someones attention you have to be mindful of time. You are not given their attention indefinitely, you have to use this opportunity exhaustively making every second count. Speak fast and blurt out your thought and they will not undersatnd it fully. Speak too much and they switch off and feel like you can't properly articulate your thoughts. You have to finish by the time they lose focus!
-
-## Hypothesis 3: {#heading3}
-
-**Women are more likely to win, when there are few women participating in TT**
-
-::: panelset
-::: panel
-[Male / Female]{.panel-name}
-
-```{r}
-ggplot(data_logit, aes(x = tt_participant_sex_prop, y = TT)) +
-  geom_point() +
-  geom_smooth(method = "logit")
-  
-```
-:::
-
-::: panel
-[Regression]{.panel-name}
-
-```{r, code_folding=TRUE}
-mod8 <- glm(TT ~ Sex + tt_participant_sex_prop, data = filter(data_logit, tt_participant_sex_prop > 0.5), family=binomial(link="logit"))
-stargazer(mod8,
-          covariate.labels = c("Speaker's Gender", "Proportion of Genders"),
-          header=FALSE, 
-          title="Regression results", 
-          type='text', 
-          digits=3,
-          style = "aer",
-          font.size = "small",
-          align = TRUE,
-          omit.stat=c("f", "ser"),
-          no.space=TRUE)
-```
-:::
-:::
+When you have someones attention you have to be mindful of time. You are not given their attention indefinitely, you have to use this opportunity exhaustively making every second count. Speak fast and blurt out your thought and they will not understand it fully. Speak too much and they switch off and feel like you can't properly articulate your thoughts. You have to finish by the time they lose focus!
 
 ## Bonus: {#heading4}
 
@@ -1062,15 +1014,17 @@ It is true that not everyone can win and one must use every trick to their advan
 
 If your name is not Alex or Andrew, than maybe it is not for you. Go apply yourself in some other domain, for you are against the odds when it comes to winning TT session.
 
-"Consider naming your baby Alex or Andrew - this will set them up for good life" - Vadym Yudenko[^8]
+
+
+"Consider naming your baby Alex or Andrew - this will set them up for good life" - Vadym Yudenko[^7]
+
+
 :::
 :::
 
-[^8]: FYI, this is a joke and not meant to be taken seriously.
+[^7]: FYI, this is a joke and not meant to be taken seriously.
 
 # Conclusions
-
-Write this section!
 
 Giving a successful speech isn't about whether you made it in time, it is about being able to clearly articulating an idea.
 
@@ -1078,10 +1032,6 @@ We have experimentally p
 
 To study this further we would need to look at the content of the speech, audience demographics and so many more things..
 
-famous speeches[^9]
+[famous speeches](https://youtube.com/playlist?list=PLosaC3gb0kGCnvkRvp8aOF4OIuGaqDHG8)
 
-[^9]: <https://youtube.com/playlist?list=PLosaC3gb0kGCnvkRvp8aOF4OIuGaqDHG8>
-
-one safe rule of thumb is to speak for between 90-100% of your allowed time [^10]
-
-[^10]: <http://sixminutes.dlugan.com/presentation-timing/>
+one safe rule of thumb is to speak for between [90-100% of your allowed time](http://sixminutes.dlugan.com/presentation-timing/).

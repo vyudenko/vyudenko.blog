@@ -23,19 +23,15 @@ Ukrainians now have a terrible time speaking with relatives in russia. Having to
 | M: Who told you? Do you know this for sure? Or are these just rumors?
 | W: I know for sure. \*crying\* I'm not telling anything more.
 
-\[Video might be sensitive, watch at your discretion.\][^1]
-
-[^1]:
-    # **SSU Interceotion:** <https://youtu.be/LDeoe5wAelw>
+{{< video https://youtu.be/LDeoe5wAelw >}}
 
 You can most certainly feel despair in her voice, when the man questions the REALITY of her experience. This conversation is emblematic of conversations Ukrainians have with their RU relatives. Any appeals to reason are met with ready-made answers (NATO, nazis, biolabs), facts are met with "fakes!" and emotions with "[understanding and love](https://papapover.com/en/)". After all they consider us their brothers...[at least used to](https://www.pravda.ru/world/1716599-ukraina/).
 
 Ukrainians and russians are not brothers. For centuries Ukraine has been under Moscow's rule. In Soviet times, especially, all things Ukrainian were persecuted. Horrible atrocities were committed to bring (not only) Ukrainian population under control --- [Holodomor](https://en.wikipedia.org/wiki/Holodomor), [Dekulakization](https://en.wikipedia.org/wiki/Dekulakization), [Executed Renaissance](https://en.wikipedia.org/wiki/Executed_Renaissance). Those who weren't killed, were sent to Siberia, spared lived under constant threat of being next.
 
-Using wrong words or criticizing the official line was **unacceptable.** Despite that, there was freedom of speech in the Soviet Union, but no freedom *after* speech. Snitching on one's neighbor was prevalent, so people learned to keep to themselves and live in silence. Now, in putinist russia narratives of decaying West, strong and mighty russia and of [foreign agents](https://en.wikipedia.org/wiki/Russian_foreign_agent_law) reiterate those of Soviet era. And snitching is coming back.[^2]
+Using wrong words or criticizing the official line was **unacceptable.** Despite that, there was freedom of speech in the Soviet Union, but no freedom *after* speech. Snitching on one's neighbor was prevalent, so people learned to keep to themselves and live in silence. Now, in putinist russia narratives of decaying West, strong and mighty russia and of [foreign agents](https://en.wikipedia.org/wiki/Russian_foreign_agent_law) reiterate those of Soviet era. And snitching is coming back.
 
-[^2]:
-    # **Russians Are Snitching On Friends and Relatives Who Oppose the War:** <https://youtu.be/z3Z174zEnC8>
+{{< video https://youtu.be/z3Z174zEnC8 >}}
 
 Fear of punishment is not the only factor preventing relatives in russia from speaking out and protesting. Understanding that nothing is going to change, [I-am-just-a-small-person mentality](https://www.bbc.com/ukrainian/features-61245860) are also on the list. But the main reason is hands down --- russian propaganda.
 
@@ -51,4 +47,4 @@ Grandma is 71 now. Sitting on her armchair in the empty living room, she turns o
 
 2 months into the war she, whose mother tongue is russian, who never learned Ukrainian, who was never forced to learn it and forget russian, wished me a happy birthday in **Nightingalian**\*.
 
-*\*Ukrainians refer to Ukrainian as [Nightingalian](https://www.birdlife.org/news/2022/02/26/nightingales-kobzar-taras-and-our-ukrainian-family/)(Солов'їна)*
+*\*Ukrainians refer to Ukrainian as [Nightingalian](https://www.birdlife.org/news/2022/02/26/nightingales-kobzar-taras-and-our-ukrainian-family/)* *(Солов'їна)*
