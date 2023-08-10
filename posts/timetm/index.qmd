@@ -15,6 +15,7 @@ categories:
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE, warning = FALSE, message = FALSE)
 xaringanExtra::use_panelset()
+xaringanExtra::use_tachyons()
 ```
 
 ```{css echo=FALSE}
@@ -951,7 +952,6 @@ When you have someones attention you have to be mindful of time. You are not giv
 **How to name your baby so that it has a higher chances of winning?**
 
 ::: panelset
-
 ::: panel
 [Baby Name]{.panel-name}
 
@@ -994,7 +994,7 @@ datatable(data1, options = list(pageLength = 5))
 :::
 
 ::: panel
-[Win ~ Name]{.panel-name}
+[Win \~ Name]{.panel-name}
 
 ```{r}
 mod4 <- glm(TT ~ timur + vadym + nataly + alex + andrew, data = data_logit, family=binomial(link="logit"))
@@ -1012,14 +1012,14 @@ stargazer(mod4, mod44,
           omit.stat=c("f", "ser"),
           no.space=TRUE)
 ```
+:::
+:::
 
 It is true that not everyone can win and one must use every trick to their advantage. And if your name is Alex or Andrew you should use it to your advantage.
 
 If your name is not Alex or Andrew, than maybe it is not for you. Go apply yourself in some other domain, for you are against the odds when it comes to winning TT session.
 
-"Consider naming your baby Alex or Andrew - this will set them up for good life" - Vadym Yudenko[^8]
-:::
-:::
+Consider naming your baby Alex or Andrew - this will set them up for good life" - Vadym Yudenko[^8]
 
 [^8]: FYI, this is a joke and not meant to be taken seriously.
 
