@@ -2,14 +2,14 @@
   {
     "listing": "/blog.html",
     "items": [
-      "/blog/weloveyou/weloveyou.html",
-      "/blog/backtonormal/backtonormal.html"
+      "/blog/weloveyou/index.html",
+      "/blog/backtonormal/index.html"
     ]
   },
   {
     "listing": "/index.html",
     "items": [
-      "/posts/timetm/timertm.html"
+      "/posts/timetm/index.html"
     ]
   }
 ]
