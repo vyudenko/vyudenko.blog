@@ -951,6 +951,7 @@ When you have someones attention you have to be mindful of time. You are not giv
 **How to name your baby so that it has a higher chances of winning?**
 
 ::: panelset
+
 ::: panel
 [Baby Name]{.panel-name}
 
@@ -993,7 +994,7 @@ datatable(data1, options = list(pageLength = 5))
 :::
 
 ::: panel
-[Win \~ Names]{.panel.name}
+[Win ~ Name]{.panel-name}
 
 ```{r}
 mod4 <- glm(TT ~ timur + vadym + nataly + alex + andrew, data = data_logit, family=binomial(link="logit"))
