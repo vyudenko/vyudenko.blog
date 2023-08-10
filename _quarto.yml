@@ -2,7 +2,7 @@ project:
   type: website
 
 website:
-  title: "小鳥"
+  title: "Vadym Yudenko"
   favicon: kotori.png
   navbar:
     right:
@@ -18,7 +18,7 @@ format:
     theme: litera
     smooth-scroll: true
     toc: true
-    toc-location: "left"
+    toc-location: "right"
     code-link: true
     anchor-sections: true
     fig-cap-location: margin
@@ -27,4 +27,5 @@ format:
     fontsize: 1em
 
 editor: visual
-
+execute:
+  freeze: auto
