@@ -16,9 +16,8 @@ website:
 
 format:
   html:
-    theme: 
-      light: litera
-      dark: slate
+    theme: litera
+    smooth-scroll: true
     toc: true
     toc-location: "left"
     code-link: true
