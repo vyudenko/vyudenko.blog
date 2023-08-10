@@ -1,0 +1,15 @@
+[
+  {
+    "listing": "/blog.html",
+    "items": [
+      "/blog/weloveyou/weloveyou.html",
+      "/blog/backtonormal/backtonormal.html"
+    ]
+  },
+  {
+    "listing": "/index.html",
+    "items": [
+      "/posts/timetm/timertm.html"
+    ]
+  }
+]

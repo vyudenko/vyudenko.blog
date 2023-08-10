@@ -1,0 +1,14 @@
+{
+  "hash": "0a2daea5971a7f56ed39449e2e6349f1",
+  "result": {
+    "markdown": "---\ntitle: \"christopher_hitchens\"\ndescription: |\n  A short description of the post.\nauthor: Vadym Yudneko\ndate: 2023-08-02\nformat: html\ncategories:\n  - text\n  - data\ndraft: true\n---\n\n\n\n\nSOURCE: <https://www.tidytextmining.com/sentiment.html>\n\n\n::: {.cell}\n\n:::\n\n::: {.cell}\n\n:::\n\n::: {.cell}\n\n:::\n\n::: {.cell}\n\n:::\n\n::: {.cell}\n\n:::\n",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}
