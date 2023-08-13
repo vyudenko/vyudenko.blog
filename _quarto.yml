@@ -17,6 +17,7 @@ website:
 format:
   html:
     theme: litera
+    css: "styles.css"
     smooth-scroll: true
     toc: true
     toc-location: "right"

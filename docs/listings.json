@@ -1,15 +1,15 @@
 [
   {
+    "listing": "/index.html",
+    "items": [
+      "/posts/toastmasters-time/index.html"
+    ]
+  },
+  {
     "listing": "/blog.html",
     "items": [
       "/blog/weloveyou/index.html",
       "/blog/backtonormal/index.html"
-    ]
-  },
-  {
-    "listing": "/index.html",
-    "items": [
-      "/posts/timetm/index.html"
     ]
   }
 ]

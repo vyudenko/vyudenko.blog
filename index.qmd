@@ -7,3 +7,13 @@ listing:
   categories: true
   fields: [image, title, description, date, reading-time]
 ---
+
+
+<!-- <style> -->
+<!--   body { -->
+<!--   background-image: url("https://wallpapercave.com/wp/wp7560421.jpg"); -->
+<!--   background-size: cover; -->
+<!--   background-repeat: no-repeat; -->
+<!-- } -->
+
+<!-- </style> -->
