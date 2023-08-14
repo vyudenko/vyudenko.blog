@@ -2,7 +2,11 @@
 title: "How to win at Table Topics. A timers perspective"
 description: |
  Is being on time important for effective communication?
-author: Vadym Yudneko
+author: 
+ - Vadym Yudenko
+   affiliation: Kyiv School of Economics
+   affiliatiom-url: https://kse.ua/
+citation: true
 date: 2023-08-04
 format: html
 editor: visual
@@ -801,7 +805,6 @@ stargazer(mod10, mod11,
           no.space=TRUE)
 ```
 :::
-
 :::
 
 Waiting and speaking later during TT session does indeed increases the probability of winning by a whopping 0.9%!

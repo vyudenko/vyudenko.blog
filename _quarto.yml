@@ -13,6 +13,14 @@ website:
         text: Blog
       - href: about/index.qmd
         text: About
+  page-footer:
+    left: |
+      Powered by [Quarto](https://quarto.org).
+    center: |
+      &copy; 2023 Vadym Yudenko. {{< iconify fa6-regular heart >}}
+    right: |
+      License: [CC BY NC SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0).
+    border: true
 
 format:
   html:
