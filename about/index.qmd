@@ -3,7 +3,7 @@ open-graph: true
 title: "Vadym Yudenko"
 about:
   template: trestles
-  image: kotori/kotori.png
+  image: kotori.png
   links:
     - icon: twitter
       text: Linkedin
