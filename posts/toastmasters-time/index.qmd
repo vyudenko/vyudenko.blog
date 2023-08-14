@@ -10,6 +10,7 @@ categories:
   - toastmasters
   - logit/probit
   - time
+  - speaking
 ---
 
 ```{r setup, include=FALSE}
@@ -464,13 +465,13 @@ stargazer(mod1, mod11,
 :::
 :::
 
-Strangely enough, if the proportion of men in TT session increases - then TT session will be be sorter. Also, having more men speak during TT session is associated with lower TT times.
+The answer? The difference is not significant! The distributions closely resemble each other. *Women don't speak longer than men!*
 
-The answer? The difference is not significant! The distributions closely resemble each other. Women don't speak longer than men!
-
-No, women actually speak a little less than men. However we cannot say that women ACTUALLY talk less! In the current study we only observe time taken to speak, however within these 2 minutes on stage, they might talk more (on average) than me. There seem to be report that women communicate ideas differently and [use more words](https://www.imd.org/research-knowledge/leadership/articles/women-talk-too-much-simply-isnt-true-data-show/) like ah/uh/m-m-m/you know/so/like[^7].
+Women actually speak a little less than men. However we cannot say that women ACTUALLY talk less! In the current study we only observe time taken to speak, however within these 2 minutes on stage, they might talk more (on average) than men. There seem to be report that women communicate ideas differently and [use more words](https://www.imd.org/research-knowledge/leadership/articles/women-talk-too-much-simply-isnt-true-data-show/) like ah/uh/m-m-m/you know/so/like[^7].
 
 [^7]: Foreshadowing a future ah-counter perspective on winning TT?!
+
+Strangely enough, if the proportion of men in TT session increases - then TT session will be be shorter. Also, having more men speak during TT session is associated with lower TT times.
 
 ## Do we speak longer online?
 
@@ -685,7 +686,7 @@ Individual times don't seem to vary that much across clubs, however KOMA (Ukrain
 
 In this last section we will find out what it takes to win TT session!
 
-First of all, what doesn't it mean "to win"? Winning means - majority voted for you and not someone else. Win can be attributed to 2 opposite factors: internal and external. Internal factors can be broken down further to articulation and story. Articulation is how well you communicate your idea/story: your vocal variety, vocal clarity, hand gestures, eye contact, stage movement, being timely, overall appearance, among other. Story has to do with your message to the audience. How clear is it, does it evoke emotion or make one think? Is there a flow to the speech, is it easy to follow?
+First of all, what doesn't it mean "to win"? Winning means - majority voted for you and not someone else. Win can be attributed to 2 types of factors: internal and external. Internal factors can be broken down into articulation and story. Articulation is how well you communicate your idea/story: your vocal variety, vocal clarity, hand gestures, eye contact, stage movement, being timely, overall appearance, among other. Story has to do with your message to the audience. How clear is it, does it evoke emotion or make one think? Is there a flow to the speech, is it easy to follow?
 
 External factors can also be broken down into 2 categories: perception and environment. Perception is how your message is understood by the audience. This has to do with who those people are, what they find funny, what have they eaten before the meetings etc. Environment is the place where you give a speech. Zoom, in person, microphone quality, distance to the audience, acoustics...
 
@@ -801,42 +802,6 @@ stargazer(mod10, mod11,
 ```
 :::
 
-::: panel
-[Probit \| Logit]{.panel-name}
-
-```{r}
-# plot data
-plot(x = data_logit$speaker_order, 
-     y = data_logit$TT,
-     main = "Probit and Logit Models Model of the P(Winning TT | Speaker Order)",
-     xlab = "Speaker Order",
-     ylab = "Win probability",
-     pch = 20,
-     ylim = c(-0.1, 1.1),
-     cex.main = 0.9)
-
-# add horizontal dashed lines and text
-abline(h = 1, lty = 2, col = "darkred")
-abline(h = 0, lty = 2, col = "darkred")
-text(17, 0.9, cex = 0.8, "Win")
-text(1, 0.1, cex= 0.8, "Lose")
-
-# add estimated regression line of Probit and Logit models
-x <- seq(1, 18, 1)
-y_probit11 <- predict(mod11, list(speaker_order = x), type = "response")
-y_logit10 <- predict(mod10, list(speaker_order = x), type = "response")
-
-lines(x, y_probit11, lwd = 3, col = "blue")
-lines(x, y_logit10, lwd = 3, col = "black", lty = 2)
-
-# add a legend
-legend("topleft",
-       horiz = TRUE,
-       legend = c("Probit", "Logit"),
-       col = c("blue", "black"), 
-       lty = c(1, 2))
-```
-:::
 :::
 
 Waiting and speaking later during TT session does indeed increases the probability of winning by a whopping 0.9%!
@@ -901,7 +866,7 @@ stargazer(mod5, mod6,
 :::
 
 ::: panel
-[Logit \| Logit]{.panel-name}
+[Logit]{.panel-name}
 
 ```{r}
 # plot data
@@ -1024,7 +989,7 @@ Consider naming your baby Alex or Andrew - this will set them up for good life" 
 
 # Conclusions
 
--   Time does affect the effectiveness of one's speech. In situations where going overtime isn't punished you better take as much time as possible. Perhaps, in this way you make others forget about anything, let alone others' speeches. However it is clear that you better speak more than less. If you have time, use it.
+-   Time does affect the effectiveness of one's speech. In situations where going overtime isn't punished, you better take as much time as possible. If you have time, use it.
 
 -   You cannot cheat others by choosing to speak in any specific order. On average you are just as likely to win speaking first as speaking last.
 
