@@ -3,7 +3,7 @@ title: "How to win at Table Topics. A timers perspective"
 description: |
  Is being on time important for effective communication?
 author: 
- - Vadym Yudenko
+ - name: Vadym Yudenko
    affiliation: Kyiv School of Economics
    affiliatiom-url: https://kse.ua/
 citation: true
