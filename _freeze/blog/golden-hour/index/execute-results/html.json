@@ -1,12 +1,16 @@
 {
-  "hash": "d26d20f819e170664cee30d8465fc613",
+  "hash": "03b2cfdb40216c52f3d56a4bea449734",
   "result": {
-    "markdown": "::: {.cell}\n\n```{.r .cell-code}\n#gtrends that show prep for war\n\"/g/122pknw2\"\n```\n\n::: {.cell-output .cell-output-stdout}\n```\n[1] \"/g/122pknw2\"\n```\n:::\n\n```{.r .cell-code}\n\"TCCC\"\n```\n\n::: {.cell-output .cell-output-stdout}\n```\n[1] \"TCCC\"\n```\n:::\n:::\n",
+    "markdown": "---\ntitle: Golden Hour\ndescription: |\n  Saving soldiers\nauthor: Vadym Yudenko\ndate: 2022-07-28\ndraft: true\ncategories: \n  - War\n  - Experiences\n---\n\n\n\n::: {.cell}\n::: {.cell-output .cell-output-stdout}\n```\n[1] \"/g/122pknw2\"\n```\n:::\n\n::: {.cell-output .cell-output-stdout}\n```\n[1] \"TCCC\"\n```\n:::\n:::\n",
     "supporting": [],
     "filters": [
       "rmarkdown/pagebreak.lua"
     ],
-    "includes": {},
+    "includes": {
+      "include-in-header": [
+        "<link href=\"../../site_libs/panelset-0.2.6/panelset.css\" rel=\"stylesheet\" />\r\n<script src=\"../../site_libs/panelset-0.2.6/panelset.js\"></script>\r\n"
+      ]
+    },
     "engineDependencies": {},
     "preserve": {},
     "postProcess": true

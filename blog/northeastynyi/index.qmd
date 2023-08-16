@@ -1,11 +1,11 @@
 ---
 title: North Eastиний
 description: |
-  Remembering Amstor Mall Airstrike
+  Where are we going with war?
 author: Vadym Yudenko
 date: 2022-07-28
 draft: true
-tags: 
+categories: 
   - War
   - Experiences
 ---

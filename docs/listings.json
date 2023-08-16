@@ -6,9 +6,8 @@
     ]
   },
   {
-    "listing": "/blog.html",
+    "listing": "/blog/index.html",
     "items": [
-      "/blog/golden-hour/index.html",
       "/blog/weloveyou/index.html",
       "/blog/backtonormal/index.html"
     ]

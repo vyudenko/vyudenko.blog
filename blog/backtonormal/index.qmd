@@ -6,7 +6,7 @@ author: Vadym Yudenko
 date: 2022-07-28
 format: html
 editor: visual
-tags: 
+categories: 
   - War
   - Experiences
 ---
