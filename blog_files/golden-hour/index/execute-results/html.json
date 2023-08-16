@@ -1,0 +1,14 @@
+{
+  "hash": "d26d20f819e170664cee30d8465fc613",
+  "result": {
+    "markdown": "::: {.cell}\n\n```{.r .cell-code}\n#gtrends that show prep for war\n\"/g/122pknw2\"\n```\n\n::: {.cell-output .cell-output-stdout}\n```\n[1] \"/g/122pknw2\"\n```\n:::\n\n```{.r .cell-code}\n\"TCCC\"\n```\n\n::: {.cell-output .cell-output-stdout}\n```\n[1] \"TCCC\"\n```\n:::\n:::\n",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

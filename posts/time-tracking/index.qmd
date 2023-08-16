@@ -3,7 +3,7 @@ title: Tracking time
 description: |
   Visualizing one's life.
 author: 
- - Vadym Yudenko
+ - name: Vadym Yudenko
    affiliation: Kyiv School of Economics
    affiliatiom-url: https://kse.ua/
 citation: true

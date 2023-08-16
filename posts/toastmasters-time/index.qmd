@@ -4,8 +4,8 @@ description: |
  Is being on time important for effective communication?
 author: 
  - name: Vadym Yudenko
-   affiliation: Kyiv School of Economics
-   affiliatiom-url: https://kse.ua/
+   affiliation: American University Kyiv
+   affiliatiom-url: https://auk.edu.ua/en/
 citation: true
 date: 2023-08-04
 format: html

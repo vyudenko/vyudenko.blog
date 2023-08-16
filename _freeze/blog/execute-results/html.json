@@ -1,0 +1,14 @@
+{
+  "hash": "75e78ba31a5b9d6a936014e9798776f5",
+  "result": {
+    "markdown": "---\ntitle: \"Blog\"\nlisting:\n  contents: blog/*/index.qmd\n  sort: \"date desc\"\n  type: default\n  categories: true\n  fields: [image, title, description, date, reading-time]\n---\n\n::: {.cell}\n::: {.cell-output .cell-output-stderr}\n```\nWarning in readLines(file): incomplete final line found on\n'D:/KSE/Projects/kotori/blog/wartimepoetry/index.qmd'\n```\n:::\n:::",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

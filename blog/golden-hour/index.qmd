@@ -1,0 +1,13 @@
+
+
+
+
+
+
+
+```{r}
+#gtrends that show prep for war
+"/g/122pknw2"
+"TCCC"
+```
+

@@ -10,8 +10,6 @@ categories:
   - thesis
 ---
 
-
-
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE, warning = FALSE, message = FALSE)
 # xaringanExtra::use_panelset()
@@ -76,7 +74,5 @@ library(stringr)
 # }
 
 ```
+
 Check if 2020 downloaded fully - there are issues
-
-
-
