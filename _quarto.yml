@@ -24,7 +24,7 @@ website:
 
 format:
   html:
-    theme: litera
+    theme: flatly
     css: "styles.css"
     smooth-scroll: true
     toc: true
