@@ -21,13 +21,7 @@ website:
     right: |
       License: [CC BY NC SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0).
     border: true
-  google-analytics: 
-    tracking-id: "G-3871TXSQZ5"
-    anonymize-ip: true
-  cookie-consent: true
-    type: implied 
-    style: headline
-    palette: dark
+
 
 format:
   html:
