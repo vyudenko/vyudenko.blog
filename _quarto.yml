@@ -13,11 +13,15 @@ website:
         text: Blog
       - href: about/index.qmd
         text: About
+      - icon: github
+        href: https://github.com/vyudenko
+      - icon: linkedin
+        href: https://www.linkedin.com/in/vadym-yudenko/
   page-footer:
     left: |
       Powered by [Quarto](https://quarto.org).
     center: |
-      &copy; 2023 Vadym Yudenko. {{< iconify fa6-regular heart >}}
+      &copy; 2023 Vadym Yudenko.
     right: |
       License: [CC BY NC SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0).
     border: true
@@ -36,6 +40,7 @@ format:
     reference-location: margin
     footnotes-hover: true
     fontsize: 18px
+    highlight-style: monokai
 
 editor: visual
 execute:
