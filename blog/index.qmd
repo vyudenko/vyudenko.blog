@@ -1,5 +1,7 @@
 ---
 title: "Blog"
+description: | 
+  Writings on life during wartime
 listing:
   contents: index.qmd
   sort: "date desc"
