@@ -5,23 +5,28 @@ about:
   template: trestles
   image: kotori.png
   links:
-    - icon: twitter
+    - icon: linkedin
       text: Linkedin
       href: https://www.linkedin.com/in/vadym-yudenko/
     - icon: github
       text: Github
       href: https://github.com/vyudenko
-    - icon: google
+    - icon: file-pdf
       text: CV
       href: https://drive.google.com/file/d/1_m219XQMiiki18tZxKOvl1ICCw9h1jRe/view?usp=sharing
 ---
 
 Vadym Yudenko is a Researcher at the Institute for Behavioral Studies at American University Kyiv. His research focuses on how war experiences impact decision-making, particularly regarding forced relocation, financial wellbeing, and perception of safety. He holds a BA in Management and Administration from KNEU and is completing an MSc in Business and Financial Economics from Kyiv School of Economics. Vadym is also studying Statistics and Data Science from MIT.
 
-## Education
+# Experience
 
-Kyiv School of Economics \| MSc of Economics \| Sept 2022 - Jan 2024
+|            |                      |   |    
+|------------------|:-----------------|:----------------------------------:|:------:|
+| ![](auk_logo.svg){width="150"} | Institute of Behavioral Studies at [American University Kyiv](https://auk.edu.ua/en/) | Junior Researcher |  Aug 2023 - present |
 
-Kyiv National Economics University \| BSc of Business and Management \| Sept 2018 - Jun 2022
+# Education
 
-~[[Bird Image]{.smallcaps}](https://lovepik.com/images/png-flying.html)~
+|                                  |                                                               |                                |                      |
+|---------------|:--------------|:-------------------------:|:-------------:|
+| ![](kse_logo.jpg){width="150px"} | [Kyiv School of Economics](https://kse.ua/)                   |        MSc of Economics        | Sept 2022 - Jan 2024 |
+| ![](kneu_logo.png){width="150"}  | [Kyiv National Economics University](https://kneu.edu.ua/en/) | BSc of Business and Management | Sept 2018 - Jun 2022 |
