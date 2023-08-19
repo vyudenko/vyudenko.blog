@@ -309,7 +309,10 @@ You have 2 minutes to answer a question or speak on a topic. **To stay within ti
 
 Ideally you want to have an opening-body-conclusion short speech, but this isn't always possible. You can volunteer or be dragged on stage. The question may be familiar to you or something you haven;t even thought about. Experienced speakers don't find it hard to answer unfamiliar questions even in their worst, while those new to public speaking might find it hard to speak on their feet. That is all to say, that many different things happen during TT sessions, and we can't possibly calculate what does it take to win TT session. Yes, you can win TT session if you give the most memorable/funny/insightful/outrageous/least boring speech. At the end of TT we vote for "the best speech" - **this is our dependent variable of interest.**
 
+::: {.callout-tip title="Question!"}
 Before we get to figuring out what it takes to win TT, given the information above how does the distribution of TT times look like? A, B, C or D?
+:::
+
 
 ::: panelset
 ::: panel
@@ -721,15 +724,18 @@ ggflowchart(flowchart,
 
 Flowchart made with [ggflowchart](https://nrennie.rbind.io/blog/introducing-ggflowchart/)
 
-**What do you think plays the biggest role in winning TT?**
+:::{.callout-warning title="What do you think plays the biggest role in winning TT?"}
+
 
 ```{r, results='asis'}
 #| warning: false
 #| echo: false
 #| message: false
 require("checkdown")
-check_question(c("Being on time"), options = c("Eye contact", "Being on time", "Structure", "Being liked bt the audience", "Evoking emotion", "Knowing your audience"), type = "radio", right = "Of course!", wrong = "Yes, but no...", random_answer_order = TRUE)
+check_question(c("Being on time"), options = c("Eye contact", "Being on time", "Structure", "Being liked by the audience", "Evoking emotion", "Knowing your audience"), type = "radio", right = "Of course!", wrong = "Yes, but no...", random_answer_order = TRUE)
 ```
+
+:::
 
 **Next we look at a set of hypothesis:**
 
@@ -938,25 +944,25 @@ data1 <- data %>%
 
 ```{r}
 # Create the new plot
-ggplot(data1, aes(x = reorder(Speaker, Percentage_Wins), y = Percentage_Wins)) +
-  geom_bar(stat = "identity", fill = "green") +
-  labs(x = "Name", y = "Percentage of Wins", title = "Percentage of Wins for Names with >3 Appearances") +
-  coord_flip() +
-  theme_classic() +
-  theme(
-    plot.title = element_text(hjust = 0.5, size = 14, face = "bold", family = "Roboto"),
-    axis.title = element_blank(),
-    panel.grid.major = element_line(),
-    plot.subtitle = element_text(hjust = 0.5, size = 8, face = "italic", family = "Roboto"),
-    axis.text = element_text(size = 10, family = "Roboto"),
-    plot.caption = element_text(face = "bold", family = "Roboto")
-  )
+# ggplot(data1, aes(x = reorder(Speaker, Percentage_Wins), y = Percentage_Wins)) +
+#   geom_bar(stat = "identity", fill = "green") +
+#   labs(x = "Name", y = "Percentage of Wins", title = "Percentage of Wins for Names with >3 Appearances") +
+#   coord_flip() +
+#   theme_classic() +
+#   theme(
+#     plot.title = element_text(hjust = 0.5, size = 14, face = "bold", family = "Roboto"),
+#     axis.title = element_blank(),
+#     panel.grid.major = element_line(),
+#     plot.subtitle = element_text(hjust = 0.5, size = 8, face = "italic", family = "Roboto"),
+#     axis.text = element_text(size = 10, family = "Roboto"),
+#     plot.caption = element_text(face = "bold", family = "Roboto")
+#   )
 ```
 
 ```{r}
 colnames(data1) <- c("Speaker", "Total Appearances", "Total Wins", "Win Percentage")
 
-datatable(data1, options = list(pageLength = 5))
+datatable(data1, options = list(pageLength = 10))
 ```
 :::
 
