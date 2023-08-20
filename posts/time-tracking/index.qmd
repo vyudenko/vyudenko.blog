@@ -40,6 +40,28 @@ One summer day in 2019 unburdened by university studies and need for work, I spe
 
 After getting up closer to 12 am for a seventh day in a row - and feeling so miserable and tired. I thought that I am wasting too much time in the morning and am more productive in the evening. But is it so? How much hours exactly am I wasting in the morning?
 
+
+# Cool idea for presentation
+```{=html}
+<!-- <iframe class="slide-deck" src="presentation.html"></iframe> -->
+
+<!-- [{{< fa file-pdf >}} Working Paper](paper.pdf) &nbsp; -->
+<!-- [ {{< fa chalkboard-teacher >}} Slides (SEHO2023)](presentation.pdf) -->
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 https://youtu.be/BOksW_NabEk
 
 Counting jellybeans

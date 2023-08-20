@@ -13,6 +13,8 @@ website:
         text: Blog
       - href: about/index.qmd
         text: About
+      - href: research/index.qmd
+        text: Reserach
       - icon: github
         href: https://github.com/vyudenko
       - icon: linkedin
