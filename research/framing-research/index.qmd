@@ -55,7 +55,6 @@ library(gridExtra)
 #| echo: false 
 #| output: false 
 #| warning: false
-setwd("D:/KSE/BE_KSE")
 survey_data <- read.csv("finance.csv")
 
 # control - 1

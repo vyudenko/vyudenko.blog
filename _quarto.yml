@@ -11,10 +11,10 @@ website:
         text: Home
       - href: blog/index.qmd
         text: Blog
-      - href: about/index.qmd
-        text: About
       - href: research/index.qmd
         text: Reserach
+      - href: about/index.qmd
+        text: About
       - icon: github
         href: https://github.com/vyudenko
       - icon: linkedin
