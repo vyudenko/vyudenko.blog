@@ -1,23 +1,30 @@
 ---
-title: "Articles"
-description: |
-  Data blog on various topics.
+open-graph: true
+title: "Vadym Yudenko"
 listing:
-  contents: posts/*/index.qmd
-  sort: "date desc"
+  contents: 
+    - posts/index.qmd
+    - writings/index.qmd
+  id: front-list
+  sort: "order"
   type: default
-  categories: true
-  fields: [image, title, description, date, reading-time]
+format:
+  html:
+    page-layout: full
 ---
 
 
-<!-- <style> -->
-<!--   body { -->
-<!--   background-image: url("https://wallpapercave.com/wp/wp7560421.jpg"); -->
-<!--   background-size: cover; -->
-<!--   background-repeat: no-repeat; -->
-<!-- } -->
+*I'm working on this blog daily, and there are a lot of under construction going on. Everything will work fine soon, I'm learning fast.**
 
-<!-- </style> -->
+Hi! My name is Vadym and I'm a Junior Researcher at the Institute for Behavioral Studies at American University Kyiv. My research focuses on how war experiences impact decision-making, particularly regarding forced relocation, financial wellbeing, and perception of safety. 
+
+In the free time I enjoy blogging and fiddling with data. I also like to track and quantify my life... See the articles below!
+
+
+::: {#front-list}
+:::
+
+ 
+
 
 

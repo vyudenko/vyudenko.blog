@@ -1,0 +1,16 @@
+{
+  "hash": "e7f30b168d54afc70f6b71a1193d5940",
+  "result": {
+    "markdown": "---\nopen-graph: true\ntitle: \"Vadym Yudenko\"\ntoc: false\nlisting:\n  contents: \n    - posts/index.qmd\n    - writings/index.qmd\n    - research/index.qmd\n  id: front-list\n  sort: \"order\"\n  type: default\n  grid-columns: 1\n  categories: false\n  image-align: right\n  image-height: '50%'\nformat:\n  html:\n    page-layout: full\n---\n\n\n\n::: {.cell}\n<style type=\"text/css\">\n.quarto-title {\n    display: none;\n  }\n  \n.description {\n    display: none;\n  }\n  \ndiv.quarto-post .metadata {\n    display: none;\n  }\n  \ndiv.quarto-post .thumbnail {\n    flex-basis: 50%;\n}\n</style>\n:::\n\n::: {.cell}\n::: {.cell-output-display}\n![](kotori.png){width=40%}\n:::\n:::\n\n\nWelcome to my data blog! Here you will find articles on miscellaneous topics!\n\n\n# Explore\n\n::: {#front-list}\n:::\n\n \n\n# Contact\n\n\n\n",
+    "supporting": [
+      "index_files"
+    ],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

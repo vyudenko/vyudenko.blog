@@ -1,0 +1,14 @@
+{
+  "hash": "fc5f80abffdc9d00f0d98ff262e08229",
+  "result": {
+    "markdown": "---\ntitle: \"Blog\"\ndescription: |\n  Miscellaneous articles\npage-layout: full\nlisting:\n  contents: index.qmd\n  sort: \"date desc\"\n  type: default\n  categories: true\n  fields: [image, title, description, date, reading-time]\n---\n\n::: {.cell}\n<style type=\"text/css\">\n.quarto-title {\n    display: none;\n  }\n  \n.description {\n    display: none;\n  }\n</style>\n:::\n\n::: {.cell}\n::: {.cell-output-display}\n![](background.jpg){width=100%}\n:::\n:::",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

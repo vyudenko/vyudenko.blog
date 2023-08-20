@@ -1,19 +1,26 @@
 [
   {
-    "listing": "/research/index.html",
-    "items": []
-  },
-  {
-    "listing": "/index.html",
+    "listing": "/posts/index.html",
     "items": [
       "/posts/toastmasters-time/index.html"
     ]
   },
   {
-    "listing": "/blog/index.html",
+    "listing": "/index.html",
     "items": [
-      "/blog/weloveyou/index.html",
-      "/blog/backtonormal/index.html"
+      "/posts/index.html",
+      "/writings/index.html"
+    ]
+  },
+  {
+    "listing": "/research/index.html",
+    "items": []
+  },
+  {
+    "listing": "/writings/index.html",
+    "items": [
+      "/writings/weloveyou/index.html",
+      "/writings/backtonormal/index.html"
     ]
   }
 ]

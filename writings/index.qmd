@@ -1,7 +1,8 @@
 ---
-title: "Blog"
+title: "Writings"
 description: | 
-  Writings on life during wartime
+  Writings on life during wartime and personal thoughts on life...
+page-layout: full
 listing:
   contents: index.qmd
   sort: "date desc"

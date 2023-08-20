@@ -1,0 +1,14 @@
+{
+  "hash": "2d5815117c01e7be7dbc704605deddef",
+  "result": {
+    "markdown": "---\ntitle: \"Writings\"\ndescription: | \n  Writings on life during wartime\nlisting:\n  contents: index.qmd\n  sort: \"date desc\"\n  type: default\n  categories: true\n  fields: [image, title, description, date, reading-time]\n---\n\n::: {.cell}\n<style type=\"text/css\">\n.quarto-title {\n    display: none;\n  }\n  \n.description {\n    display: none;\n  }\n</style>\n:::\n\n::: {.cell}\n::: {.cell-output-display}\n![](background.jpg){width=100%}\n:::\n:::",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

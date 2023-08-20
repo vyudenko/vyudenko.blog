@@ -1,15 +1,29 @@
 ---
 title: "Research"
+toc: false
 description: | 
   PAGE UNDER CONSTRUCTION
+page-layout: full
 listing:
   contents: index.qmd
   sort: "date desc"
   type: default
-  categories: true
+  categories: false
   fields: [image, title, description, date, reading-time]
 ---
 
+<!-- ```{css, echo=FALSE} -->
+<!-- .quarto-title { -->
+<!--     display: none; -->
+<!--   } -->
 
+<!-- .description { -->
+<!--     display: none; -->
+<!--   } -->
+<!-- ``` -->
 
-# PAGE UNDER CONSTRUCTION
+<!-- ```{r} -->
+<!-- #| echo: FALSE -->
+<!-- #| out.width: 50% -->
+<!-- knitr::include_graphics('background.jpg') -->
+<!-- ``` -->

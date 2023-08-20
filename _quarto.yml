@@ -7,10 +7,10 @@ website:
   favicon: kotori.png
   navbar:
     right:
-      - href: index.qmd
-        text: Home
-      - href: blog/index.qmd
+      - href: posts/index.qmd
         text: Blog
+      - href: writings/index.qmd
+        text: Writings 
       - href: research/index.qmd
         text: Reserach
       - href: about/index.qmd

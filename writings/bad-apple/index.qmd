@@ -1,0 +1,14 @@
+---
+title: Bad Apple
+description: |
+  Accepting oneself
+author: Vadym Yudenko
+date: 2022-07-28
+draft: true
+categories: 
+  - War
+  - Experiences
+---
+
+
+

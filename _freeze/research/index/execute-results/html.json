@@ -1,0 +1,16 @@
+{
+  "hash": "b5c1abf5744a743b28633e57e8099b2d",
+  "result": {
+    "markdown": "---\ntitle: \"Research\"\ndescription: | \n  PAGE UNDER CONSTRUCTION\nlisting:\n  contents: index.qmd\n  sort: \"date desc\"\n  type: default\n  categories: true\n  fields: [image, title, description, date, reading-time]\n---\n\n::: {.cell}\n<style type=\"text/css\">\n.quarto-title {\n    display: none;\n  }\n  \n.description {\n    display: none;\n  }\n</style>\n:::\n\n::: {.cell}\n::: {.cell-output-display}\n![](background.jpg){width=50%}\n:::\n:::\n\n\n# PAGE UNDER CONSTRUCTION",
+    "supporting": [
+      "index_files"
+    ],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}
