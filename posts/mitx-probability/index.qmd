@@ -15,3 +15,5 @@ categories:
   - Statistics
   - Probability
 ---
+
+I have recently \_\_\_ first course of MIT Micromasters program in Statistics and Data Science.

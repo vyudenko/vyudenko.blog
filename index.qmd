@@ -1,5 +1,7 @@
 ---
 title: "Articles"
+description: |
+  Data blog on various topics.
 listing:
   contents: posts/*/index.qmd
   sort: "date desc"

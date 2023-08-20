@@ -1,5 +1,5 @@
 ---
-title: "How to win at Table Topics. A timers perspective"
+title: "How to win at Table Topics. A timer's perspective"
 description: |
  Is being on time important for effective communication?
 author: 
@@ -11,10 +11,10 @@ date: 2023-08-04
 format: html
 editor: visual
 categories:
-  - toastmasters
-  - logit/probit
-  - time
-  - speaking
+  - Toastmasters
+  - Logit
+  - Time
+  - Public Speaking
 ---
 
 ```{r setup, include=FALSE}
@@ -50,6 +50,7 @@ library(knitr)
 library(kableExtra)
 library(lmtest)
 library(xaringanExtra)
+library(fontawesome)
 library(DT)
 ```
 
@@ -65,7 +66,7 @@ Coming back to the example above, there are many things that might make us think
 
 [^1]: No doubt it is, but **"can we quantify it?"** is the main question of this research.
 
-Measuring effectiveness of communication is not a straightforward task. In this article we study it via proxy with data from Toastmasters international, whose meetings have an impromptu session, where each participant has 2 minutes to give a speech. After the last participant has concluded everyone votes for the best speaker. Winning is a sign of effective (good) speech, as it has achieve at least one of the following:
+Measuring effectiveness of communication is not a straightforward task. In this article we study it via proxy with data from Toastmasters International, whose meetings have an impromptu session, where each participant is given 2 minutes to give a speech. After the last participant has concluded, everyone votes for the best speaker. Winning indicates an effective (good) speech, as it has achieved at least one of the following:
 
 -   was better than others;
 
@@ -83,15 +84,15 @@ The following research looks at the data gathered during Toastmasters meetings a
 
 ## Toastmasters in a Nutshell
 
-For people who hear about Toastmasters for the first time. This is a place to practice your public speaking skills. Each meeting, which typically lasts for 90 minutes, has a structure:
+\*For people who hear about Toastmasters for the first time.\*\* This is a place to practice your public speaking skills. Each meeting, which typically lasts for 90 minutes, has a structure:
 
-1.  **Prepared speeches:** usually 5-7 mins long given by Club members;
+1.  **Prepared speeches session:** usually 5-7 mins long given by Club members;
 
 2.  **Table Topics (TT)** **session:** 2 mins impromptu speeches (everyone can participate), one can volunteer to answer a question or will be chosen by a toastmaster;
 
 3.  **Evaluation session:** everyone who came on stage during previous sessions is given feedback on how well they did.
 
-Toastmasters are more organized and formal compared to many speaking clubs. Many of its members are [middle-aged with higher education](https://www.toastmasters.org/resources/statistics-and-data-hub). These people value their time and that is why among the evaluators there is a Timer (Ta-da!). Timer's responsibility is to keep track of time and show colored signs to a speaker. Without going into much detail, green is an early warning, yellow - soon the time will be up, red - time is up, finish your speech. Timer also tracks the time of each speaker and presents the Timer Report - sine qua non[^2] of this article.
+Toastmasters are more organized and formal compared to many speaking clubs. Many of its members are [middle-aged with higher education](https://www.toastmasters.org/resources/statistics-and-data-hub). These people value their time and that is why among the evaluators there is a Timer (Ta-da!). Timer's responsibility is to keep track of time and show colored signs to a speaker. Without going into much detail, <span style="color:green"> *green* </span> is an early warning,  <span style="color:yellow"> *yellow* </span> - soon the time will be up,  <span style="color:red"> *red* </span> - time is up, finish your speech. Timer also tracks the time of each speaker and presents the Timer Report - sine qua non[^2] of this article.
 
 </div>
 
@@ -99,7 +100,7 @@ Toastmasters are more organized and formal compared to many speaking clubs. Many
 
 # Data
 
-Like a famished mouse looking for breadcrumbs under the bakers table, an author was open-sourcing these reports from Telegram, Facebook, some were written by author himself and other were transcribed from videos of the meetings.
+Like a famished mouse looking for breadcrumbs under the baker's table, the author was open-sourcing these reports from `r fa("telegram", fill = "steelblue")` Telegram, `r fa("facebook", fill = "steelblue")` Facebook, some were written by author himself and other were transcribed from videos of the meetings.
 
 Most of the data was collected from Ukrainian TMCs: Chamber[^3], Arttalkers, Changemakers, Dniprohills, KOMA (UA-speaking) and Svoya Sorochka (UA-speaking). There are some reports from Japanese and Polish TMCs, but we will not be focusing on them.
 
@@ -209,11 +210,11 @@ But without these crazy reports, I wouldn't have went through with this article.
 
 [^4]: There are many reports that don't include TT winner or times of some speakers. Some speaker volunteer two or more times, which complicates analysis.
 
-In total there 180 unique meetings in the dataset from 2000 till 2022. Some of the meetings were dropped due to NAs in at least one of the columns. Speaking of gender discrimination, there was none present in current dataset, as the number of men and women[^5] is almost equal.
+In total there are 180 unique meetings in the dataset from 2018 till 2022. Some of the meetings were dropped due to NAs in at least one of the columns. Speaking of gender discrimination, there was none present in current dataset, as the number of men and women[^5] is almost equal.
 
 [^5]: The gender of the speaker was assigned post hoc, based on the reports/photos of the meeting, common sense and a little bit of prejudice :)
 
-    In cases where it was impossible to establish the gender of a speaker - the whole meeting is excluded.
+    In cases where it was impossible to establish the gender of a speaker - the whole meeting was excluded.
 
 ```{r, cache=TRUE}
 data <- read.csv("data.csv")
@@ -255,9 +256,9 @@ kable(sex_data, align = "c", format = "html") %>%
   kable_styling(bootstrap_options = "striped")
 ```
 
-With regards to TT participants names there are a total of 312 unique names[^6].
+With regards to TT participants' names there are a total of 312 unique names[^6].
 
-[^6]: In reports the same people were reported under slightly different names. For example: Alexey/Aleksey/Alex/Aleks/Oleksiy/Oleksey.... and their counterpart Cyrillic versions. To deal with this issue, I simply renamed these to Alex. Similar approach was with other names.
+[^6]: In reports the same people were reported under slightly different names. For example: Alexey/Aleksey/Alex/Oleksiy/Oleksey.... and their counterpart Cyrillic versions. To deal with this issue, all versions were renamed to Alex. Similar approach was taken with other names.
 
     All Ukrainian names were translated to English.
 
@@ -288,31 +289,30 @@ ggplot(name_counts_df, aes(x = reorder(Speaker, Frequency), y = Frequency)) +
 ```
 
 ```{r}
-data %>%
-  group_by(Club) %>%
-  summarise(unique_days = n_distinct(Date)) %>%
-  mutate(Club = reorder(Club, -unique_days)) %>%
-  ggplot(aes(x = unique_days, y = Club)) +
-  geom_bar(stat = "identity") +
-  geom_text(aes(label = unique_days), hjust = -.2, family = "Roboto",  size = 3) +  # Add the annotation
-  labs(x = "Number of Unique Meetings") +
-  ggtitle("Where do reports come from?") +
-  theme_classic() +
-    theme(plot.title = element_text(family = "Roboto", hjust = 0.5),
-        axis.text = element_text(family = "Roboto"),
-        axis.title = element_text(family = "Roboto"))
+# data %>%
+#   group_by(Club) %>%
+#   summarise(unique_days = n_distinct(Date)) %>%
+#   mutate(Club = reorder(Club, -unique_days)) %>%
+#   ggplot(aes(x = unique_days, y = Club)) +
+#   geom_bar(stat = "identity") +
+#   geom_text(aes(label = unique_days), hjust = -.2, family = "Roboto",  size = 3) +  # Add the annotation
+#   labs(x = "Number of Unique Meetings") +
+#   ggtitle("Where do reports come from?") +
+#   theme_classic() +
+#     theme(plot.title = element_text(family = "Roboto", hjust = 0.5),
+#         axis.text = element_text(family = "Roboto"),
+#         axis.title = element_text(family = "Roboto"))
 ```
 
-And lastly we have Time of TT! How TT works:
+And lastly we have Time of Table Topics (TT)! How TT works:
 
-You have 2 minutes to answer a question or speak on a topic. **To stay within time limits, the timer will show a speaker green sign when there is 1 minute left, yellow when 30 seconds and red when time is up.**
+You have 2 minutes to answer a question or speak on the given topic. **To stay within time limits, the timer will show you  <span style="color:green"> *green* </span> sign when there is 1 minute left,  <span style="color:yellow"> *yellow* </span> when 30 seconds and  <span style="color:red"> *red* </span> when time is up.**
 
-Ideally you want to have an opening-body-conclusion short speech, but this isn't always possible. You can volunteer or be dragged on stage. The question may be familiar to you or something you haven;t even thought about. Experienced speakers don't find it hard to answer unfamiliar questions even in their worst, while those new to public speaking might find it hard to speak on their feet. That is all to say, that many different things happen during TT sessions, and we can't possibly calculate what does it take to win TT session. Yes, you can win TT session if you give the most memorable/funny/insightful/outrageous/least boring speech. At the end of TT we vote for "the best speech" - **this is our dependent variable of interest.**
+Ideally you want to have an opening-body-conclusion short speech, but this isn't always possible. You can volunteer or be dragged on stage. The question may be familiar to you or something you haven't even thought about. That is all to say, there are many different things happening during TT sessions and winning it requires achieving many things. At the end of TT everyone votes for "the best speech" - **this is our dependent variable of interest.**
 
 ::: {.callout-tip title="Question!"}
 Before we get to figuring out what it takes to win TT, given the information above how does the distribution of TT times look like? A, B, C or D?
 :::
-
 
 ::: panelset
 ::: panel
@@ -414,13 +414,13 @@ combined_plots1 <- density_plot / box_plot + plot_layout(heights = c(4, 1))
 combined_plots1
 ```
 
-Surprising? How peculiarly these times fall into one of natures patterns. One can also notice that there is a [fat?](https://en.wikipedia.org/wiki/Fat-tailed_distribution) right-tail - outliers.
+Surprising? Either way, it is peculiar how these times fall into one of natures patterns! One can also notice that there is a [fat?](https://en.wikipedia.org/wiki/Fat-tailed_distribution) right-tail - outliers.
 :::
 :::
 
 # Analysis
 
-In this part we are going to try and answer some of the hardest philosophical questions, most pertinent questions starting with...
+In this part we are going to try and answer some of the hardest philosophical questions, most pertinent questions! Starting with...
 
 ## Who likes to talk more, women or men?
 
@@ -482,7 +482,7 @@ Strangely enough, if the proportion of men in TT session increases - then TT ses
 
 ## Do we speak longer online?
 
-In person conversations/presentation have you deal with people - you see/hear/feel/smell them every second of your speech. There are so many signals communicated non-verbally that we don't even notice them. During in person meetings when you take too long to finish people start fidgeting, yawning, looking away, and you know you don't want to make them uncomfortable so you quickly wrap up your speech. Online you deal with avatars, the only means of communication with them (your audience) is by observing their reaction. Perhaps this makes you go overtime more often than you would've had you given a particular speech in person. We test this below:
+In-person conversations/presentation have you deal with people - you see/hear/feel/smell them every second of your speech. There are so many signals communicated non-verbally that we don't even notice them. During in-person meetings when you take too long to finish people start fidgeting, yawning, looking away, and you know you don't want to make them uncomfortable so you quickly wrap up your speech. Online you deal with avatars, the only means of communication with them (your audience) is by observing their reaction. Perhaps this makes you go overtime more often than you would've had you given a particular speech in person. We test this below:
 
 ::: panelset
 ::: panel
@@ -531,7 +531,7 @@ stargazer(mod2, mod22,
           no.space=TRUE)
 ```
 
-Whether the meeting is online or offline has no effect on speech lengths, however there is a strong association with total TT session time: on average online TT sessions are longer than in-person ones by 160 secs (\~1.5 speakers). One possible explanation to this is the fact that one doesn't have to go home after the metting, working from home and joining the meeting without spending hours commuting enables all participants to answer a question during TT.
+Whether the meeting is online or offline has no effect on speech lengths, however there is a strong association with total TT session time: on average online TT sessions are longer than in-person ones by 160 secs (\~1.5 speakers). One possible explanation for this is the fact that one doesn't have to go home after the meeting, working from home and joining the meeting without spending hours commuting enables all participants to answer a question during TT.
 :::
 
 ::: panel
@@ -724,9 +724,7 @@ ggflowchart(flowchart,
 
 Flowchart made with [ggflowchart](https://nrennie.rbind.io/blog/introducing-ggflowchart/)
 
-:::{.callout-warning title="What do you think plays the biggest role in winning TT?"}
-
-
+::: {.callout-warning title="What do you think plays the biggest role in winning TT?"}
 ```{r, results='asis'}
 #| warning: false
 #| echo: false
@@ -734,7 +732,6 @@ Flowchart made with [ggflowchart](https://nrennie.rbind.io/blog/introducing-ggfl
 require("checkdown")
 check_question(c("Being on time"), options = c("Eye contact", "Being on time", "Structure", "Being liked by the audience", "Evoking emotion", "Knowing your audience"), type = "radio", right = "Of course!", wrong = "Yes, but no...", random_answer_order = TRUE)
 ```
-
 :::
 
 **Next we look at a set of hypothesis:**
@@ -992,7 +989,7 @@ It is true that not everyone can win and one must use every trick to their advan
 
 If your name is not Alex or Andrew, than maybe it is not for you. Go apply yourself in some other domain, for you are against the odds when it comes to winning TT session.
 
-Consider naming your baby Alex or Andrew - this will set them up for good life" - Vadym Yudenko[^8]
+> "Consider naming your baby Alex or Andrew - this will set them up for good life" - Vadym Yudenko[^8]
 
 [^8]: FYI, this is a joke and not meant to be taken seriously.
 

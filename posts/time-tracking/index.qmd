@@ -24,6 +24,8 @@ library(stargazer)
 library(tidyverse)
 library(ggExtra)
 library(ggthemes)
+library(gganimate)
+library(transformr)
 library(corrr)
 library(corrplot)
 library(lubridate)
@@ -44,8 +46,10 @@ Counting jellybeans
 
 {{< video https://youtu.be/iJNs9nxoQaw >}}
 
+
+
 ```{r}
-data <- read.csv("KSE_life.csv")
+data <- read.csv("time2020.csv")
 
 data_long <- gather(data, day, activity, -X)
 
@@ -70,91 +74,278 @@ data_long <- data_long %>%
   ))
 ```
 
-```{r}
-p <- data_long %>% 
-  mutate(date = as.Date(datetime)) %>% 
-  ggplot(aes(date, time_column, fill = category5)) +
-  geom_tile(
-    aes(
-      text = str_replace_all(paste0(
-        "<b>", time_column, "</b><br>",
-        "Activity: ", category5, "<br>"), "NA", "missing")
-      )
-    ) +
-  labs(x = NULL, y = NULL, title = "Daily Behavioral Patterns") +
-  theme_minimal() +
-  theme(
-    legend.position = "none",
-    panel.grid = element_blank(),
-    plot.title = element_text(face = "bold", size = 14)
-    )
 
-ggplotly(p, tooltip = "text") %>%
-  layout(
-    xaxis = list(
-      type = "date",
-      tickformat = "%b %-d"
-    ),
-    yaxis = list(fixedrange = TRUE),
-    font = list(family = "IBM Plex Sans Condensed"),
-    hoverlabel = list(font = list(family = "IBM Plex Sans Condensed"), align = "left"),
-    # Add date range slider
-    xaxis2 = list(
-      type = "date",
-      tickformat = "%b %-d",
-      overlaying = "x",
-      side = "bottom"
-    ),
-    margin = list(l = 50, r = 50, t = 20, b = 50),
-    updatemenus = list(
-      list(
-        type = "buttons",
-        showactive = FALSE,
-        buttons = list(
-          list(
-            step = "all",
-            label = "Reset",
-            method = "relayout",
-            args = list("xaxis.range", list(NULL, NULL))
-          )
-        )
-      )
-    )
-  ) %>%
-  #rangeslider(start = data_long$datetime[287], end = data_long$datetime[1398]) %>%
-    plotly::config(
-      displayModeBar = TRUE,
-      displaylogo = FALSE,
-      modeBarButtonsToRemove = c("zoom2d", "pan2d", "zoomIn2d", "zoomOut2d",
-                                 "autoScale2d", "toggleSpikelines", "hoverClosestCartesian",
-                                 "hoverCompareCartesian", "toImage")
-      )
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+```{r}
+# data_kse <- read.csv("KSE_life.csv")
+# 
+# data_long <- gather(data, day, activity, -X)
+# 
+# data_long$day <- sub("^X", "", data_long$day)
+# 
+# data_long$datetime <- as.POSIXct(paste(data_long$day, data_long$X), format="%m.%d.%Y %H:%M")
+# 
+# data_long <- data_long[, !(names(data_long) %in% c("day", "X"))]
+# 
+# data_long$day_of_week <- weekdays(data_long$datetime)
+# data_long$time_of_day <- ifelse(as.numeric(format(data_long$datetime, "%H")) < 12, "Morning",
+#                          ifelse(as.numeric(format(data_long$datetime, "%H")) < 18, "Day", "Night"))
+# 
+# data_long$time_column <- substr(as.character(data_long$datetime), 12, 16)
+# data_long$time_column <- ifelse(data_long$time_column == "", "00:00", data_long$time_column)
+# 
+# data_long <- data_long %>% 
+#   mutate(category5 = case_when(
+#     activity %in% c("Sleep", "Sport", "Communication") ~ activity,
+#     activity %in% c("Study", "Work", "TM", "Planning", "Reading") ~ "Study/Work",
+#     activity %in% c("Transport", "Misc", "Waste", "Food") ~ "Rest"
+#   ))
+```
+
+```{r}
+# p <- data_long %>% 
+#   mutate(date = as.Date(datetime)) %>% 
+#   ggplot(aes(date, time_column, fill = category5)) +
+#   geom_tile(
+#     aes(
+#       text = str_replace_all(paste0(
+#         "<b>", time_column, "</b><br>",
+#         "Activity: ", category5, "<br>"), "NA", "missing")
+#       )
+#     ) +
+#   labs(x = NULL, y = NULL, title = "Daily Behavioral Patterns") +
+#   theme_minimal() +
+#   theme(
+#     legend.position = "none",
+#     panel.grid = element_blank(),
+#     plot.title = element_text(face = "bold", size = 14)
+#     )
+# 
+# ggplotly(p, tooltip = "text") %>%
+#   layout(
+#     xaxis = list(
+#       type = "date",
+#       tickformat = "%b %-d"
+#     ),
+#     yaxis = list(fixedrange = TRUE),
+#     font = list(family = "IBM Plex Sans Condensed"),
+#     hoverlabel = list(font = list(family = "IBM Plex Sans Condensed"), align = "left"),
+#     # Add date range slider
+#     xaxis2 = list(
+#       type = "date",
+#       tickformat = "%b %-d",
+#       overlaying = "x",
+#       side = "bottom"
+#     ),
+#     margin = list(l = 50, r = 50, t = 20, b = 50),
+#     updatemenus = list(
+#       list(
+#         type = "buttons",
+#         showactive = FALSE,
+#         buttons = list(
+#           list(
+#             step = "all",
+#             label = "Reset",
+#             method = "relayout",
+#             args = list("xaxis.range", list(NULL, NULL))
+#           )
+#         )
+#       )
+#     )
+#   ) %>%
+#   #rangeslider(start = data_long$datetime[287], end = data_long$datetime[1398]) %>%
+#     plotly::config(
+#       displayModeBar = TRUE,
+#       displaylogo = FALSE,
+#       modeBarButtonsToRemove = c("zoom2d", "pan2d", "zoomIn2d", "zoomOut2d",
+#                                  "autoScale2d", "toggleSpikelines", "hoverClosestCartesian",
+#                                  "hoverCompareCartesian", "toImage")
+#       )
 
 ```
 
 # Activities
 
 ```{r}
-df_activity_hours <- data_long %>%
-  mutate(date = as.Date(datetime)) %>%
-  group_by(date, activity) %>%
-  summarise(hours = n() * (20/60)) %>%
-  ungroup()
-
-# Plot the data
-p <- ggplot(df_activity_hours[287:1398,], aes(x = date, y = hours, color = activity)) +
-  geom_line(size = 0.75) +  # Customize the line thickness here
-  labs(x = "Date", y = "Hours", color = "Activity") +
-  theme_minimal()
-
-# Convert it to a plotly object
-p <- ggplotly(p, tooltip = c("x", "y", "color"))
-
-p
+# df_activity_hours <- data_long %>%
+#   mutate(date = as.Date(datetime)) %>%
+#   group_by(date, activity) %>%
+#   summarise(hours = n() * (20/60)) %>%
+#   ungroup()
+# 
+# # Plot the data
+# p <- ggplot(df_activity_hours[287:1398,], aes(x = date, y = hours, color = activity)) +
+#   geom_line(size = 0.75) +  # Customize the line thickness here
+#   labs(x = "Date", y = "Hours", color = "Activity") +
+#   theme_minimal()
+# 
+# # Convert it to a plotly object
+# p <- ggplotly(p, tooltip = c("x", "y", "color"))
+# 
+# p
 ```
 
 ## Sleeping
 
+```{r}
+# # Filter data for "Sleep" activity
+# sleep_plot <- df_activity_hours %>%
+#   filter(activity == "Sleep") %>%
+#   ggplot(aes(x = date, y = hours)) +
+#   geom_line() +
+#   theme_wsj() +
+#   theme(
+#     plot.title = element_text(hjust = 0.5, size = 14, face = "bold", family = "Roboto"),
+#     axis.title = element_blank(),
+#     panel.grid.major = element_line(),
+#     plot.subtitle = element_text(hjust = 0.5, size = 8, face = "italic", family = "Roboto"),
+#     axis.text = element_text(size = 10, family = "Roboto"),
+#     plot.caption = element_text(face = "bold", family = "Roboto")
+#   )
+# 
+# # Animate the plot
+# sleep_animation <- sleep_plot +
+#   transition_time(date) +
+#   enter_fade() +
+#   exit_fade()
+# 
+# # Display the animation
+# sleep_animation
+```
 
 # Recomendations
+
+```{r}
+# pie_chart <- df_activity_hours %>% 
+#   group_by(date) %>% 
+#   mutate(Month = format(date, "%m")) %>% 
+#   ungroup()
+# 
+# activity_percentage <- pie_chart %>%
+#   group_by(Month, activity) %>%
+#   summarize(total_hours = sum(hours)) %>%
+#   mutate(percentage = (total_hours / sum(total_hours)) * 100)
+```
+
+
+::: panelset
+::: panel
+[Spring]{.panel-name}
+
+```{r}
+# Define colors for each activity
+activity_colors <- c("Sleep" = "#1f77b4", 
+                     "Work" = "#ff7f0e", 
+                     "Sport" = "#2ca02c", 
+                     "Study" = "#d62728",
+                     "Communication" = "azure",
+                     "Food" = "yellow",
+                     "Waste" = "black",
+                     "Reading" = "red",
+                     "Miscellaneous" = "darkgreen",
+                     "TM" = "purple",
+                     "Transport" = "grey")
+
+activity_percentage %>% 
+  filter(Month %in% c("03","04","05")) %>% 
+  ggplot(., aes(x = Month, y = percentage, fill = activity)) +
+    geom_bar(stat = "identity", width = 1, color = "white") +
+    coord_polar("y", start=0) +
+    labs(title = paste("Activity Distribution for Month", month)) +
+    theme_minimal() +
+    theme(axis.title = element_blank(), axis.text = element_blank(), axis.ticks = element_blank()) +
+    scale_fill_manual(values = activity_colors)  # Use the predefined activity colors
+
+```
+:::
+::: panel
+[Summer]{.panel-name}
+
+
+```{r}
+# Loop through each unique month
+activity_percentage %>% 
+  filter(Month %in% c("06","07","08")) %>% 
+  ggplot(., aes(x = Month, y = percentage, fill = activity)) +
+    geom_bar(stat = "identity", width = 1, color = "white") +
+    coord_polar("y", start=0) +
+    labs(title = paste("Activity Distribution for Month", month)) +
+    theme_minimal() +
+    theme(axis.title = element_blank(), axis.text = element_blank(), axis.ticks = element_blank()) +
+    scale_fill_manual(values = activity_colors)  # Use the predefined activity colors
+```
+
+
+:::
+::: panel
+[Autumn]{.panel-name}
+
+```{r}
+# Loop through each unique month
+activity_percentage %>% 
+  filter(Month %in% c("09","10","11")) %>% 
+  ggplot(., aes(x = Month, y = percentage, fill = activity)) +
+    geom_bar(stat = "identity", width = 1, color = "white") +
+    coord_polar("y", start=0) +
+    labs(title = paste("Activity Distribution for Month", month)) +
+    theme_minimal() +
+    theme(axis.title = element_blank(), axis.text = element_blank(), axis.ticks = element_blank()) +
+    scale_fill_manual(values = activity_colors)  # Use the predefined activity colors
+```
+
+
+
+:::
+::: panel
+[Winter]{.panel-name}
+
+
+```{r}
+# Loop through each unique month
+activity_percentage %>% 
+  filter(Month %in% c("12","01","02")) %>% 
+  ggplot(., aes(x = Month, y = percentage, fill = activity)) +
+    geom_bar(stat = "identity", width = 1, color = "white") +
+    coord_polar("y", start=0) +
+    labs(title = paste("Activity Distribution for Month", month)) +
+    theme_minimal() +
+    theme(axis.title = element_blank(), axis.text = element_blank(), axis.ticks = element_blank()) +
+    scale_fill_manual(values = activity_colors)  # Use the predefined activity colors
+```
+
+
+:::
+:::
+
+
+
+
+
 

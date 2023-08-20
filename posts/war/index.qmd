@@ -10,5 +10,4 @@ categories:
   - dataset
 ---
 
-
 https://github.com/PetroIvaniuk/2022-Ukraine-Russia-War-Dataset

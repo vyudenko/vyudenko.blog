@@ -18,15 +18,91 @@ about:
 
 Vadym Yudenko is a Researcher at the Institute for Behavioral Studies at American University Kyiv. His research focuses on how war experiences impact decision-making, particularly regarding forced relocation, financial wellbeing, and perception of safety. He holds a BA in Management and Administration from KNEU and is completing an MSc in Business and Financial Economics from Kyiv School of Economics. Vadym is also studying Statistics and Data Science from MIT.
 
+:::{.column-body-outset}
+
 # Experience
 
-|            |                      |   |    
-|------------------|:-----------------|:----------------------------------:|:------:|
-| ![](auk_logo.svg){width="150"} | Institute of Behavioral Studies at [American University Kyiv](https://auk.edu.ua/en/) | Junior Researcher |  Aug 2023 - present |
+<table style="width:100%;">
+  <tr>
+    <th style="width:10%;"></th>
+    <th style="width:40%;"></th>
+    <th style="width:25%;"></th>
+    <th style="width:25%;"></th>
+  </tr>
+  <tr>
+    <td><img src="auk_logo.svg" alt="AUK Logo" style="width:75px;"></td>
+    <td><a href="https://auk.edu.ua/en/">Institute of Behavioral Studies at American University Kyiv</a></td>
+    <td>Junior Researcher</td>
+    <td>Aug 2023 - present</td>
+  </tr>
+</table>
+
+
+::: {.callout-tip title="AUK projects" collapse="true" icon="false" style="text-align: left;"}
+-   Evaluating [USAID AGRO](https://www.usaid.gov/ukraine/agriculture-resilience-initiative-agri-ukraine) programmes success from a behavioral perspective *(work in progress)*
+-   Measuring the effects of mental health issues on productivity of workers *(work in progress)*
+:::
 
 # Education
 
-|                                  |                                                               |                                |                      |
-|---------------|:--------------|:-------------------------:|:-------------:|
-| ![](kse_logo.jpg){width="150px"} | [Kyiv School of Economics](https://kse.ua/)                   |        MSc of Economics        | Sept 2022 - Jan 2024 |
-| ![](kneu_logo.png){width="150"}  | [Kyiv National Economics University](https://kneu.edu.ua/en/) | BSc of Business and Management | Sept 2018 - Jun 2022 |
+<table style="width:100%;">
+  <tr>
+    <th style="width:10%;"></th>
+    <th style="width:40%;"></th>
+    <th style="width:25%;"></th>
+    <th style="width:25%;"></th>
+  </tr>
+  <tr>
+    <td><img src="kse_logo.jpg" alt="KSE Logo" style="width:75px;"></td>
+    <td><a href="https://kse.ua/">Kyiv School of Economics</a></td>
+    <td>MSc of Economics</td>
+    <td>Sep 2022 - Jan 2024</td>
+  </tr>
+</table>
+
+::: {.callout-tip title="KSE" collapse="true" icon="false" style="text-align: left;"}
+**Courses:**
+
+-   [Statistics & Econometrics:]{.underline}
+
+    -   Hypothesis testing, data cleaning, data visualization with R and Tableau
+
+    -   Panel, cross-sectional data and difference in differences
+
+    -   Time series analysis and forecasting
+
+-   [Behavioral Economics:]{.underline}
+
+    -   Researched the effects of framing on the financial decision-making of students
+    -   Studied seminal papers and latest finding of the field (Prospect Theory, Heuristics)
+
+-   [Tracking Warzone Economic Activity in Ukraine (with [Duke University](https://duke.edu/)):]{.underline}
+
+    -   Used GoogleTrends & Nightlight data to estimate economic activity in Ukraine
+
+    -   Used machine learning algorithms to predict regional GDP of Ukraine Economics
+:::
+
+<table style="width:100%;">
+  <tr>
+    <th style="width:10%;"></th>
+    <th style="width:40%;"></th>
+    <th style="width:25%;"></th>
+    <th style="width:25%;"></th>
+  </tr>
+  <tr>
+    <td><img src="kneu_logo.png" alt="KNEU Logo" style="width:75px;"></td>
+    <td><a href="https://kneu.edu.ua/en/">Kyiv National Economics University</a></td>
+    <td>BSc of Business and Management</td>
+    <td>Sep 2018 - Jun 2022</td>
+  </tr>
+</table>
+
+
+::: {.callout-tip title="KNEU" collapse="true" icon="false" style="text-align: left;"}
+Was doing something important :)
+:::
+
+
+
+:::
