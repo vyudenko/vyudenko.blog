@@ -16,8 +16,6 @@ about:
       href: https://drive.google.com/file/d/1_m219XQMiiki18tZxKOvl1ICCw9h1jRe/view?usp=sharing
 ---
 
-Vadym Yudenko is a Researcher at the Institute for Behavioral Studies at American University Kyiv. His research focuses on how war experiences impact decision-making, particularly regarding forced relocation, financial wellbeing, and perception of safety. He holds a BA in Management and Administration from KNEU and is completing an MSc in Business and Financial Economics from Kyiv School of Economics. Vadym is also studying Statistics and Data Science from MIT.
-
 :::{.column-body-outset}
 
 # Experience
@@ -103,23 +101,31 @@ Vadym Yudenko is a Researcher at the Institute for Behavioral Studies at America
 Was doing something important :)
 :::
 
-:::
+
 
 # Inspiration
 
 This blog would have never been developed if not for the active community of Quarto-website aficionados, whose open-source websites helped me build one myself. If you're looking for inspiration, ideas for your website check out these awesome pages!
 
-- https://kazuyanagimoto.com/
-- https://westchester-covid.mattherman.info/
-- https://mickael.canouil.fr/
-- https://www.marvinschmitt.com/
-- https://djnavarro.net/
-- https://taraskaduk.com/
-- https://werk.statt.codes/
-- https://gwern.net/index 
-- https://www.crumplab.com/
-- https://www.andrewheiss.com/
-- https://www.emilhvitfeldt.com/
-- https://albert-rapp.de/
+::: {.callout-warning title="Blogs" collapse="true" icon="false" style="text-align: left;"}
 
+::::{style="text-align: center"}
 
+[Kazuharu Yanagimoto](https://kazuyanagimoto.com/) <br>
+[Westchester Covid-19 Tracking by Matt Herman](https://westchester-covid.mattherman.info/) <br>
+[Mickaël CANOUIL](https://mickael.canouil.fr/) <br>
+[Marvin Schmitt](https://www.marvinschmitt.com/) <br>
+[Danielle Navarro](https://djnavarro.net/) <br>
+[Taras Kaduk](https://taraskaduk.com/) <br>
+[werk.statt.codes](https://werk.statt.codes/) <br>
+[Gwern Branwen](https://gwern.net/index) <br>
+[crumplab](https://www.crumplab.com/) <br>
+[Andrew Heiss](https://www.andrewheiss.com/) <br>
+[Emil Hvitfeldt](https://www.emilhvitfeldt.com/) <br>
+[Albert Rapp](https://albert-rapp.de/) <br>
+
+::::
+
+:::
+
+:::

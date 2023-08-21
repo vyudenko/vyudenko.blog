@@ -5,6 +5,20 @@ project:
 website:
   title: "Vadym Yudenko"
   favicon: kotori.png
+  
+  site-url: https://vyudenko.github.io/
+  repo-url: https://github.com/vyudenko/vyudenko.github.io
+  
+  twitter-card:
+    creator: "@vadym_yudenko"
+    image: "kotori.png"
+  open-graph: true
+  
+  google-analytics:
+    tracking-id: "G-3871TXSQZ5"
+    storage: none
+    anonymize-ip: true
+  
   navbar:
     right:
       - href: posts/index.qmd
@@ -19,6 +33,7 @@ website:
         href: https://github.com/vyudenko
       - icon: linkedin
         href: https://www.linkedin.com/in/vadym-yudenko/
+ 
   page-footer:
     left: |
       Powered by [Quarto](https://quarto.org).
