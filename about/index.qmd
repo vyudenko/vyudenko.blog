@@ -103,6 +103,23 @@ Vadym Yudenko is a Researcher at the Institute for Behavioral Studies at America
 Was doing something important :)
 :::
 
-
-
 :::
+
+# Inspiration
+
+This blog would have never been developed if not for the active community of Quarto-website aficionados, whose open-source websites helped me build one myself. If you're looking for inspiration, ideas for your website check out these awesome pages!
+
+- https://kazuyanagimoto.com/
+- https://westchester-covid.mattherman.info/
+- https://mickael.canouil.fr/
+- https://www.marvinschmitt.com/
+- https://djnavarro.net/
+- https://taraskaduk.com/
+- https://werk.statt.codes/
+- https://gwern.net/index 
+- https://www.crumplab.com/
+- https://www.andrewheiss.com/
+- https://www.emilhvitfeldt.com/
+- https://albert-rapp.de/
+
+
