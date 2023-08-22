@@ -15,7 +15,7 @@ website:
   open-graph: true
   
   google-analytics:
-    tracking-id: "G-3871TXSQZ5"
+    tracking-id: "UA-403049689"
     storage: none
     anonymize-ip: true
   
