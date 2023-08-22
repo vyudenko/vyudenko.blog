@@ -14,10 +14,7 @@ website:
     image: "kotori.png"
   open-graph: true
   
-  google-analytics:
-    tracking-id: "UA-403049689"
-    storage: none
-    anonymize-ip: true
+  google-analytics: "UA-403049689"
   
   navbar:
     right:
