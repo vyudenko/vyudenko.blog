@@ -48,7 +48,7 @@ div.quarto-post .thumbnail {
 ![](kotori.png){fig-align="center" width="250"}
 
 ::: {style="text-align: center"}
-<span style="font-size: 30px; font-style: bold; color: black; font-family: Garamond;">
+<span style="font-size: 36px; font-style: bold; color: black; font-family: Garamond;">
 <strong>Vadym Yudenko</strong>
 </span>
 <br> 
