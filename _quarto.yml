@@ -6,13 +6,17 @@ website:
   title: "Vadym Yudenko"
   favicon: kotori.png
   
+  comments: 
+    utterances: 
+      repo: vyudenko/vyudenko.github.io
+  
   google-analytics: 
     tracking-id: "G-3871TXSQZ5"
     storage: cookies
     anonymize-ip: true
   
   cookie-consent: 
-    type: express
+    type: implied
     
   site-url: https://vyudenko.github.io/
   repo-url: https://github.com/vyudenko/vyudenko.github.io
@@ -39,8 +43,7 @@ website:
         
   page-footer:
     left: |
-      Powered by [Quarto](https://quarto.org).
-    center: |
+      Powered by [Quarto](https://quarto.org). <br>
       &copy; 2023 Vadym Yudenko. <br>
       Opinions are my own.
     right: |
@@ -63,6 +66,9 @@ format:
     footnotes-hover: true
     fontsize: 18px
     highlight-style: monokai
+    include-in-header: 
+      - html/progress-bar.html
+      - html/back-to-top.html
 
 editor: visual
 execute:
