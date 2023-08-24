@@ -6,8 +6,14 @@ website:
   title: "Vadym Yudenko"
   favicon: kotori.png
   
-  google-analytics: "G-3871TXSQZ5"
+  google-analytics: 
+    tracking-id: "G-3871TXSQZ5"
+    storage: cookies
+    anonymize-ip: true
   
+  cookie-consent: 
+    type: express
+    
   site-url: https://vyudenko.github.io/
   repo-url: https://github.com/vyudenko/vyudenko.github.io
   
