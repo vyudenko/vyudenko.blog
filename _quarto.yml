@@ -4,6 +4,8 @@ project:
 
 website:
   title: "Vadym Yudenko"
+  site-url: https://vyudenko.github.io/
+  repo-url: https://github.com/vyudenko/vyudenko.github.io
   favicon: kotori.png
   
   comments: 
@@ -18,8 +20,7 @@ website:
   cookie-consent: 
     type: implied
     
-  site-url: https://vyudenko.github.io/
-  repo-url: https://github.com/vyudenko/vyudenko.github.io
+
   
   twitter-card:
     creator: "@vadym_yudenko"

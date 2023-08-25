@@ -1,276 +1,22 @@
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.433">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-<meta name="author" content="Vadym Yudenko">
-<meta name="dcterms.date" content="2023-08-04">
-<meta name="description" content="Is being on time important for effective communication?">
-<title>Vadym Yudenko - How to win at Table Topics. A timer’s perspective</title>
-<style>
-code{white-space: pre-wrap;}
-span.smallcaps{font-variant: small-caps;}
-div.columns{display: flex; gap: min(4vw, 1.5em);}
-div.column{flex: auto; overflow-x: auto;}
-div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-ul.task-list{list-style: none;}
-ul.task-list li input[type="checkbox"] {
-  width: 0.8em;
-  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
-  vertical-align: middle;
-}
-</style>
-
-<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
-<script src="../../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="../../site_libs/quarto-search/fuse.min.js"></script>
-<script src="../../site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="../../">
-<link href="../../kotori.png" rel="icon" type="image/png">
-<script src="../../site_libs/cookie-consent/cookie-consent.js"></script>
-<link href="../../site_libs/cookie-consent/cookie-consent.css" rel="stylesheet">
-<script src="../../site_libs/quarto-html/quarto.js"></script>
-<script src="../../site_libs/quarto-html/popper.min.js"></script>
-<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="../../site_libs/quarto-html/anchor.min.js"></script>
-<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light"><script id="quarto-search-options" type="application/json">{
-  "location": "navbar",
-  "copy-button": false,
-  "collapse-after": 3,
-  "panel-placement": "end",
-  "type": "overlay",
-  "limit": 20,
-  "language": {
-    "search-no-results-text": "No results",
-    "search-matching-documents-text": "matching documents",
-    "search-copy-link-title": "Copy link to search",
-    "search-hide-matches-text": "Hide additional matches",
-    "search-more-match-text": "more match in this document",
-    "search-more-matches-text": "more matches in this document",
-    "search-clear-button-title": "Clear",
-    "search-detached-cancel-button-title": "Cancel",
-    "search-submit-button-title": "Submit",
-    "search-label": "Search"
-  }
-}</script><script async="" src="https://www.googletagmanager.com/gtag/js?id=G-3871TXSQZ5"></script><script type="text/plain" cookie-consent="tracking">
-
-window.dataLayer = window.dataLayer || [];
-function gtag(){dataLayer.push(arguments);}
-gtag('js', new Date());
-gtag('config', 'G-3871TXSQZ5', { 'anonymize_ip': true});
-</script><script type="text/javascript" charset="UTF-8">
-document.addEventListener('DOMContentLoaded', function () {
-cookieconsent.run({
-  "notice_banner_type":"simple",
-  "consent_type":"implied",
-  "palette":"light",
-  "language":"en",
-  "page_load_consent_levels":["strictly-necessary","functionality","tracking","targeting"],
-  "notice_banner_reject_button_hide":false,
-  "preferences_center_close_button_hide":false,
-  "website_name":""
-  });
-});
-</script><style>html{ scroll-behavior: smooth; }</style>
-<meta property="og:title" content="Vadym Yudenko - How to win at Table Topics. A timer’s perspective">
-<meta property="og:description" content="Is being on time important for effective communication?">
-<meta property="og:image" content="https://vyudenko.github.io/posts/toastmasters-time/images/ua_clubs.png">
-<meta property="og:site-name" content="Vadym Yudenko">
-<meta property="og:image:height" content="705">
-<meta property="og:image:width" content="1080">
-<meta name="twitter:title" content="Vadym Yudenko - How to win at Table Topics. A timer’s perspective">
-<meta name="twitter:description" content="Is being on time important for effective communication?">
-<meta name="twitter:image" content="https://vyudenko.github.io/posts/toastmasters-time/kotori.png">
-<meta name="twitter:creator" content="@vadym_yudenko">
-<meta name="twitter:card" content="summary_large_image">
-</head>
-<body class="nav-fixed">
-<div id="progress-bar" style="width: 9%; height:2px; background-color: rgb(89 127 235);; position: fixed; top: 0px; z-index: 2000;"></div>
-
-<script id="progressbar" type="text/javascript">
-
-document.addEventListener("DOMContentLoaded", function() {
-
-    const bar = document.querySelector('#progress-bar');
-    const post = document.querySelector('#quarto-content');
-    const html = document.documentElement;
-    
-    const height = post.scrollHeight + post.offsetTop;
-    
-    window.addEventListener('scroll', () => {
-        bar.style.width = (html.scrollTop / (height- html.clientHeight)) * 100 + '%';
-    });
-});
-</script><button type="button" class="btn btn-primary btn-lg bi bi-arrow-up" id="btn-back-to-top"></button>
-
-<style>
-#btn-back-to-top {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  display: none;
-}
-</style>
-<script id="backtotop" type="application/javascript">
-let backToTopButton = document.getElementById("btn-back-to-top");
-
-window.addEventListener('scroll', () => {
-            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-            backToTopButton.style.display = "block";
-        } else {
-            backToTopButton.style.display = "none";
-        }
-    });
-
-backToTopButton.addEventListener("click", function () {
-  document.body.scrollTop = 0;
-  document.documentElement.scrollTop = 0;
-});
-</script><link href="../../site_libs/panelset-0.2.6/panelset.css" rel="stylesheet">
-<script src="../../site_libs/panelset-0.2.6/panelset.js"></script><script src="../../site_libs/kePrint-0.0.1/kePrint.js"></script><link href="../../site_libs/lightable-0.0.1/lightable.css" rel="stylesheet">
-<script src="../../site_libs/htmlwidgets-1.6.2/htmlwidgets.js"></script><link href="../../site_libs/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet">
-<script src="../../site_libs/datatables-binding-0.27/datatables.js"></script><script src="../../site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><link href="../../site_libs/dt-core-1.12.1/css/jquery.dataTables.min.css" rel="stylesheet">
-<link href="../../site_libs/dt-core-1.12.1/css/jquery.dataTables.extra.css" rel="stylesheet">
-<script src="../../site_libs/dt-core-1.12.1/js/jquery.dataTables.min.js"></script><link href="../../site_libs/crosstalk-1.2.0/css/crosstalk.min.css" rel="stylesheet">
-<script src="../../site_libs/crosstalk-1.2.0/js/crosstalk.min.js"></script><link rel="stylesheet" href="../../styles.css">
-<div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top"><nav class="navbar navbar-expand-lg navbar-dark "><div class="navbar-container container-fluid">
-      <div class="navbar-brand-container">
-    <a class="navbar-brand" href="../../index.html">
-    <span class="navbar-title">Vadym Yudenko</span>
-    </a>
-  </div>
-            <div id="quarto-search" class="" title="Search"></div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
-  <span class="navbar-toggler-icon"></span>
-</button>
-          <div class="collapse navbar-collapse" id="navbarCollapse">
-            <ul class="navbar-nav navbar-nav-scroll ms-auto">
-<li class="nav-item">
-    <a class="nav-link" href="../../posts/index.html" rel="" target="">
- <span class="menu-text">Blog</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="../../writings/index.html" rel="" target="">
- <span class="menu-text">Writings</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="../../research/index.html" rel="" target="">
- <span class="menu-text">Reserach</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="../../about/index.html" rel="" target="">
- <span class="menu-text">About</span></a>
-  </li>  
-  <li class="nav-item compact">
-    <a class="nav-link" href="https://github.com/vyudenko" rel="" target=""><i class="bi bi-github" role="img">
-</i> 
- <span class="menu-text"></span></a>
-  </li>  
-  <li class="nav-item compact">
-    <a class="nav-link" href="https://www.linkedin.com/in/vadym-yudenko/" rel="" target=""><i class="bi bi-linkedin" role="img">
-</i> 
- <span class="menu-text"></span></a>
-  </li>  
-</ul>
-<div class="quarto-navbar-tools">
-</div>
-          </div> <!-- /navcollapse -->
-      </div> <!-- /container-fluid -->
-    </nav></header><!-- content --><header id="title-block-header" class="quarto-title-block default page-columns page-full"><div class="quarto-title-banner page-columns page-full">
-    <div class="quarto-title column-body">
-      <h1 class="title">How to win at Table Topics. A timer’s perspective</h1>
-                  <div>
-        <div class="description">
-          <p>Is being on time important for effective communication?</p>
-        </div>
-      </div>
-                          <div class="quarto-categories">
-                <div class="quarto-category">Toastmasters</div>
-                <div class="quarto-category">Logit</div>
-                <div class="quarto-category">Time</div>
-                <div class="quarto-category">Public Speaking</div>
-              </div>
-                  </div>
-  </div>
-    
-  <div class="quarto-title-meta-author">
-    <div class="quarto-title-meta-heading">Author</div>
-    <div class="quarto-title-meta-heading">Affiliation</div>
-    
-      <div class="quarto-title-meta-contents">
-      <p class="author">Vadym Yudenko </p>
-    </div>
-      <div class="quarto-title-meta-contents">
-          <p class="affiliation">
-              <a href="https://auk.edu.ua/en/">
-              American University Kyiv
-              </a>
-            </p>
-        </div>
-      </div>
-
-  <div class="quarto-title-meta">
-
-        
-      <div>
-      <div class="quarto-title-meta-heading">Published</div>
-      <div class="quarto-title-meta-contents">
-        <p class="date">August 4, 2023</p>
-      </div>
-    </div>
-    
-      
-    </div>
-    
-  
-  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
-<!-- sidebar -->
-<!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">On this page</h2>
-   
-  <ul>
-<li>
-<a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a>
-  <ul class="collapse">
-<li><a href="#toastmasters-in-a-nutshell" id="toc-toastmasters-in-a-nutshell" class="nav-link" data-scroll-target="#toastmasters-in-a-nutshell">Toastmasters in a Nutshell</a></li>
-  </ul>
-</li>
-  <li>
-<a href="#data" id="toc-data" class="nav-link" data-scroll-target="#data">Data</a>
-  <ul class="collapse">
-<li><a href="#note-on-timer-reports" id="toc-note-on-timer-reports" class="nav-link" data-scroll-target="#note-on-timer-reports">Note on Timer reports</a></li>
-  </ul>
-</li>
-  <li>
-<a href="#analysis" id="toc-analysis" class="nav-link" data-scroll-target="#analysis">Analysis</a>
-  <ul class="collapse">
-<li><a href="#who-likes-to-talk-more-women-or-men" id="toc-who-likes-to-talk-more-women-or-men" class="nav-link" data-scroll-target="#who-likes-to-talk-more-women-or-men">Who likes to talk more, women or men?</a></li>
-  <li><a href="#do-we-speak-longer-online" id="toc-do-we-speak-longer-online" class="nav-link" data-scroll-target="#do-we-speak-longer-online">Do we speak longer online?</a></li>
-  <li><a href="#are-there-differences-on-the-club-level" id="toc-are-there-differences-on-the-club-level" class="nav-link" data-scroll-target="#are-there-differences-on-the-club-level">Are there differences on the club level?</a></li>
-  </ul>
-</li>
-  <li>
-<a href="#how-to-win-at-tt" id="toc-how-to-win-at-tt" class="nav-link" data-scroll-target="#how-to-win-at-tt">How to win at TT?</a>
-  <ul class="collapse">
-<li><a href="#heading1" id="toc-heading1" class="nav-link" data-scroll-target="#heading1">Hypothesis 1:</a></li>
-  <li><a href="#heading2" id="toc-heading2" class="nav-link" data-scroll-target="#heading2">Hypothesis 2:</a></li>
-  <li><a href="#heading4" id="toc-heading4" class="nav-link" data-scroll-target="#heading4">Bonus:</a></li>
-  </ul>
-</li>
-  <li><a href="#conclusions" id="toc-conclusions" class="nav-link" data-scroll-target="#conclusions">Conclusions</a></li>
-  </ul></nav>
-    </div>
-<!-- main -->
-<main class="content quarto-banner-title-block page-columns page-full" id="quarto-document-content"><div class="cell">
+<?xml version="1.0" encoding="UTF-8"?>
+<rss  xmlns:atom="http://www.w3.org/2005/Atom" 
+      xmlns:media="http://search.yahoo.com/mrss/" 
+      xmlns:content="http://purl.org/rss/1.0/modules/content/" 
+      xmlns:dc="http://purl.org/dc/elements/1.1/" 
+      version="2.0">
+<channel>
+<title>Vadym Yudenko</title>
+<link>https://vyudenko.github.io/posts/index.html</link>
+<atom:link href="https://vyudenko.github.io/posts/index.xml" rel="self" type="application/rss+xml"/>
+<description>Miscellaneous articles on data analysis and visualization.
+</description>
+<generator>quarto-1.3.433</generator>
+<lastBuildDate>Thu, 03 Aug 2023 21:00:00 GMT</lastBuildDate>
+<item>
+  <title>How to win at Table Topics. A timer’s perspective</title>
+  <dc:creator>Vadym Yudenko</dc:creator>
+  <link>https://vyudenko.github.io/posts/toastmasters-time/index.html</link>
+  <description><![CDATA[ <div class="cell">
 <style type="text/css">
 .panelset { -->
 --panel-tab-foreground: currentColor; -->
@@ -289,7 +35,7 @@ backToTopButton.addEventListener("click", function () {
 <p>“How I wish they would just shut up.”</p>
 <p>Whether you are on a date, work meeting or family gathering, you can’t help but sigh when someone takes too long to articulate their thought. You’ve already understood the main point of whatever that it is that they are trying to say, but you wait, let them finish - we need to show respect. After a certain threshold you can hear teeth grinding, eyes rolling, feet shuffling, fingers fidgeting and omnipresent yawning. You don’t listen anymore, words fail to register flowing in and out of your head. All the while, the speaker (that someone) is oblivious to the damage he inflicts to others!</p>
 <p>Now this is an extreme case of bad communication of which we have all been the victim and the perpetrator. Good (effective) communication requires time to be taken into consideration. One doesn’t have to talk for too long nor too short, but enough. When is enough? How to know how much one has to speak to deliver the message effectively? Also, what does effectiveness mean in the context of communication? Effectiveness in the military, for example, is about short and clear exchanges: “Roger that!”, “Copy that!”, “Tango down”, “Enemy 12 o’clock” - its goal is to deliver information that can be acted upon immediately. For academics effective communication is about articulating hard science in such a way a 5 year old can understand. Depending on the context effectiveness means different things: getting away with a lie, convincing someone to partner up, getting a “yes”, accurately giving a portrait of a criminal to the police.</p>
-<div class="page-columns page-full"><p>Coming back to the example above, there are many things that might make us think someone would just shut up. Being overtime is one of them. I once heard a speech that took too long, the speaker kept repeating the same things over and over again. Later, to my surprise, the speech was voted as the best by meeting attendees - turns out the story was relatable and majority liked it. Others were okay listening much longer, while I was sent to a different dimension by the speech. This situation got me thinking just how important is the time in communication?<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p><div class="no-row-height column-margin column-container"><li id="fn1"><p><sup>1</sup>&nbsp;No doubt it is, but <strong>“can we quantify it?”</strong> is the main question of this research.</p></li></div></div>
+<div class="page-columns page-full"><p>Coming back to the example above, there are many things that might make us think someone would just shut up. Being overtime is one of them. I once heard a speech that took too long, the speaker kept repeating the same things over and over again. Later, to my surprise, the speech was voted as the best by meeting attendees - turns out the story was relatable and majority liked it. Others were okay listening much longer, while I was sent to a different dimension by the speech. This situation got me thinking just how important is the time in communication?<sup>1</sup></p><div class="no-row-height column-margin column-container"><li id="fn1"><p><sup>1</sup>&nbsp;No doubt it is, but <strong>“can we quantify it?”</strong> is the main question of this research.</p></li></div></div>
 <p>Measuring effectiveness of communication is not a straightforward task. In this article we study it via proxy with data from Toastmasters International, whose meetings have an impromptu session, where each participant is given 2 minutes to give a speech. After the last participant has concluded, everyone votes for the best speaker. Winning indicates an effective (good) speech, as it has achieved at least one of the following:</p>
 <ul>
 <li><p>was better than others;</p></li>
@@ -298,7 +44,7 @@ backToTopButton.addEventListener("click", function () {
 <li><p>happened (!)</p></li>
 </ul>
 <p>The following research looks at the data gathered during Toastmasters meetings and looks at how time of the speech is associated with speeches’ effectiveness (winning) and a slew of other interesting hypotheses.</p>
-<p><img src="images/ua_clubs.png" class="img-fluid"></p>
+<p><img src="https://vyudenko.github.io/posts/toastmasters-time/images/ua_clubs.png" class="img-fluid"></p>
 <section id="toastmasters-in-a-nutshell" class="level2 page-columns page-full"><h2 class="anchored" data-anchor-id="toastmasters-in-a-nutshell">Toastmasters in a Nutshell</h2>
 <p>*For people who hear about Toastmasters for the first time.** This is a place to practice your public speaking skills. Each meeting, which typically lasts for 90 minutes, has a structure:</p>
 <ol type="1">
@@ -306,10 +52,10 @@ backToTopButton.addEventListener("click", function () {
 <li><p><strong>Table Topics (TT)</strong> <strong>session:</strong> 2 mins impromptu speeches (everyone can participate), one can volunteer to answer a question or will be chosen by a toastmaster;</p></li>
 <li><p><strong>Evaluation session:</strong> everyone who came on stage during previous sessions is given feedback on how well they did.</p></li>
 </ol>
-<div class="page-columns page-full"><p>Toastmasters are more organized and formal compared to many speaking clubs. Many of its members are <a href="https://www.toastmasters.org/resources/statistics-and-data-hub">middle-aged with higher education</a>. These people value their time and that is why among the evaluators there is a Timer (Ta-da!). Timer’s responsibility is to keep track of time and show colored signs to a speaker. Without going into much detail, <span style="color:green"><em>green</em></span> is an early warning, <span style="color:yellow"><em>yellow</em></span> - soon the time will be up, <span style="color:red"><em>red</em></span> - time is up, finish your speech. Timer also tracks the time of each speaker and presents the Timer Report - sine qua non<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a> of this article.</p><div class="no-row-height column-margin column-container"><li id="fn2"><p><sup>2</sup>&nbsp;A necessary condition without which something is not possible [from Latin]</p></li></div></div>
+<div class="page-columns page-full"><p>Toastmasters are more organized and formal compared to many speaking clubs. Many of its members are <a href="https://www.toastmasters.org/resources/statistics-and-data-hub">middle-aged with higher education</a>. These people value their time and that is why among the evaluators there is a Timer (Ta-da!). Timer’s responsibility is to keep track of time and show colored signs to a speaker. Without going into much detail, <span style="color:green"><em>green</em></span> is an early warning, <span style="color:yellow"><em>yellow</em></span> - soon the time will be up, <span style="color:red"><em>red</em></span> - time is up, finish your speech. Timer also tracks the time of each speaker and presents the Timer Report - sine qua non<sup>2</sup> of this article.</p><div class="no-row-height column-margin column-container"><li id="fn2"><p><sup>2</sup>&nbsp;A necessary condition without which something is not possible [from Latin]</p></li></div></div>
 </section></section><section id="data" class="level1 page-columns page-full"><h1>Data</h1>
-<p>Like a famished mouse looking for breadcrumbs under the baker’s table, the author was open-sourcing these reports from Telegram <svg aria-hidden="true" role="img" viewbox="0 0 496 512" style="height:1em;width:0.97em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:steelblue;overflow:visible;position:relative;"><path d="M248,8C111.033,8,0,119.033,0,256S111.033,504,248,504,496,392.967,496,256,384.967,8,248,8ZM362.952,176.66c-3.732,39.215-19.881,134.378-28.1,178.3-3.476,18.584-10.322,24.816-16.948,25.425-14.4,1.326-25.338-9.517-39.287-18.661-21.827-14.308-34.158-23.215-55.346-37.177-24.485-16.135-8.612-25,5.342-39.5,3.652-3.793,67.107-61.51,68.335-66.746.153-.655.3-3.1-1.154-4.384s-3.59-.849-5.135-.5q-3.283.746-104.608,69.142-14.845,10.194-26.894,9.934c-8.855-.191-25.888-5.006-38.551-9.123-15.531-5.048-27.875-7.717-26.8-16.291q.84-6.7,18.45-13.7,108.446-47.248,144.628-62.3c68.872-28.647,83.183-33.623,92.511-33.789,2.052-.034,6.639.474,9.61,2.885a10.452,10.452,0,0,1,3.53,6.716A43.765,43.765,0,0,1,362.952,176.66Z"></path></svg>, Facebook <svg aria-hidden="true" role="img" viewbox="0 0 512 512" style="height:1em;width:1em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:steelblue;overflow:visible;position:relative;"><path d="M504 256C504 119 393 8 256 8S8 119 8 256c0 123.78 90.69 226.38 209.25 245V327.69h-63V256h63v-54.64c0-62.15 37-96.48 93.67-96.48 27.14 0 55.52 4.84 55.52 4.84v61h-31.28c-30.8 0-40.41 19.12-40.41 38.73V256h68.78l-11 71.69h-57.78V501C413.31 482.38 504 379.78 504 256z"></path></svg>, some were written by author himself and other were transcribed from videos of the meetings.</p>
-<div class="page-columns page-full"><p>Most of the data was collected from Ukrainian TMCs: Chamber<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a>, Arttalkers, Changemakers, Dniprohills, KOMA (UA-speaking) and Svoya Sorochka (UA-speaking). There are some reports from Japanese and Polish TMCs, but we will not be focusing on them.</p><div class="no-row-height column-margin column-container"><li id="fn3"><p><sup>3</sup>&nbsp;Special thanks goes to Chamber and their Timer reports, without them this project would’ve taken much-much longer.</p></li></div></div>
+<p>Like a famished mouse looking for breadcrumbs under the baker’s table, the author was open-sourcing these reports from Telegram , Facebook , some were written by author himself and other were transcribed from videos of the meetings.</p>
+<div class="page-columns page-full"><p>Most of the data was collected from Ukrainian TMCs: Chamber<sup>3</sup>, Arttalkers, Changemakers, Dniprohills, KOMA (UA-speaking) and Svoya Sorochka (UA-speaking). There are some reports from Japanese and Polish TMCs, but we will not be focusing on them.</p><div class="no-row-height column-margin column-container"><li id="fn3"><p><sup>3</sup>&nbsp;Special thanks goes to Chamber and their Timer reports, without them this project would’ve taken much-much longer.</p></li></div></div>
 <section id="note-on-timer-reports" class="level2 page-columns page-full"><h2 class="anchored" data-anchor-id="note-on-timer-reports">Note on Timer reports</h2>
 <p>Timer tracks everyone’s time, as can be seen on the reports. Here we will be only looking at Table Topics <strong>(TT)</strong> session times. Reports usually have the following information useful for our analysis:</p>
 <ol type="1">
@@ -317,7 +63,7 @@ backToTopButton.addEventListener("click", function () {
 <li>Speech Time</li>
 <li>Club</li>
 <li>Date</li>
-<li>TT winner<a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a>
+<li>TT winner<sup>4</sup>
 </li>
 </ol>
 <div class="no-row-height column-margin column-container"><li id="fn4"><p><sup>4</sup>&nbsp;There are many reports that don’t include TT winner or times of some speakers. Some speaker volunteer two or more times, which complicates analysis.</p></li></div><p>I have looked at too much timer reports <em>(see examples by clicking on each Tab).</em> It is as boring as being a Timer - manual work, under-appreciated and no one really cares. However, I was delighted to come across some very fine reports - a bright spark in otherwise gloom sea of boringness. These people turned a mundane, just-get-it-over-with role and created something worthwhile - a memory. For a lurking, opportunistic Toastmasters anthropologist (author) that is for sure.</p>
@@ -327,58 +73,58 @@ backToTopButton.addEventListener("click", function () {
 <div class="panelset">
 <div class="panel">
 <p><span class="panel-name">1</span></p>
-<p><img src="images/1.jpg" class="img-fluid"></p>
+<p><img src="https://vyudenko.github.io/posts/toastmasters-time/images/1.jpg" class="img-fluid"></p>
 </div>
 <div class="panel">
 <p><span class="panel-name">2</span></p>
-<p><img src="images/2.jpg" class="img-fluid"></p>
+<p><img src="https://vyudenko.github.io/posts/toastmasters-time/images/2.jpg" class="img-fluid"></p>
 </div>
 <div class="panel">
 <p><span class="panel-name">3</span></p>
-<p><img src="images/3.jpg" class="img-fluid"></p>
+<p><img src="https://vyudenko.github.io/posts/toastmasters-time/images/3.jpg" class="img-fluid"></p>
 </div>
 <div class="panel">
 <p><span class="panel-name">4</span></p>
-<p><img src="images/4.jpg" class="img-fluid"></p>
+<p><img src="https://vyudenko.github.io/posts/toastmasters-time/images/4.jpg" class="img-fluid"></p>
 </div>
 <div class="panel">
 <p><span class="panel-name">5</span></p>
-<p><img src="images/5.jpg" class="img-fluid"></p>
+<p><img src="https://vyudenko.github.io/posts/toastmasters-time/images/5.jpg" class="img-fluid"></p>
 </div>
 <div class="panel">
 <p><span class="panel-name">6</span></p>
-<p><img src="images/6.jpg" class="img-fluid"></p>
+<p><img src="https://vyudenko.github.io/posts/toastmasters-time/images/6.jpg" class="img-fluid"></p>
 </div>
 <div class="panel">
 <p><span class="panel-name">7</span></p>
-<p><img src="images/7.jpg" class="img-fluid"></p>
+<p><img src="https://vyudenko.github.io/posts/toastmasters-time/images/7.jpg" class="img-fluid"></p>
 </div>
 <div class="panel">
 <p><span class="panel-name">8</span></p>
-<p><img src="images/8.jpg" class="img-fluid"></p>
+<p><img src="https://vyudenko.github.io/posts/toastmasters-time/images/8.jpg" class="img-fluid"></p>
 </div>
 <div class="panel">
 <p><span class="panel-name">9</span></p>
-<p><img src="images/9.jpg" class="img-fluid"></p>
+<p><img src="https://vyudenko.github.io/posts/toastmasters-time/images/9.jpg" class="img-fluid"></p>
 </div>
 <div class="panel">
 <p><span class="panel-name">10</span></p>
-<p><img src="images/10.jpg" class="img-fluid"></p>
+<p><img src="https://vyudenko.github.io/posts/toastmasters-time/images/10.jpg" class="img-fluid"></p>
 </div>
 <div class="panel">
 <p><span class="panel-name">11</span></p>
-<p><img src="images/11.jpg" class="img-fluid"></p>
+<p><img src="https://vyudenko.github.io/posts/toastmasters-time/images/11.jpg" class="img-fluid"></p>
 </div>
 <div class="panel">
 <p><span class="panel-name">12</span></p>
-<p><img src="images/12.jpg" class="img-fluid"></p>
+<p><img src="https://vyudenko.github.io/posts/toastmasters-time/images/12.jpg" class="img-fluid"></p>
 </div>
 <div class="panel">
 <p><span class="panel-name">13</span></p>
-<p><img src="images/13.jpg" class="img-fluid"></p>
+<p><img src="https://vyudenko.github.io/posts/toastmasters-time/images/13.jpg" class="img-fluid"></p>
 </div>
 </div>
-</section><div class="page-columns page-full"><p>In total there are 180 unique meetings in the dataset from 2018 till 2022. Some of the meetings were dropped due to NAs in at least one of the columns. Speaking of gender discrimination, there was none present in current dataset, as the number of men and women<a href="#fn5" class="footnote-ref" id="fnref5" role="doc-noteref"><sup>5</sup></a> is almost equal.</p><div class="no-row-height column-margin column-container"><li id="fn5">
+</section><div class="page-columns page-full"><p>In total there are 180 unique meetings in the dataset from 2018 till 2022. Some of the meetings were dropped due to NAs in at least one of the columns. Speaking of gender discrimination, there was none present in current dataset, as the number of men and women<sup>5</sup> is almost equal.</p><div class="no-row-height column-margin column-container"><li id="fn5">
 <p>The gender of the speaker was assigned post hoc, based on the reports/photos of the meeting, common sense and a little bit of prejudice :)</p>
 <p>In cases where it was impossible to establish the gender of a speaker - the whole meeting was excluded.</p>
 </li></div></div>
@@ -413,13 +159,13 @@ backToTopButton.addEventListener("click", function () {
 </table>
 </div>
 </div>
-<div class="page-columns page-full"><p>With regards to TT participants’ names there are a total of 312 unique names<a href="#fn6" class="footnote-ref" id="fnref6" role="doc-noteref"><sup>6</sup></a>.</p><div class="no-row-height column-margin column-container"><li id="fn6">
+<div class="page-columns page-full"><p>With regards to TT participants’ names there are a total of 312 unique names<sup>6</sup>.</p><div class="no-row-height column-margin column-container"><li id="fn6">
 <p>In reports the same people were reported under slightly different names. For example: Alexey/Aleksey/Alex/Oleksiy/Oleksey…. and their counterpart Cyrillic versions. To deal with this issue, all versions were renamed to Alex. Similar approach was taken with other names.</p>
 <p>All Ukrainian names were translated to English.</p>
 </li></div></div>
 <div class="cell">
 <div class="cell-output-display">
-<p><img src="index_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid" width="672"></p>
+<p><img src="https://vyudenko.github.io/posts/toastmasters-time/index_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 <div class="cell">
@@ -443,7 +189,7 @@ Question!
 </div>
 <div class="cell">
 <div class="cell-output-display">
-<p><img src="index_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid" width="672"></p>
+<p><img src="https://vyudenko.github.io/posts/toastmasters-time/index_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 <p>:::</p>
@@ -461,7 +207,7 @@ Answer
 <div class="callout-body-container callout-body">
 <div class="cell">
 <div class="cell-output-display">
-<p><img src="index_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid" width="672"></p>
+<p><img src="https://vyudenko.github.io/posts/toastmasters-time/index_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 </div>
@@ -473,7 +219,7 @@ Answer
 <section id="who-likes-to-talk-more-women-or-men" class="level2 page-columns page-full"><h2 class="anchored" data-anchor-id="who-likes-to-talk-more-women-or-men">Who likes to talk more, women or men?</h2>
 <div class="cell">
 <div class="cell-output-display">
-<p><img src="index_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid" width="672"></p>
+<p><img src="https://vyudenko.github.io/posts/toastmasters-time/index_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 <div class="callout callout-style-default callout-tip no-icon callout-titled" title="Time ~ Gender" style="text-align: center;">
@@ -513,13 +259,13 @@ Notes:               ***Significant at the 1 percent level.
 </div>
 </div>
 <p>The answer? The difference is not significant! The distributions closely resemble each other. <em>Women don’t speak longer than men!</em></p>
-<div class="page-columns page-full"><p>Women actually speak a little less than men. However we cannot say that women ACTUALLY talk less! In the current study we only observe time taken to speak, however within these 2 minutes on stage, they might talk more (on average) than men. There seem to be report that women communicate ideas differently and <a href="https://www.imd.org/research-knowledge/leadership/articles/women-talk-too-much-simply-isnt-true-data-show/">use more words</a> like ah/uh/m-m-m/you know/so/like<a href="#fn7" class="footnote-ref" id="fnref7" role="doc-noteref"><sup>7</sup></a>.</p><div class="no-row-height column-margin column-container"><li id="fn7"><p><sup>7</sup>&nbsp;Foreshadowing a future ah-counter perspective on winning TT?!</p></li></div></div>
+<div class="page-columns page-full"><p>Women actually speak a little less than men. However we cannot say that women ACTUALLY talk less! In the current study we only observe time taken to speak, however within these 2 minutes on stage, they might talk more (on average) than men. There seem to be report that women communicate ideas differently and <a href="https://www.imd.org/research-knowledge/leadership/articles/women-talk-too-much-simply-isnt-true-data-show/">use more words</a> like ah/uh/m-m-m/you know/so/like<sup>7</sup>.</p><div class="no-row-height column-margin column-container"><li id="fn7"><p><sup>7</sup>&nbsp;Foreshadowing a future ah-counter perspective on winning TT?!</p></li></div></div>
 <p>Strangely enough, if the proportion of men in TT session increases - then TT session will be be shorter. Also, having more men speak during TT session is associated with lower TT times.</p>
 </section><section id="do-we-speak-longer-online" class="level2"><h2 class="anchored" data-anchor-id="do-we-speak-longer-online">Do we speak longer online?</h2>
 <p>In-person conversations/presentation have you deal with people - you see/hear/feel/smell them every second of your speech. There are so many signals communicated non-verbally that we don’t even notice them. During in-person meetings when you take too long to finish people start fidgeting, yawning, looking away, and you know you don’t want to make them uncomfortable so you quickly wrap up your speech. Online you deal with avatars, the only means of communication with them (your audience) is by observing their reaction. Perhaps this makes you go overtime more often than you would’ve had you given a particular speech in person. We test this below:</p>
 <div class="cell">
 <div class="cell-output-display">
-<p><img src="index_files/figure-html/unnamed-chunk-11-1.png" class="img-fluid" width="672"></p>
+<p><img src="https://vyudenko.github.io/posts/toastmasters-time/index_files/figure-html/unnamed-chunk-11-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 <div class="callout callout-style-default callout-tip no-icon callout-titled" title="Time ~ Online/Offline" style="text-align: center;">
@@ -559,12 +305,12 @@ Notes:         ***Significant at the 1 percent level.
 <p>Whether the meeting is online or offline has no effect on speech lengths, however there is a strong association with total TT session time: on average online TT sessions are longer than in-person ones by 160 secs (~1.5 speakers). One possible explanation for this is the fact that one doesn’t have to go home after the meeting, working from home and joining the meeting without spending hours commuting enables all participants to answer a question during TT.</p>
 <div class="cell">
 <div class="cell-output-display">
-<p><img src="index_files/figure-html/unnamed-chunk-13-1.png" class="img-fluid" width="672"></p>
+<p><img src="https://vyudenko.github.io/posts/toastmasters-time/index_files/figure-html/unnamed-chunk-13-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 <div class="cell">
 <div class="cell-output-display">
-<p><img src="index_files/figure-html/unnamed-chunk-14-1.png" class="img-fluid" width="672"></p>
+<p><img src="https://vyudenko.github.io/posts/toastmasters-time/index_files/figure-html/unnamed-chunk-14-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 <p>While the distribution of individual speeches remains “Normal” throughout the years, TT sessions became longer and take up to 40(!) minutes.</p>
@@ -627,7 +373,7 @@ Notes:       ***Significant at the 1 percent level.
 <p><span class="panel-name">Individual Time</span></p>
 <div class="cell">
 <div class="cell-output-display">
-<p><img src="index_files/figure-html/unnamed-chunk-16-1.png" class="img-fluid" width="672"></p>
+<p><img src="https://vyudenko.github.io/posts/toastmasters-time/index_files/figure-html/unnamed-chunk-16-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 </div>
@@ -635,7 +381,7 @@ Notes:       ***Significant at the 1 percent level.
 <p><span class="panel-name">TT Session Time</span></p>
 <div class="cell">
 <div class="cell-output-display">
-<p><img src="index_files/figure-html/unnamed-chunk-17-1.png" class="img-fluid" width="672"></p>
+<p><img src="https://vyudenko.github.io/posts/toastmasters-time/index_files/figure-html/unnamed-chunk-17-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 </div>
@@ -643,7 +389,7 @@ Notes:       ***Significant at the 1 percent level.
 <p><span class="panel-name">Men/Women Club</span></p>
 <div class="cell">
 <div class="cell-output-display">
-<p><img src="index_files/figure-html/unnamed-chunk-18-1.png" class="img-fluid" width="672"></p>
+<p><img src="https://vyudenko.github.io/posts/toastmasters-time/index_files/figure-html/unnamed-chunk-18-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 <p>Individual times don’t seem to vary that much across clubs, however KOMA (Ukrainian-speaking club) is an exception. The mean of their speakers’ Time is higher and variance is even higher. As for distribution of gender of participants one can see the clubs that have more women or men participating. This part could be improved with more data.</p>
@@ -655,7 +401,7 @@ Notes:       ***Significant at the 1 percent level.
 <p>External factors can also be broken down into 2 categories: perception and environment. Perception is how your message is understood by the audience. This has to do with who those people are, what they find funny, what have they eaten before the meetings etc. Environment is the place where you give a speech. Zoom, in person, microphone quality, distance to the audience, acoustics…</p>
 <div class="cell" data-preview="true">
 <div class="cell-output-display">
-<p><img src="index_files/figure-html/unnamed-chunk-19-1.png" class="img-fluid" width="672"></p>
+<p><img src="https://vyudenko.github.io/posts/toastmasters-time/index_files/figure-html/unnamed-chunk-19-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 <p>Flowchart made with <a href="https://nrennie.rbind.io/blog/introducing-ggflowchart/">ggflowchart</a></p>
@@ -679,15 +425,15 @@ What do you think plays the biggest role in winning TT?
 </div>
 <p><strong>Next we look at a set of hypothesis:</strong></p>
 <ul>
-<li><p><a href="#heading1">The last speaker has a higher probability of winning TT</a>;</p></li>
-<li><p><a href="#heading2">The longer the speech the less likely is winning</a>;</p></li>
-<li><p><a href="#heading4">Bonus: how to name your baby so it wins TT</a></p></li>
+<li><p>The last speaker has a higher probability of winning TT;</p></li>
+<li><p>The longer the speech the less likely is winning;</p></li>
+<li><p>Bonus: how to name your baby so it wins TT</p></li>
 </ul>
 <section id="heading1" class="level2"><h2 class="anchored" data-anchor-id="heading1">Hypothesis 1:</h2>
 <p><strong>The last speaker has a higher probability of winning TT</strong></p>
 <div class="cell">
 <div class="cell-output-display">
-<p><img src="index_files/figure-html/unnamed-chunk-21-1.png" class="img-fluid" width="672"></p>
+<p><img src="https://vyudenko.github.io/posts/toastmasters-time/index_files/figure-html/unnamed-chunk-21-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 <div class="callout callout-style-default callout-tip no-icon callout-titled" title="Win ~ Speaker Order" style="text-align: center;">
@@ -731,7 +477,7 @@ Notes:            ***Significant at the 1 percent level.
 <p><strong>The longer the speech the less likely is winning</strong></p>
 <div class="cell">
 <div class="cell-output-display">
-<p><img src="index_files/figure-html/unnamed-chunk-23-1.png" class="img-fluid" width="672"></p>
+<p><img src="https://vyudenko.github.io/posts/toastmasters-time/index_files/figure-html/unnamed-chunk-23-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 <p>Since we have a dozen of TT winners who spoke over 150 seconds, we will remove them from our regression and run regression with and w/o outliers.</p>
@@ -774,7 +520,7 @@ Notes:            ***Significant at the 1 percent level.
 </div>
 <div class="cell">
 <div class="cell-output-display">
-<p><img src="index_files/figure-html/unnamed-chunk-25-1.png" class="img-fluid" width="672"></p>
+<p><img src="https://vyudenko.github.io/posts/toastmasters-time/index_files/figure-html/unnamed-chunk-25-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 <p>Regardless of outliers, model is statistically significant. Interestingly, that probability of winning TT is increasing with every second (!) removing outliers (150 seconds or higher) doesn’t change the probability. Conclusion: you want to speak for as long as and not a second more! Otherwise you’ll be disqualified.</p>
@@ -843,7 +589,7 @@ Notes:            ***Significant at the 1 percent level.
 <p>It is true that not everyone can win and one must use every trick to their advantage. And if your name is Alex or Andrew you should use it to your advantage.</p>
 <p>If your name is not Alex or Andrew, than maybe it is not for you. Go apply yourself in some other domain, for you are against the odds when it comes to winning TT session.</p>
 <blockquote class="blockquote page-columns page-full">
-<div class="page-columns page-full"><p>“Consider naming your baby Alex or Andrew - this will set them up for good life” - Vadym Yudenko<a href="#fn8" class="footnote-ref" id="fnref8" role="doc-noteref"><sup>8</sup></a></p><div class="no-row-height column-margin column-container"><li id="fn8"><p><sup>8</sup>&nbsp;FYI, this is a joke and not meant to be taken seriously.</p></li></div></div>
+<div class="page-columns page-full"><p>“Consider naming your baby Alex or Andrew - this will set them up for good life” - Vadym Yudenko<sup>8</sup></p><div class="no-row-height column-margin column-container"><li id="fn8"><p><sup>8</sup>&nbsp;FYI, this is a joke and not meant to be taken seriously.</p></li></div></div>
 </blockquote>
 </section></section><section id="conclusions" class="level1"><h1>Conclusions</h1>
 <ul>
@@ -861,251 +607,16 @@ Notes:            ***Significant at the 1 percent level.
   url = {https://vyudenko.github.io//posts/toastmasters-time},
   langid = {en}
 }
-</code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-yudenko2023" class="csl-entry quarto-appendix-citeas" role="listitem">
+</code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-yudenko2023" class="csl-entry quarto-appendix-citeas">
 Yudenko, Vadym. 2023. <span>“How to Win at Table Topics. A Timer’s
 Perspective.”</span> August 4, 2023. <a href="https://vyudenko.github.io//posts/toastmasters-time">https://vyudenko.github.io//posts/toastmasters-time</a>.
-</div></div></section></div></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
-window.document.addEventListener("DOMContentLoaded", function (event) {
-  const toggleBodyColorMode = (bsSheetEl) => {
-    const mode = bsSheetEl.getAttribute("data-mode");
-    const bodyEl = window.document.querySelector("body");
-    if (mode === "dark") {
-      bodyEl.classList.add("quarto-dark");
-      bodyEl.classList.remove("quarto-light");
-    } else {
-      bodyEl.classList.add("quarto-light");
-      bodyEl.classList.remove("quarto-dark");
-    }
-  }
-  const toggleBodyColorPrimary = () => {
-    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
-    if (bsSheetEl) {
-      toggleBodyColorMode(bsSheetEl);
-    }
-  }
-  toggleBodyColorPrimary();  
-  const icon = "";
-  const anchorJS = new window.AnchorJS();
-  anchorJS.options = {
-    placement: 'right',
-    icon: icon
-  };
-  anchorJS.add('.anchored');
-  const isCodeAnnotation = (el) => {
-    for (const clz of el.classList) {
-      if (clz.startsWith('code-annotation-')) {                     
-        return true;
-      }
-    }
-    return false;
-  }
-  const clipboard = new window.ClipboardJS('.code-copy-button', {
-    text: function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
-    }
-  });
-  clipboard.on('success', function(e) {
-    // button target
-    const button = e.trigger;
-    // don't keep focus
-    button.blur();
-    // flash "checked"
-    button.classList.add('code-copy-button-checked');
-    var currentTitle = button.getAttribute("title");
-    button.setAttribute("title", "Copied!");
-    let tooltip;
-    if (window.bootstrap) {
-      button.setAttribute("data-bs-toggle", "tooltip");
-      button.setAttribute("data-bs-placement", "left");
-      button.setAttribute("data-bs-title", "Copied!");
-      tooltip = new bootstrap.Tooltip(button, 
-        { trigger: "manual", 
-          customClass: "code-copy-button-tooltip",
-          offset: [0, -8]});
-      tooltip.show();    
-    }
-    setTimeout(function() {
-      if (tooltip) {
-        tooltip.hide();
-        button.removeAttribute("data-bs-title");
-        button.removeAttribute("data-bs-toggle");
-        button.removeAttribute("data-bs-placement");
-      }
-      button.setAttribute("title", currentTitle);
-      button.classList.remove('code-copy-button-checked');
-    }, 1000);
-    // clear code selection
-    e.clearSelection();
-  });
-  function tippyHover(el, contentFn) {
-    const config = {
-      allowHTML: true,
-      content: contentFn,
-      maxWidth: 500,
-      delay: 100,
-      arrow: false,
-      appendTo: function(el) {
-          return el.parentElement;
-      },
-      interactive: true,
-      interactiveBorder: 10,
-      theme: 'quarto',
-      placement: 'bottom-start'
-    };
-    window.tippy(el, config); 
-  }
-  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
-  for (var i=0; i<noterefs.length; i++) {
-    const ref = noterefs[i];
-    tippyHover(ref, function() {
-      // use id or data attribute instead here
-      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
-      try { href = new URL(href).hash; } catch {}
-      const id = href.replace(/^#\/?/, "");
-      const note = window.document.getElementById(id);
-      return note.innerHTML;
-    });
-  }
-      let selectedAnnoteEl;
-      const selectorForAnnotation = ( cell, annotation) => {
-        let cellAttr = 'data-code-cell="' + cell + '"';
-        let lineAttr = 'data-code-annotation="' +  annotation + '"';
-        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
-        return selector;
-      }
-      const selectCodeLines = (annoteEl) => {
-        const doc = window.document;
-        const targetCell = annoteEl.getAttribute("data-target-cell");
-        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
-        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
-        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
-        const lineIds = lines.map((line) => {
-          return targetCell + "-" + line;
-        })
-        let top = null;
-        let height = null;
-        let parent = null;
-        if (lineIds.length > 0) {
-            //compute the position of the single el (top and bottom and make a div)
-            const el = window.document.getElementById(lineIds[0]);
-            top = el.offsetTop;
-            height = el.offsetHeight;
-            parent = el.parentElement.parentElement;
-          if (lineIds.length > 1) {
-            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
-            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
-            height = bottom - top;
-          }
-          if (top !== null && height !== null && parent !== null) {
-            // cook up a div (if necessary) and position it 
-            let div = window.document.getElementById("code-annotation-line-highlight");
-            if (div === null) {
-              div = window.document.createElement("div");
-              div.setAttribute("id", "code-annotation-line-highlight");
-              div.style.position = 'absolute';
-              parent.appendChild(div);
-            }
-            div.style.top = top - 2 + "px";
-            div.style.height = height + 4 + "px";
-            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
-            if (gutterDiv === null) {
-              gutterDiv = window.document.createElement("div");
-              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
-              gutterDiv.style.position = 'absolute';
-              const codeCell = window.document.getElementById(targetCell);
-              const gutter = codeCell.querySelector('.code-annotation-gutter');
-              gutter.appendChild(gutterDiv);
-            }
-            gutterDiv.style.top = top - 2 + "px";
-            gutterDiv.style.height = height + 4 + "px";
-          }
-          selectedAnnoteEl = annoteEl;
-        }
-      };
-      const unselectCodeLines = () => {
-        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
-        elementsIds.forEach((elId) => {
-          const div = window.document.getElementById(elId);
-          if (div) {
-            div.remove();
-          }
-        });
-        selectedAnnoteEl = undefined;
-      };
-      // Attach click handler to the DT
-      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
-      for (const annoteDlNode of annoteDls) {
-        annoteDlNode.addEventListener('click', (event) => {
-          const clickedEl = event.target;
-          if (clickedEl !== selectedAnnoteEl) {
-            unselectCodeLines();
-            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
-            if (activeEl) {
-              activeEl.classList.remove('code-annotation-active');
-            }
-            selectCodeLines(clickedEl);
-            clickedEl.classList.add('code-annotation-active');
-          } else {
-            // Unselect the line
-            unselectCodeLines();
-            clickedEl.classList.remove('code-annotation-active');
-          }
-        });
-      }
-  const findCites = (el) => {
-    const parentEl = el.parentElement;
-    if (parentEl) {
-      const cites = parentEl.dataset.cites;
-      if (cites) {
-        return {
-          el,
-          cites: cites.split(' ')
-        };
-      } else {
-        return findCites(el.parentElement)
-      }
-    } else {
-      return undefined;
-    }
-  };
-  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
-  for (var i=0; i<bibliorefs.length; i++) {
-    const ref = bibliorefs[i];
-    const citeInfo = findCites(ref);
-    if (citeInfo) {
-      tippyHover(citeInfo.el, function() {
-        var popup = window.document.createElement('div');
-        citeInfo.cites.forEach(function(cite) {
-          var citeDiv = window.document.createElement('div');
-          citeDiv.classList.add('hanging-indent');
-          citeDiv.classList.add('csl-entry');
-          var biblioDiv = window.document.getElementById('ref-' + cite);
-          if (biblioDiv) {
-            citeDiv.innerHTML = biblioDiv.innerHTML;
-          }
-          popup.appendChild(citeDiv);
-        });
-        return popup.innerHTML;
-      });
-    }
-  }
-});
-</script><script src="https://utteranc.es/client.js" repo="vyudenko/vyudenko.github.io" issue-term="pathname" theme="github-light" crossorigin="anonymous" async="">
-</script>
-</div> <!-- /content -->
-<footer class="footer"><div class="nav-footer">
-    <div class="nav-footer-left">Powered by <a href="https://quarto.org">Quarto</a>. <br> © 2023 Vadym Yudenko. <br> Opinions are my own.</div>   
-    <div class="nav-footer-center"><div class="cookie-consent-footer"><a href="#" id="open_preferences_center">Cookie Preferences</a></div></div>
-    <div class="nav-footer-right">License: <a href="https://creativecommons.org/licenses/by-nc-sa/4.0">CC BY NC SA 4.0</a>. <br><a href="https://lovepik.com/images/png-flying.html">Favicon image</a></div>
-  </div>
-</footer>
-
-
-<script src="../../site_libs/quarto-html/zenscroll-min.js"></script>
-</body></html>
+</div></div></section></div> ]]></description>
+  <category>Toastmasters</category>
+  <category>Logit</category>
+  <category>Time</category>
+  <category>Public Speaking</category>
+  <guid>https://vyudenko.github.io/posts/toastmasters-time/index.html</guid>
+  <pubDate>Thu, 03 Aug 2023 21:00:00 GMT</pubDate>
+</item>
+</channel>
+</rss>
