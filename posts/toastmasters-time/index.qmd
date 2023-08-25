@@ -92,7 +92,7 @@ The following research looks at the data gathered during Toastmasters meetings a
 
 3.  **Evaluation session:** everyone who came on stage during previous sessions is given feedback on how well they did.
 
-Toastmasters are more organized and formal compared to many speaking clubs. Many of its members are [middle-aged with higher education](https://www.toastmasters.org/resources/statistics-and-data-hub). These people value their time and that is why among the evaluators there is a Timer (Ta-da!). Timer's responsibility is to keep track of time and show colored signs to a speaker. Without going into much detail, <span style="color:green"> *green* </span> is an early warning,  <span style="color:yellow"> *yellow* </span> - soon the time will be up,  <span style="color:red"> *red* </span> - time is up, finish your speech. Timer also tracks the time of each speaker and presents the Timer Report - sine qua non[^2] of this article.
+Toastmasters are more organized and formal compared to many speaking clubs. Many of its members are [middle-aged with higher education](https://www.toastmasters.org/resources/statistics-and-data-hub). These people value their time and that is why among the evaluators there is a Timer (Ta-da!). Timer's responsibility is to keep track of time and show colored signs to a speaker. Without going into much detail, [ *green* ]{style="color:green"} is an early warning, [ *yellow* ]{style="color:yellow"} - soon the time will be up, [ *red* ]{style="color:red"} - time is up, finish your speech. Timer also tracks the time of each speaker and presents the Timer Report - sine qua non[^2] of this article.
 
 </div>
 
@@ -100,7 +100,7 @@ Toastmasters are more organized and formal compared to many speaking clubs. Many
 
 # Data
 
-Like a famished mouse looking for breadcrumbs under the baker's table, the author was open-sourcing these reports from `r fa("telegram", fill = "steelblue")` Telegram, `r fa("facebook", fill = "steelblue")` Facebook, some were written by author himself and other were transcribed from videos of the meetings.
+Like a famished mouse looking for breadcrumbs under the baker's table, the author was open-sourcing these reports from Telegram `r fa("telegram", fill = "steelblue")`, Facebook `r fa("facebook", fill = "steelblue")`, some were written by author himself and other were transcribed from videos of the meetings.
 
 Most of the data was collected from Ukrainian TMCs: Chamber[^3], Arttalkers, Changemakers, Dniprohills, KOMA (UA-speaking) and Svoya Sorochka (UA-speaking). There are some reports from Japanese and Polish TMCs, but we will not be focusing on them.
 
@@ -306,7 +306,7 @@ ggplot(name_counts_df, aes(x = reorder(Speaker, Frequency), y = Frequency)) +
 
 And lastly we have Time of Table Topics (TT)! How TT works:
 
-You have 2 minutes to answer a question or speak on the given topic. **To stay within time limits, the timer will show you  <span style="color:green"> *green* </span> sign when there is 1 minute left,  <span style="color:yellow"> *yellow* </span> when 30 seconds and  <span style="color:red"> *red* </span> when time is up.**
+You have 2 minutes to answer a question or speak on the given topic. **To stay within time limits, the timer will show you [*green*]{style="color:green"} sign when there is 1 minute left, [*yellow*]{style="color:yellow"} when 30 seconds and [*red*]{style="color:red"} when time is up.**
 
 Ideally you want to have an opening-body-conclusion short speech, but this isn't always possible. You can volunteer or be dragged on stage. The question may be familiar to you or something you haven't even thought about. That is all to say, there are many different things happening during TT sessions and winning it requires achieving many things. At the end of TT everyone votes for "the best speech" - **this is our dependent variable of interest.**
 
@@ -314,9 +314,6 @@ Ideally you want to have an opening-body-conclusion short speech, but this isn't
 Before we get to figuring out what it takes to win TT, given the information above how does the distribution of TT times look like? A, B, C or D?
 :::
 
-::: panelset
-::: panel
-[Question]{.panel-name}
 
 ```{r}
 # Function to generate ggplot images for different distributions
@@ -367,8 +364,7 @@ combined_plots
 ```
 :::
 
-::: panel
-[Answer]{.panel-name}
+::: {.callout-tip title="Answer" collapse="true" icon="false" style="text-align: center;"}
 
 ```{r}
 density_plot <- ggplot(data, aes(x=Time)) +
@@ -413,20 +409,17 @@ box_plot <- ggplot(data, aes(x=Time)) +
 combined_plots1 <- density_plot / box_plot + plot_layout(heights = c(4, 1))
 combined_plots1
 ```
+:::
 
 Surprising? Either way, it is peculiar how these times fall into one of natures patterns! One can also notice that there is a [fat?](https://en.wikipedia.org/wiki/Fat-tailed_distribution) right-tail - outliers.
-:::
-:::
+
+
 
 # Analysis
 
 In this part we are going to try and answer some of the hardest philosophical questions, most pertinent questions! Starting with...
 
 ## Who likes to talk more, women or men?
-
-::: panelset
-::: panel
-[Gender]{.panel-name}
 
 ```{r}
 ggplot() +
@@ -449,28 +442,30 @@ ggplot() +
   ) +
   scale_fill_manual(values = c("blue", "red"), labels = c("Women", "Men"))
 ```
-:::
 
-::: panel
-[Time \~ Gender]{.panel-name}
 
-```{r}
+::: {.callout-tip title="Time ~ Gender" collapse="true" icon="false" style="text-align: center;"}
+
+```{r echo=FALSE}
 mod1 <- lm(Time ~ Sex + tt_participant_sex_prop, data = data)
 mod11 <- lm(tt_time ~ Sex + tt_participant_sex_prop, data = data)
 stargazer(mod1, mod11,
-          header=FALSE, 
-          title="Regression results", 
-          type='text', 
-          digits=3,
-          style = "aer",
-          font.size = "small",
-          align = TRUE,
-          omit = c("Constant"),
-          omit.stat=c("f", "ser"),
-          no.space=TRUE)
+         header=FALSE,
+         dep.var.labels=c("Individual Time", "TT Time"),
+         covariate.labels=c("Gender", "Ratio of male/female"),
+         title="Regression results", 
+         type='text', 
+         digits=3,
+         style = "aer",
+         font.size = "small",
+         align = TRUE,
+         omit = c("Constant"),
+         omit.stat=c("f", "ser"),
+         no.space=TRUE)
 ```
+
 :::
-:::
+
 
 The answer? The difference is not significant! The distributions closely resemble each other. *Women don't speak longer than men!*
 
@@ -483,10 +478,6 @@ Strangely enough, if the proportion of men in TT session increases - then TT ses
 ## Do we speak longer online?
 
 In-person conversations/presentation have you deal with people - you see/hear/feel/smell them every second of your speech. There are so many signals communicated non-verbally that we don't even notice them. During in-person meetings when you take too long to finish people start fidgeting, yawning, looking away, and you know you don't want to make them uncomfortable so you quickly wrap up your speech. Online you deal with avatars, the only means of communication with them (your audience) is by observing their reaction. Perhaps this makes you go overtime more often than you would've had you given a particular speech in person. We test this below:
-
-::: panelset
-::: panel
-[Online/Offline]{.panel-name}
 
 ```{r}
 ggplot() +
@@ -510,16 +501,16 @@ ggplot() +
   scale_fill_manual(values = c("yellow", "green"), labels = c("In-person", "Online"))
 
 ```
-:::
 
-::: panel
-[Time \~ Online/Offline]{.panel-name}
 
+::: {.callout-tip title="Time ~ Online/Offline" collapse="true" icon="false" style="text-align: center;"}
 ```{r}
 mod2 <- lm(Time ~ ON_OFF, data = data)
 mod22 <- lm(tt_time ~ ON_OFF, data = data)
 stargazer(mod2, mod22,
           header=FALSE, 
+          dep.var.labels=c("Individual Time", "TT Time"),
+          covariate.labels=c("Online/Offline"),
           title="Regression results", 
           type='text', 
           digits=3,
@@ -530,12 +521,10 @@ stargazer(mod2, mod22,
           omit.stat=c("f", "ser"),
           no.space=TRUE)
 ```
-
-Whether the meeting is online or offline has no effect on speech lengths, however there is a strong association with total TT session time: on average online TT sessions are longer than in-person ones by 160 secs (\~1.5 speakers). One possible explanation for this is the fact that one doesn't have to go home after the meeting, working from home and joining the meeting without spending hours commuting enables all participants to answer a question during TT.
 :::
 
-::: panel
-[Individual Time]{.panel-name}
+Whether the meeting is online or offline has no effect on speech lengths, however there is a strong association with total TT session time: on average online TT sessions are longer than in-person ones by 160 secs (\~1.5 speakers). One possible explanation for this is the fact that one doesn't have to go home after the meeting, working from home and joining the meeting without spending hours commuting enables all participants to answer a question during TT.
+
 
 ```{r}
 data %>% 
@@ -556,10 +545,7 @@ data %>%
         axis.title.y  = element_blank(),
         plot.caption = element_text(face = "bold", family = "Roboto"))
 ```
-:::
 
-::: panel
-[TT Session Time]{.panel-name}
 
 ```{r}
 data %>% 
@@ -577,16 +563,17 @@ data %>%
         axis.text.x = element_text(angle = 0, hjust = 0.5),
         plot.caption = element_text(face = "bold", family = "Roboto"))
 ```
-:::
 
-::: panel
-[Time \~ Year]{.panel-name}
+While the distribution of individual speeches remains "Normal" throughout the years, TT sessions became longer and take up to 40(!) minutes.
+
+::: {.callout-tip title="Time ~ Year" collapse="true" icon="false" style="text-align: center;"}
 
 ```{r}
 mod_q3 <- lm(Time ~ Year, data = data)
 mod_q31 <- lm(tt_time ~ Year, data = data)
 stargazer(mod_q3, mod_q31,
           header=FALSE, 
+          dep.var.labels=c("Individual Time", "TT Time"),
           title="Regression results", 
           type='text', 
           digits=3,
@@ -597,9 +584,8 @@ stargazer(mod_q3, mod_q31,
           no.space=TRUE)
 ```
 
-While the distribution of individual speeches remains "Normal" throughout the years, TT sessions became longer and take up to 40(!) minutes.
 :::
-:::
+
 
 ## Are there differences on the club level?
 
@@ -746,10 +732,6 @@ check_question(c("Being on time"), options = c("Eye contact", "Being on time", "
 
 **The last speaker has a higher probability of winning TT**
 
-::: panelset
-::: panel
-[Speaking Order]{.panel-name}
-
 ```{r}
 data_logit <- data %>%
   mutate(alex = ifelse(str_detect(Speaker, "Alex"), 1, 0),
@@ -787,16 +769,16 @@ data %>%
         axis.text.x = element_text(angle = 0, hjust = 0.5),
         plot.caption = element_text(face = "bold", family = "Roboto")) 
 ```
-:::
 
-::: panel
-[TT \~ Order]{.panel-name}
+::: {.callout-tip title="Win ~ Speaker Order" collapse="true" icon="false" style="text-align: center;"}
 
 ```{r, code_folding=TRUE}
 mod10 <- glm(TT ~ speaker_order, data = data_logit, family=binomial(link="logit"))
 mod11 <- glm(TT ~ speaker_order, data = data_logit, family=binomial(link="probit"))
 stargazer(mod10, mod11,          
           header=FALSE, 
+          dep.var.labels=c("Individual Time"),
+          covariate.labels=c("Speaker Order"),
           title="Regression results", 
           type='text', 
           digits=3,
@@ -808,7 +790,7 @@ stargazer(mod10, mod11,
           no.space=TRUE)
 ```
 :::
-:::
+
 
 Waiting and speaking later during TT session does indeed increases the probability of winning by a whopping 0.9%!
 
@@ -817,10 +799,6 @@ This is a great news, because you can't expect to win by just waiting and giving
 ## Hypothesis 2: {#heading2}
 
 **The longer the speech the less likely is winning**
-
-::: panelset
-::: panel
-[Winning Times]{.panel-name}
 
 ```{r}
 st <- "In TM those who speak for longer than 150 seconds
@@ -848,17 +826,15 @@ ggplot() +
 ```
 
 Since we have a dozen of TT winners who spoke over 150 seconds, we will remove them from our regression and run regression with and w/o outliers.
-:::
 
-::: panel
-[Win \~ Time]{.panel-name}
+::: {.callout-tip title="Win ~ Time" collapse="true" icon="false" style="text-align: center;"}
 
 ```{r, code_folding=TRUE}
 mod5 <- glm(TT ~ Time, data = data_logit, family=binomial(link="logit"))
 mod6 <- glm(TT ~ Time, data = filter(data_logit, Time < 150), family=binomial(link="logit"))
 stargazer(mod5, mod6,
           column.labels = c("Model with outliers", "Model w/o outliers"),
-          covariate.labels = c("Time of TT speech"),
+          covariate.labels = c("Individual Time"),
           header=FALSE, 
           title="Regression results", 
           type='text', 
@@ -870,9 +846,6 @@ stargazer(mod5, mod6,
           no.space=TRUE)
 ```
 :::
-
-::: panel
-[Logit]{.panel-name}
 
 ```{r}
 # plot data
@@ -908,8 +881,6 @@ legend("topleft",
        col = c("blue", "red"), 
        lty = c(1, 1))
 ```
-:::
-:::
 
 Regardless of outliers, model is statistically significant. Interestingly, that probability of winning TT is increasing with every second (!) removing outliers (150 seconds or higher) doesn't change the probability. Conclusion: you want to speak for as long as and not a second more! Otherwise you'll be disqualified.
 
@@ -920,10 +891,6 @@ When you have someones attention you have to be mindful of time. You are not giv
 ## Bonus: {#heading4}
 
 **How to name your baby so that it has a higher chances of winning?**
-
-::: panelset
-::: panel
-[Baby Name]{.panel-name}
 
 ```{r}
 # Filter names that appear more than 3 times
@@ -961,10 +928,8 @@ colnames(data1) <- c("Speaker", "Total Appearances", "Total Wins", "Win Percenta
 
 datatable(data1, options = list(pageLength = 10))
 ```
-:::
 
-::: panel
-[Win \~ Name]{.panel-name}
+::: {.callout-tip title="Win ~ Name" collapse="true" icon="false" style="text-align: center;"}
 
 ```{r}
 mod4 <- glm(TT ~ timur + vadym + nataly + alex + andrew, data = data_logit, family=binomial(link="logit"))
@@ -982,7 +947,6 @@ stargazer(mod4, mod44,
           omit.stat=c("f", "ser"),
           no.space=TRUE)
 ```
-:::
 :::
 
 It is true that not everyone can win and one must use every trick to their advantage. And if your name is Alex or Andrew you should use it to your advantage.

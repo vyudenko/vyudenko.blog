@@ -40,35 +40,19 @@ One summer day in 2019 unburdened by university studies and need for work, I spe
 
 After getting up closer to 12 am for a seventh day in a row - and feeling so miserable and tired. I thought that I am wasting too much time in the morning and am more productive in the evening. But is it so? How much hours exactly am I wasting in the morning?
 
-
 # Cool idea for presentation
+
 ```{=html}
 <!-- <iframe class="slide-deck" src="presentation.html"></iframe> -->
 
 <!-- [{{< fa file-pdf >}} Working Paper](paper.pdf) &nbsp; -->
 <!-- [ {{< fa chalkboard-teacher >}} Slides (SEHO2023)](presentation.pdf) -->
 ```
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 https://youtu.be/BOksW_NabEk
 
 Counting jellybeans
 
 {{< video https://youtu.be/iJNs9nxoQaw >}}
-
-
 
 ```{r}
 data <- read.csv("time2020.csv")
@@ -95,35 +79,6 @@ data_long <- data_long %>%
     activity %in% c("Transport", "Misc", "Waste", "Food") ~ "Rest"
   ))
 ```
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 ```{r}
 # data_kse <- read.csv("KSE_life.csv")
@@ -276,7 +231,6 @@ data_long <- data_long %>%
 #   mutate(percentage = (total_hours / sum(total_hours)) * 100)
 ```
 
-
 ::: panelset
 ::: panel
 [Spring]{.panel-name}
@@ -307,9 +261,9 @@ activity_percentage %>%
 
 ```
 :::
+
 ::: panel
 [Summer]{.panel-name}
-
 
 ```{r}
 # Loop through each unique month
@@ -323,9 +277,8 @@ activity_percentage %>%
     theme(axis.title = element_blank(), axis.text = element_blank(), axis.ticks = element_blank()) +
     scale_fill_manual(values = activity_colors)  # Use the predefined activity colors
 ```
-
-
 :::
+
 ::: panel
 [Autumn]{.panel-name}
 
@@ -341,13 +294,10 @@ activity_percentage %>%
     theme(axis.title = element_blank(), axis.text = element_blank(), axis.ticks = element_blank()) +
     scale_fill_manual(values = activity_colors)  # Use the predefined activity colors
 ```
-
-
-
 :::
+
 ::: panel
 [Winter]{.panel-name}
-
 
 ```{r}
 # Loop through each unique month
@@ -361,13 +311,13 @@ activity_percentage %>%
     theme(axis.title = element_blank(), axis.text = element_blank(), axis.ticks = element_blank()) +
     scale_fill_manual(values = activity_colors)  # Use the predefined activity colors
 ```
-
-
 :::
 :::
 
+\`\`\`{=html}
 
+\<iframe id="example1" src="https://gallery.shinyapps.io/\_\_\_\_\_\_" style="border: none; width: 100%; height: 720px" frameborder="0"\>\</iframe\>
 
-
-
-
+```         
+how to add shiny in quarto^^^
+```
