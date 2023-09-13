@@ -1,1 +1,46 @@
 /*-- scss:defaults --*/
+@import url('https://fonts.googleapis.com/css2?family=Fira+Mono');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+JP');
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono');
+
+h1 {
+  font-family: 'Georgia', serif;
+  font-size: 36px;
+  font-weight: bold;
+  color: #white;
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+h2 {
+  font-family: 'Georgia', serif;
+  font-size: 36px;
+  font-weight: bold;
+  color: #2c3e50;
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.posts-list .posts-list-caption{
+  font-family: 'Fira Mono';
+  border-bottom: 5px solid #f3f3f3;
+  padding-bottom: 2rem;
+}
+
+
+/* Sidebar Categories */
+.posts-sidebar {
+  font-family: 'Fira Mono';
+}
+
+.sidebar-section h3 {
+  font-size: 22px;
+  margin-bottom: 20px;
+}
+
+
+.navbar a:hover{
+  color: #ff6700;
+}

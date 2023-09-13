@@ -1,0 +1,25 @@
+---
+title: "Daily life of KSE student"
+description: |
+  Surviving and thriving in the most intense econ masters program in Ukraine.
+author: 
+ - name: Vadym Yudenko
+   affiliation: American University Kyiv
+   affiliation-url: https://auk.edu.ua/en/
+date: 2023-07-14
+draft: true 
+categories:
+  - timetracking
+  - self-surveillance
+---
+
+
+## Introduction 
+
+
+
+
+
+
+
+## 

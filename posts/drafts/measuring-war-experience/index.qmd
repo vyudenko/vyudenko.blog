@@ -1,0 +1,33 @@
+---
+title: War Experience Indecies
+description: |
+  dataset
+author: Vadym Yudneko
+date: 2023-08-04
+draft: true
+categories:
+  - Russo-Ukrainian War
+  - dataset
+---
+
+|             Index              | Year | References |
+|:------------------------------:|:-----|:-----------|
+|             LEC-5              |      |            |
+| War Events Questionnaire (WEQ) |      |            |
+|    War Stressors Assessment    |      |            |
+
+War is complex, there are different way in which it affects a person.
+
+Soldier vs civilian
+
+What does it mean to experience something?
+
+Asking people about what happened to them can to some extent show objective influences. But these answers don't tell us about the severity / intensity and frequency of war events.
+
+\[leaving ukraine survey\]
+
+List of war experiences (extensive)
+
+Categories:
+
+-   

@@ -6,8 +6,8 @@ author: Vadym Yudenko
 date: 2022-07-28
 draft: true
 categories: 
-  - War
-  - Experiences
+  - war
+  - tacmed
 ---
 
 ```{r setup, include=FALSE}
@@ -20,3 +20,7 @@ xaringanExtra::use_panelset()
 "/g/122pknw2"
 "TCCC"
 ```
+
+https://en.wikipedia.org/wiki/Golden_hour\_(medicine)
+
+https://savelife.in.ua/en/materials/texts-en/we-are-running-out-of-time-we-have-to-pr-2-en/

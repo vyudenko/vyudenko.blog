@@ -1,5 +1,6 @@
 ---
 title: Page Not Found
+mainfont: Fira Mono
 listing:
   contents: posts
   type: grid

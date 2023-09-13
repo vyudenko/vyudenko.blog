@@ -1,10 +1,7 @@
 [
   {
-    "listing": "/index.html",
-    "items": [
-      "/posts/index.html",
-      "/writings/index.html"
-    ]
+    "listing": "/research/index.html",
+    "items": []
   },
   {
     "listing": "/posts/index.html",
@@ -13,8 +10,11 @@
     ]
   },
   {
-    "listing": "/research/index.html",
-    "items": []
+    "listing": "/index.html",
+    "items": [
+      "/posts/index.html",
+      "/writings/index.html"
+    ]
   },
   {
     "listing": "/writings/index.html",

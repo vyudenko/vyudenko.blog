@@ -1,0 +1,14 @@
+{
+  "hash": "3f290307bb76deb39b82c81a96ceeda8",
+  "result": {
+    "markdown": "---\ntitle: KSE master thesis map\ndescription: |\n  Which topics are popular among KSE students?\nauthor: Vadym Yudenko\ndate: 2023-07-14\ndraft: true \ncategories:\n  - KSE\n  - thesis\n---\n\n\n\n::: {.cell}\n\n:::\n\n::: {.cell}\n\n:::\n\n\nCheck if 2020 downloaded fully - there are issues\n",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

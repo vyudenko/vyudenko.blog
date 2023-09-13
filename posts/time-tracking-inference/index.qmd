@@ -1,0 +1,16 @@
+---
+title: "Why can you learn from analysing your daily life"
+description: |
+  Applying statistics tools to study daily behavioral patterns.
+  Timetracking part 4 of N
+author: 
+ - name: Vadym Yudenko
+   affiliation: American University Kyiv
+   affiliation-url: https://auk.edu.ua/en/
+date: 2023-07-14
+draft: true 
+categories:
+  - timetracking
+  - self-surveillance
+---
+

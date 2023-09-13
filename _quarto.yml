@@ -19,8 +19,6 @@ website:
   
   cookie-consent: 
     type: implied
-    
-
   
   twitter-card:
     creator: "@vadym_yudenko"
@@ -66,6 +64,7 @@ format:
     reference-location: margin
     footnotes-hover: true
     fontsize: 18px
+    mainfont: Fira Mono
     highlight-style: monokai
     include-in-header: 
       - html/progress-bar.html

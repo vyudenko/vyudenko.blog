@@ -54,7 +54,7 @@ library(fontawesome)
 library(DT)
 ```
 
-# Introduction
+## Introduction
 
 "How I wish they would just shut up."
 
@@ -82,7 +82,7 @@ The following research looks at the data gathered during Toastmasters meetings a
 
 <div>
 
-## Toastmasters in a Nutshell
+### Toastmasters in a Nutshell
 
 \*For people who hear about Toastmasters for the first time.\*\* This is a place to practice your public speaking skills. Each meeting, which typically lasts for 90 minutes, has a structure:
 
@@ -98,7 +98,7 @@ Toastmasters are more organized and formal compared to many speaking clubs. Many
 
 [^2]: A necessary condition without which something is not possible \[from Latin\]
 
-# Data
+## Data
 
 Like a famished mouse looking for breadcrumbs under the baker's table, the author was open-sourcing these reports from Telegram `r fa("telegram", fill = "steelblue")`, Facebook `r fa("facebook", fill = "steelblue")`, some were written by author himself and other were transcribed from videos of the meetings.
 
@@ -412,11 +412,11 @@ combined_plots1
 
 Surprising? Either way, it is peculiar how these times fall into one of natures patterns! One can also notice that there is a [fat?](https://en.wikipedia.org/wiki/Fat-tailed_distribution) right-tail - outliers.
 
-# Analysis
+## Analysis
 
 In this part we are going to try and answer some of the hardest philosophical questions, most pertinent questions! Starting with...
 
-## Who likes to talk more, women or men?
+### Who likes to talk more, women or men?
 
 ```{r}
 ggplot() +
@@ -468,7 +468,7 @@ Women actually speak a little less than men. However we cannot say that women AC
 
 Strangely enough, if the proportion of men in TT session increases - then TT session will be be shorter. Also, having more men speak during TT session is associated with lower TT times.
 
-## Do we speak longer online?
+### Do we speak longer online?
 
 In-person conversations/presentation have you deal with people - you see/hear/feel/smell them every second of your speech. There are so many signals communicated non-verbally that we don't even notice them. During in-person meetings when you take too long to finish people start fidgeting, yawning, looking away, and you know you don't want to make them uncomfortable so you quickly wrap up your speech. Online you deal with avatars, the only means of communication with them (your audience) is by observing their reaction. Perhaps this makes you go overtime more often than you would've had you given a particular speech in person. We test this below:
 
@@ -574,7 +574,7 @@ stargazer(mod_q3, mod_q31,
 ```
 :::
 
-## Are there differences on the club level?
+### Are there differences on the club level?
 
 Further exploring the data, we look at whether some of the differences can be explained by looking at distributions on club levels.
 
@@ -662,7 +662,7 @@ Individual times don't seem to vary that much across clubs, however KOMA (Ukrain
 :::
 :::
 
-# How to win at TT?
+## How to win at TT?
 
 In this last section we will find out what it takes to win TT session!
 
@@ -715,7 +715,7 @@ check_question(c("Being on time"), options = c("Eye contact", "Being on time", "
 
 -   [Bonus: how to name your baby so it wins TT](#heading4)
 
-## Hypothesis 1: {#heading1}
+### Hypothesis 1: {#heading1}
 
 **The last speaker has a higher probability of winning TT**
 
@@ -781,7 +781,7 @@ Waiting and speaking later during TT session does indeed increases the probabili
 
 This is a great news, because you can't expect to win by just waiting and giving a speech at the end of TT session. There a lot that goes into giving a great speech and a lot more into winning, but speaker order doesn't seem to be it. But one thing is clear as day here - the only people who don't win are those that don't try!
 
-## Hypothesis 2: {#heading2}
+### Hypothesis 2: {#heading2}
 
 **The longer the speech the less likely is winning**
 
@@ -872,7 +872,7 @@ Think about how this finding plays out in your life.
 
 When you have someones attention you have to be mindful of time. You are not given their attention indefinitely, you have to use this opportunity exhaustively making every second count. Speak fast and blurt out your thought and they will not understand it fully. Speak too much and they switch off and feel like you can't properly articulate your thoughts. You have to finish by the time they lose focus!
 
-## Bonus: {#heading4}
+### Bonus: {#heading4}
 
 **How to name your baby so that it has a higher chances of winning?**
 
@@ -940,7 +940,7 @@ If your name is not Alex or Andrew, than maybe it is not for you. Go apply yours
 
 [^8]: FYI, this is a joke and not meant to be taken seriously.
 
-# Conclusions
+## Conclusions
 
 -   Time does affect the effectiveness of one's speech. In situations where going overtime isn't punished, you better take as much time as possible. If you have time, use it.
 
