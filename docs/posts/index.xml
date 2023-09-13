@@ -26,22 +26,12 @@
   --panel-tab-inactive-opacity: 0.9; -->
   --panel-tab-font-family: Roboto, Menlo, Consolas, Monaco, Liberation Mono, Lucida Console, monospace;\ -->
 } -->
-
-h1 {
-  font-family: 'Georgia', serif;
-  font-size: 36px;
-  font-weight: bold;
-  color: #2c3e50;
-  padding-bottom: 10px;
-  margin-bottom: 20px;
-  text-align: center;
-}
 </style>
 </div>
 <div class="cell">
 
 </div>
-<section id="introduction" class="level1 page-columns page-full"><h1>Introduction</h1>
+<section id="introduction" class="level2 page-columns page-full"><h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
 <p>“How I wish they would just shut up.”</p>
 <p>Whether you are on a date, work meeting or family gathering, you can’t help but sigh when someone takes too long to articulate their thought. You’ve already understood the main point of whatever that it is that they are trying to say, but you wait, let them finish - we need to show respect. After a certain threshold you can hear teeth grinding, eyes rolling, feet shuffling, fingers fidgeting and omnipresent yawning. You don’t listen anymore, words fail to register flowing in and out of your head. All the while, the speaker (that someone) is oblivious to the damage he inflicts to others!</p>
 <p>Now this is an extreme case of bad communication of which we have all been the victim and the perpetrator. Good (effective) communication requires time to be taken into consideration. One doesn’t have to talk for too long nor too short, but enough. When is enough? How to know how much one has to speak to deliver the message effectively? Also, what does effectiveness mean in the context of communication? Effectiveness in the military, for example, is about short and clear exchanges: “Roger that!”, “Copy that!”, “Tango down”, “Enemy 12 o’clock” - its goal is to deliver information that can be acted upon immediately. For academics effective communication is about articulating hard science in such a way a 5 year old can understand. Depending on the context effectiveness means different things: getting away with a lie, convincing someone to partner up, getting a “yes”, accurately giving a portrait of a criminal to the police.</p>
@@ -55,7 +45,7 @@ h1 {
 </ul>
 <p>The following research looks at the data gathered during Toastmasters meetings and looks at how time of the speech is associated with speeches’ effectiveness (winning) and a slew of other interesting hypotheses.</p>
 <p><img src="https://vyudenko.github.io/posts/toastmasters-time/images/ua_clubs.png" class="img-fluid"></p>
-<section id="toastmasters-in-a-nutshell" class="level2 page-columns page-full"><h2 class="anchored" data-anchor-id="toastmasters-in-a-nutshell">Toastmasters in a Nutshell</h2>
+<section id="toastmasters-in-a-nutshell" class="level3 page-columns page-full"><h3 class="anchored" data-anchor-id="toastmasters-in-a-nutshell">Toastmasters in a Nutshell</h3>
 <p>*For people who hear about Toastmasters for the first time.** This is a place to practice your public speaking skills. Each meeting, which typically lasts for 90 minutes, has a structure:</p>
 <ol type="1">
 <li><p><strong>Prepared speeches session:</strong> usually 5-7 mins long given by Club members;</p></li>
@@ -63,10 +53,10 @@ h1 {
 <li><p><strong>Evaluation session:</strong> everyone who came on stage during previous sessions is given feedback on how well they did.</p></li>
 </ol>
 <div class="page-columns page-full"><p>Toastmasters are more organized and formal compared to many speaking clubs. Many of its members are <a href="https://www.toastmasters.org/resources/statistics-and-data-hub">middle-aged with higher education</a>. These people value their time and that is why among the evaluators there is a Timer (Ta-da!). Timer’s responsibility is to keep track of time and show colored signs to a speaker. Without going into much detail, <span style="color:green"><em>green</em></span> is an early warning, <span style="color:yellow"><em>yellow</em></span> - soon the time will be up, <span style="color:red"><em>red</em></span> - time is up, finish your speech. Timer also tracks the time of each speaker and presents the Timer Report - sine qua non<sup>2</sup> of this article.</p><div class="no-row-height column-margin column-container"><li id="fn2"><p><sup>2</sup>&nbsp;A necessary condition without which something is not possible [from Latin]</p></li></div></div>
-</section></section><section id="data" class="level1 page-columns page-full"><h1>Data</h1>
+</section></section><section id="data" class="level2 page-columns page-full"><h2 class="anchored" data-anchor-id="data">Data</h2>
 <p>Like a famished mouse looking for breadcrumbs under the baker’s table, the author was open-sourcing these reports from Telegram , Facebook , some were written by author himself and other were transcribed from videos of the meetings.</p>
 <div class="page-columns page-full"><p>Most of the data was collected from Ukrainian TMCs: Chamber<sup>3</sup>, Arttalkers, Changemakers, Dniprohills, KOMA (UA-speaking) and Svoya Sorochka (UA-speaking). There are some reports from Japanese and Polish TMCs, but we will not be focusing on them.</p><div class="no-row-height column-margin column-container"><li id="fn3"><p><sup>3</sup>&nbsp;Special thanks goes to Chamber and their Timer reports, without them this project would’ve taken much-much longer.</p></li></div></div>
-<section id="note-on-timer-reports" class="level2 page-columns page-full"><h2 class="anchored" data-anchor-id="note-on-timer-reports">Note on Timer reports</h2>
+</section><section id="note-on-timer-reports" class="level2 page-columns page-full"><h2 class="anchored" data-anchor-id="note-on-timer-reports">Note on Timer reports</h2>
 <p>Timer tracks everyone’s time, as can be seen on the reports. Here we will be only looking at Table Topics <strong>(TT)</strong> session times. Reports usually have the following information useful for our analysis:</p>
 <ol type="1">
 <li>Speaker Name</li>
@@ -224,9 +214,9 @@ Answer
 </div>
 </div>
 <p>Surprising? Either way, it is peculiar how these times fall into one of natures patterns! One can also notice that there is a <a href="https://en.wikipedia.org/wiki/Fat-tailed_distribution">fat?</a> right-tail - outliers.</p>
-</section><section id="analysis" class="level1 page-columns page-full"><h1>Analysis</h1>
+<section id="analysis" class="level2 page-columns page-full"><h2 class="anchored" data-anchor-id="analysis">Analysis</h2>
 <p>In this part we are going to try and answer some of the hardest philosophical questions, most pertinent questions! Starting with…</p>
-<section id="who-likes-to-talk-more-women-or-men" class="level2 page-columns page-full"><h2 class="anchored" data-anchor-id="who-likes-to-talk-more-women-or-men">Who likes to talk more, women or men?</h2>
+<section id="who-likes-to-talk-more-women-or-men" class="level3 page-columns page-full"><h3 class="anchored" data-anchor-id="who-likes-to-talk-more-women-or-men">Who likes to talk more, women or men?</h3>
 <div class="cell">
 <div class="cell-output-display">
 <p><img src="https://vyudenko.github.io/posts/toastmasters-time/index_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid" width="672"></p>
@@ -271,7 +261,7 @@ Notes:               ***Significant at the 1 percent level.
 <p>The answer? The difference is not significant! The distributions closely resemble each other. <em>Women don’t speak longer than men!</em></p>
 <div class="page-columns page-full"><p>Women actually speak a little less than men. However we cannot say that women ACTUALLY talk less! In the current study we only observe time taken to speak, however within these 2 minutes on stage, they might talk more (on average) than men. There seem to be report that women communicate ideas differently and <a href="https://www.imd.org/research-knowledge/leadership/articles/women-talk-too-much-simply-isnt-true-data-show/">use more words</a> like ah/uh/m-m-m/you know/so/like<sup>7</sup>.</p><div class="no-row-height column-margin column-container"><li id="fn7"><p><sup>7</sup>&nbsp;Foreshadowing a future ah-counter perspective on winning TT?!</p></li></div></div>
 <p>Strangely enough, if the proportion of men in TT session increases - then TT session will be be shorter. Also, having more men speak during TT session is associated with lower TT times.</p>
-</section><section id="do-we-speak-longer-online" class="level2"><h2 class="anchored" data-anchor-id="do-we-speak-longer-online">Do we speak longer online?</h2>
+</section><section id="do-we-speak-longer-online" class="level3"><h3 class="anchored" data-anchor-id="do-we-speak-longer-online">Do we speak longer online?</h3>
 <p>In-person conversations/presentation have you deal with people - you see/hear/feel/smell them every second of your speech. There are so many signals communicated non-verbally that we don’t even notice them. During in-person meetings when you take too long to finish people start fidgeting, yawning, looking away, and you know you don’t want to make them uncomfortable so you quickly wrap up your speech. Online you deal with avatars, the only means of communication with them (your audience) is by observing their reaction. Perhaps this makes you go overtime more often than you would’ve had you given a particular speech in person. We test this below:</p>
 <div class="cell">
 <div class="cell-output-display">
@@ -376,7 +366,7 @@ Notes:       ***Significant at the 1 percent level.
 </div>
 </div>
 </div>
-</section><section id="are-there-differences-on-the-club-level" class="level2"><h2 class="anchored" data-anchor-id="are-there-differences-on-the-club-level">Are there differences on the club level?</h2>
+</section><section id="are-there-differences-on-the-club-level" class="level3"><h3 class="anchored" data-anchor-id="are-there-differences-on-the-club-level">Are there differences on the club level?</h3>
 <p>Further exploring the data, we look at whether some of the differences can be explained by looking at distributions on club levels.</p>
 <div class="panelset">
 <div class="panel">
@@ -405,7 +395,7 @@ Notes:       ***Significant at the 1 percent level.
 <p>Individual times don’t seem to vary that much across clubs, however KOMA (Ukrainian-speaking club) is an exception. The mean of their speakers’ Time is higher and variance is even higher. As for distribution of gender of participants one can see the clubs that have more women or men participating. This part could be improved with more data.</p>
 </div>
 </div>
-</section></section><section id="how-to-win-at-tt" class="level1 page-columns page-full"><h1>How to win at TT?</h1>
+</section></section><section id="how-to-win-at-tt" class="level2 page-columns page-full"><h2 class="anchored" data-anchor-id="how-to-win-at-tt">How to win at TT?</h2>
 <p>In this last section we will find out what it takes to win TT session!</p>
 <p>First of all, what doesn’t it mean “to win”? Winning means - majority voted for you and not someone else. Win can be attributed to 2 types of factors: internal and external. Internal factors can be broken down into articulation and story. Articulation is how well you communicate your idea/story: your vocal variety, vocal clarity, hand gestures, eye contact, stage movement, being timely, overall appearance, among other. Story has to do with your message to the audience. How clear is it, does it evoke emotion or make one think? Is there a flow to the speech, is it easy to follow?</p>
 <p>External factors can also be broken down into 2 categories: perception and environment. Perception is how your message is understood by the audience. This has to do with who those people are, what they find funny, what have they eaten before the meetings etc. Environment is the place where you give a speech. Zoom, in person, microphone quality, distance to the audience, acoustics…</p>
@@ -439,7 +429,7 @@ What do you think plays the biggest role in winning TT?
 <li><p>The longer the speech the less likely is winning;</p></li>
 <li><p>Bonus: how to name your baby so it wins TT</p></li>
 </ul>
-<section id="heading1" class="level2"><h2 class="anchored" data-anchor-id="heading1">Hypothesis 1:</h2>
+<section id="heading1" class="level3"><h3 class="anchored" data-anchor-id="heading1">Hypothesis 1:</h3>
 <p><strong>The last speaker has a higher probability of winning TT</strong></p>
 <div class="cell">
 <div class="cell-output-display">
@@ -483,7 +473,7 @@ Notes:            ***Significant at the 1 percent level.
 </div>
 <p>Waiting and speaking later during TT session does indeed increases the probability of winning by a whopping 0.9%!</p>
 <p>This is a great news, because you can’t expect to win by just waiting and giving a speech at the end of TT session. There a lot that goes into giving a great speech and a lot more into winning, but speaker order doesn’t seem to be it. But one thing is clear as day here - the only people who don’t win are those that don’t try!</p>
-</section><section id="heading2" class="level2"><h2 class="anchored" data-anchor-id="heading2">Hypothesis 2:</h2>
+</section><section id="heading2" class="level3"><h3 class="anchored" data-anchor-id="heading2">Hypothesis 2:</h3>
 <p><strong>The longer the speech the less likely is winning</strong></p>
 <div class="cell">
 <div class="cell-output-display">
@@ -536,7 +526,7 @@ Notes:            ***Significant at the 1 percent level.
 <p>Regardless of outliers, model is statistically significant. Interestingly, that probability of winning TT is increasing with every second (!) removing outliers (150 seconds or higher) doesn’t change the probability. Conclusion: you want to speak for as long as and not a second more! Otherwise you’ll be disqualified.</p>
 <p>Think about how this finding plays out in your life.</p>
 <p>When you have someones attention you have to be mindful of time. You are not given their attention indefinitely, you have to use this opportunity exhaustively making every second count. Speak fast and blurt out your thought and they will not understand it fully. Speak too much and they switch off and feel like you can’t properly articulate your thoughts. You have to finish by the time they lose focus!</p>
-</section><section id="heading4" class="level2 page-columns page-full"><h2 class="anchored" data-anchor-id="heading4">Bonus:</h2>
+</section><section id="heading4" class="level3 page-columns page-full"><h3 class="anchored" data-anchor-id="heading4">Bonus:</h3>
 <p><strong>How to name your baby so that it has a higher chances of winning?</strong></p>
 <div class="cell">
 
@@ -601,7 +591,7 @@ Notes:            ***Significant at the 1 percent level.
 <blockquote class="blockquote page-columns page-full">
 <div class="page-columns page-full"><p>“Consider naming your baby Alex or Andrew - this will set them up for good life” - Vadym Yudenko<sup>8</sup></p><div class="no-row-height column-margin column-container"><li id="fn8"><p><sup>8</sup>&nbsp;FYI, this is a joke and not meant to be taken seriously.</p></li></div></div>
 </blockquote>
-</section></section><section id="conclusions" class="level1"><h1>Conclusions</h1>
+</section></section><section id="conclusions" class="level2"><h2 class="anchored" data-anchor-id="conclusions">Conclusions</h2>
 <ul>
 <li><p>Time does affect the effectiveness of one’s speech. In situations where going overtime isn’t punished, you better take as much time as possible. If you have time, use it.</p></li>
 <li><p>You cannot cheat others by choosing to speak in any specific order. On average you are just as likely to win speaking first as speaking last.</p></li>
