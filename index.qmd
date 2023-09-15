@@ -44,22 +44,13 @@ div.quarto-post .thumbnail {
 }
 ```
 
-
 ![](kotori.png){fig-align="center" width="250"}
 
 ::: {style="text-align: center"}
-<span style="font-size: 36px; font-style: bold; color: black; font-family: Garamond;">
-<strong>Vadym Yudenko</strong>
-</span>
-<br> 
-<br>
-I'm a Junior Researcher at the Institute for Behavioral Studies at [American University Kyiv](https://auk.edu.ua/en/) and a MSc student at [KSE](https://kse.ua/). <br> My research focuses on how war experiences impact decision-making, particularly regarding forced relocation, financial wellbeing, and perception of safety.
+[ <strong>Vadym Yudenko</strong> ]{style="font-size: 36px; font-style: bold; color: black; font-family: Garamond;"} <br> <br> I'm a Junior Researcher at the Institute for Behavioral Studies at [American University Kyiv](https://auk.edu.ua/en/) and a MSc student at [KSE](https://kse.ua/). <br> My research focuses on how war experiences impact decision-making, particularly regarding forced relocation, financial wellbeing, and perception of safety.
 
-Trying to explain the world with data!
-<br> 
-<br>
+Trying to explain the world with data! <br> <br>
 :::
 
 ::: {#front-list}
 :::
-

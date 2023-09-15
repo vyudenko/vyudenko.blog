@@ -1,0 +1,35 @@
+---
+title: "Bird repo"
+description: |
+ A ot of birds stuff
+author: 
+ - name: Vadym Yudenko
+   affiliation: American University Kyiv
+   affiliation-url: https://auk.edu.ua/en/
+citation: true
+date: 2023-08-04
+draft: true
+categories:
+  - birds
+---
+
+
+
+## Rituals
+
+Magpie Death Ritual
+
+https://youtu.be/60Zg9sGnQf8?si=LQIG-M3xFDdXkkil
+
+
+
+
+
+
+
+
+
+
+
+
+https://feederwatch.org/explore/raw-dataset-requests/
