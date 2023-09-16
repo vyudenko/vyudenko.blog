@@ -78,7 +78,7 @@ Measuring effectiveness of communication is not a straightforward task. In this 
 
 The following research looks at the data gathered during Toastmasters meetings and looks at how time of the speech is associated with speeches' effectiveness (winning) and a slew of other interesting hypotheses.
 
-![](images/ua_clubs.png)
+![](images/ua_clubs.png){width="720"}
 
 <div>
 
@@ -130,7 +130,7 @@ But without these crazy reports, I wouldn't have went through with this article.
 ::: panel
 [1]{.panel-name}
 
-![](images/1.jpg)
+![](images/1.jpg){width="720"}
 :::
 
 ::: panel
@@ -148,7 +148,7 @@ But without these crazy reports, I wouldn't have went through with this article.
 ::: panel
 [4]{.panel-name}
 
-![](images/4.jpg)
+![](images/4.jpg){width="720"}
 :::
 
 ::: panel
@@ -160,7 +160,7 @@ But without these crazy reports, I wouldn't have went through with this article.
 ::: panel
 [6]{.panel-name}
 
-![](images/6.jpg)
+![](images/6.jpg){width="720"}
 :::
 
 ::: panel
@@ -178,31 +178,31 @@ But without these crazy reports, I wouldn't have went through with this article.
 ::: panel
 [9]{.panel-name}
 
-![](images/9.jpg)
+![](images/9.jpg){width="720"}
 :::
 
 ::: panel
 [10]{.panel-name}
 
-![](images/10.jpg)
+![](images/10.jpg){width="720"}
 :::
 
 ::: panel
 [11]{.panel-name}
 
-![](images/11.jpg)
+![](images/11.jpg){width="720"}
 :::
 
 ::: panel
 [12]{.panel-name}
 
-![](images/12.jpg)
+![](images/12.jpg){width="720"}
 :::
 
 ::: panel
 [13]{.panel-name}
 
-![](images/13.jpg)
+![](images/13.jpg){width="500"}
 :::
 :::
 

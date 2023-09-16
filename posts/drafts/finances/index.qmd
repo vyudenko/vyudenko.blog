@@ -87,4 +87,3 @@ category_sum <- data %>%
 # Plot
 #pie(category_sum$Total, labels = category_sum$Category, main = "Proportion of Categories in Budget")
 ```
-
