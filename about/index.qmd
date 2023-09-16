@@ -16,47 +16,27 @@ about:
       href: https://drive.google.com/file/d/1_m219XQMiiki18tZxKOvl1ICCw9h1jRe/view?usp=sharing
 ---
 
-:::{.column-body-outset}
+::: column-body-outset
+## Experience
 
-# Experience
-
-<table style="width:100%;">
-  <tr>
-    <th style="width:10%;"></th>
-    <th style="width:40%;"></th>
-    <th style="width:25%;"></th>
-    <th style="width:25%;"></th>
-  </tr>
-  <tr>
-    <td><img src="auk_logo.svg" alt="AUK Logo" style="width:75px;"></td>
-    <td><a href="https://auk.edu.ua/en/">Institute of Behavioral Studies at American University Kyiv</a></td>
-    <td>Junior Researcher</td>
-    <td>Aug 2023 - present</td>
-  </tr>
-</table>
-
++-------------------------------------------+---------------------------------------------------------------------------------------+-------------------+--------------------+
+|                                           |                                                                                       |                   |                    |
++===========================================+=======================================================================================+===================+====================+
+| ![AUK Logo](auk_logo.svg){alt="AUK Logo"} | [Institute of Behavioral Studies at American University Kyiv](https://auk.edu.ua/en/) | Junior Researcher | Aug 2023 - present |
++-------------------------------------------+---------------------------------------------------------------------------------------+-------------------+--------------------+
 
 ::: {.callout-tip title="AUK projects" collapse="true" icon="false" style="text-align: left;"}
 -   Evaluating [USAID AGRO](https://www.usaid.gov/ukraine/agriculture-resilience-initiative-agri-ukraine) programmes success from a behavioral perspective *(work in progress)*
 -   Measuring the effects of mental health issues on productivity of workers *(work in progress)*
 :::
 
-# Education
+## Education
 
-<table style="width:100%;">
-  <tr>
-    <th style="width:10%;"></th>
-    <th style="width:40%;"></th>
-    <th style="width:25%;"></th>
-    <th style="width:25%;"></th>
-  </tr>
-  <tr>
-    <td><img src="kse_logo.jpg" alt="KSE Logo" style="width:75px;"></td>
-    <td><a href="https://kse.ua/">Kyiv School of Economics</a></td>
-    <td>MSc of Economics</td>
-    <td>Sep 2022 - Jan 2024</td>
-  </tr>
-</table>
++-------------------------------------------+---------------------------------------------+------------------+---------------------+
+|                                           |                                             |                  |                     |
++===========================================+=============================================+==================+=====================+
+| ![KSE Logo](kse_logo.jpg){alt="KSE Logo"} | [Kyiv School of Economics](https://kse.ua/) | MSc of Economics | Sep 2022 - Jan 2024 |
++-------------------------------------------+---------------------------------------------+------------------+---------------------+
 
 ::: {.callout-tip title="KSE" collapse="true" icon="false" style="text-align: left;"}
 **Courses:**
@@ -81,51 +61,23 @@ about:
     -   Used machine learning algorithms to predict regional GDP of Ukraine Economics
 :::
 
-<table style="width:100%;">
-  <tr>
-    <th style="width:10%;"></th>
-    <th style="width:40%;"></th>
-    <th style="width:25%;"></th>
-    <th style="width:25%;"></th>
-  </tr>
-  <tr>
-    <td><img src="kneu_logo.png" alt="KNEU Logo" style="width:75px;"></td>
-    <td><a href="https://kneu.edu.ua/en/">Kyiv National Economics University</a></td>
-    <td>BSc of Business and Management</td>
-    <td>Sep 2018 - Jun 2022</td>
-  </tr>
-</table>
-
++----------------------------------------------+---------------------------------------------------------------+--------------------------------+---------------------+
+|                                              |                                                               |                                |                     |
++==============================================+===============================================================+================================+=====================+
+| ![KNEU Logo](kneu_logo.png){alt="KNEU Logo"} | [Kyiv National Economics University](https://kneu.edu.ua/en/) | BSc of Business and Management | Sep 2018 - Jun 2022 |
++----------------------------------------------+---------------------------------------------------------------+--------------------------------+---------------------+
 
 ::: {.callout-tip title="KNEU" collapse="true" icon="false" style="text-align: left;"}
 Was doing something important :)
 :::
 
-
-
-# Inspiration
+## Inspiration
 
 This blog would have never been developed if not for the active community of Quarto-website aficionados, whose open-source websites helped me build one myself. If you're looking for inspiration, ideas for your website check out these awesome pages!
 
 ::: {.callout-warning title="Blogs" collapse="true" icon="false" style="text-align: left;"}
-
-::::{style="text-align: center"}
-
-[Kazuharu Yanagimoto](https://kazuyanagimoto.com/) <br>
-[Westchester Covid-19 Tracking by Matt Herman](https://westchester-covid.mattherman.info/) <br>
-[Mickaël CANOUIL](https://mickael.canouil.fr/) <br>
-[Marvin Schmitt](https://www.marvinschmitt.com/) <br>
-[Danielle Navarro](https://djnavarro.net/) <br>
-[Taras Kaduk](https://taraskaduk.com/) <br>
-[werk.statt.codes](https://werk.statt.codes/) <br>
-[Gwern Branwen](https://gwern.net/index) <br>
-[crumplab](https://www.crumplab.com/) <br>
-[Andrew Heiss](https://www.andrewheiss.com/) <br>
-[Emil Hvitfeldt](https://www.emilhvitfeldt.com/) <br>
-[Albert Rapp](https://albert-rapp.de/) <br>
-
-::::
-
+::: {style="text-align: center"}
+[Kazuharu Yanagimoto](https://kazuyanagimoto.com/) <br> [Westchester Covid-19 Tracking by Matt Herman](https://westchester-covid.mattherman.info/) <br> [Mickaël CANOUIL](https://mickael.canouil.fr/) <br> [Marvin Schmitt](https://www.marvinschmitt.com/) <br> [Danielle Navarro](https://djnavarro.net/) <br> [Taras Kaduk](https://taraskaduk.com/) <br> [werk.statt.codes](https://werk.statt.codes/) <br> [Gwern Branwen](https://gwern.net/index) <br> [crumplab](https://www.crumplab.com/) <br> [Andrew Heiss](https://www.andrewheiss.com/) <br> [Emil Hvitfeldt](https://www.emilhvitfeldt.com/) <br> [Albert Rapp](https://albert-rapp.de/) <br>
 :::
-
+:::
 :::

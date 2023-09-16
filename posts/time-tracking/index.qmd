@@ -20,16 +20,6 @@ knitr::opts_chunk$set(echo = FALSE, warning = FALSE, message = FALSE)
 ```
 
 ```{css, echo=FALSE}
-<!-- h2 { -->
-<!--   font-family: 'Georgia', serif; -->
-<!--   font-size: 36px; -->
-<!--   font-weight: bold; -->
-<!--   color: #2c3e50; -->
-<!--   padding-bottom: 10px; -->
-<!--   margin-bottom: 20px; -->
-<!--   text-align: center; -->
-<!-- } -->
-
 .dygraphs.html-widget.html-fill-item.overflow-hidden {
     overflow: hidden !important;       /* This will hide both horizontal and vertical scrollbars */
     overflow-y: hidden !important;    /* This specifically hides the vertical scrollbar */
@@ -145,7 +135,6 @@ blog_theme <-
 theme_set(blog_theme)
 ```
 
-
 ## 2020 {#main_plot}
 
 ::: column-screen
@@ -245,7 +234,7 @@ Now that you've overcome an initial amazement, it is about time you ask yourself
 Why?
 :::
 
-There is a short and [not-so-short] answer.
+There is a short and \[not-so-short\] answer.
 
 **Short answer is:**
 
@@ -912,8 +901,7 @@ It can provide hints like having a routine, sleeping 7-8 hours a day, eating 3 m
 On its own a single cell in the middle of your day tells nothing, but if you look at the pattern or lack thereof, you can see which areas of your life you might want to look into.
 
 ::: {.callout-tip title="Check this out" collapse="true" icon="false" style="text-align: center;"}
-[Life timeline in a spreadsheet](https://flowingdata.com/2023/06/15/life-timeline-in-a-spreadsheet/) <br>
-[Ze Frank on Counting Jellybeans](https://youtu.be/BOksW_NabEk)
+[Life timeline in a spreadsheet](https://flowingdata.com/2023/06/15/life-timeline-in-a-spreadsheet/) <br> [Ze Frank on Counting Jellybeans](https://youtu.be/BOksW_NabEk)
 :::
 
 ```{r graveyard, echo=FALSE}

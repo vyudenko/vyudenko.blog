@@ -1,0 +1,90 @@
+---
+title: "Finances"
+author: 
+ - name: Vadym Yudenko
+   affiliation: American University Kyiv
+   affiliation-url: https://auk.edu.ua/en/
+date: 2023-07-14
+draft: true 
+categories:
+  - money
+  - budget
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, warning = FALSE, message = FALSE)
+```
+
+```{r load libraries}
+library(stargazer)
+library(tidyverse)
+library(ggExtra)
+library(ggtext)
+library(ggthemes)
+library(gganimate)
+library(extrafont)
+library(grid)
+library(transformr)
+library(corrr)
+library(corrplot)
+library(lubridate)
+library(reshape2)
+library(plotly)
+library(scales)
+library(ggiraph)
+library(glue)
+library(knitr)
+library(fontawesome)
+library(RColorBrewer)
+library(DT)
+```
+
+```{r set theme}
+blog_theme <-
+   theme_minimal(18, base_family = "IBM Plex Mono") +
+   theme(
+     plot.background = element_rect(fill = "white", color = NA),
+     plot.title.position = "plot",
+     plot.title = element_text(size = 24, margin = margin(b = 1, unit = "line")),
+     legend.position = c(0, 1),
+     legend.direction = "horizontal",
+     legend.justification = c(0, 1),
+     legend.title.align = 1,
+     axis.title.y = element_text(hjust = 0),
+     axis.title.x = element_text(hjust = 0),
+     panel.grid.major = element_line(color = "#d3d9db"),
+     panel.grid.minor = element_blank()
+   )
+ 
+theme_set(blog_theme)
+```
+
+```{r}
+# Read the CSV data
+data <- read.csv("Money.csv", stringsAsFactors = FALSE)
+
+# Convert Date and Time columns to a single datetime column
+data$Datetime <- as.POSIXct(paste(data$Date, data$Time), format="%d.%m.%Y %H:%M")
+
+# Convert "Total Sum" and "Transaction sum" from character to numerical
+data$Total.Sum <- gsub(" ", "", data$Total.Sum) %>% as.numeric()
+data$Transaction <- gsub(" ", "", data$Transaction) %>%  as.numeric()
+
+
+# Time series plot for Total Sum after transaction over time
+ggplot(data, aes(x = Datetime, y = Transaction)) +
+  geom_line() +
+  labs(title = "Time Series Plot of Total Sum", x = "Date", y = "Total Sum after Transaction") +
+  theme_minimal()
+
+range(data$Datetime)
+
+# Pie chart for categories
+category_sum <- data %>%
+  group_by(Category) %>%
+  summarise(Total = sum(Transaction))
+
+# Plot
+#pie(category_sum$Total, labels = category_sum$Category, main = "Proportion of Categories in Budget")
+```
+
