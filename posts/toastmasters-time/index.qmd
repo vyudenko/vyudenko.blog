@@ -1,36 +1,26 @@
 ---
-title: "How to win at Table Topics. A timer's perspective"
+title: "All the time in the world..."
 description: |
- Is being on time important for effective communication?
+ Measuring the effect time has on delivering a great speech using data from Toastmasters
 author: 
  - name: Vadym Yudenko
    affiliation: American University Kyiv
    affiliation-url: https://auk.edu.ua/en/
 citation: true
 date: 2023-08-04
+date-modified: 2023-11-06
 format: html
 editor: visual
 categories:
   - Toastmasters
-  - Logit
   - Time
   - Public Speaking
+  - Analysis
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = FALSE, warning = FALSE, message = FALSE)
+knitr::opts_chunk$set(echo = FALSE, warning = FALSE, message = FALSE, fig.showtext=TRUE)
 xaringanExtra::use_panelset()
-```
-
-```{css echo=FALSE}
-.panelset { -->
---panel-tab-foreground: currentColor; -->
-  --panel-tab-active-foreground: #0051BA; -->
-  --panel-tab-hover-foreground: #d22; -->
-  --panel-tabs-border-bottom: #black; -->
-  --panel-tab-inactive-opacity: 0.9; -->
-  --panel-tab-font-family: Roboto, Menlo, Consolas, Monaco, Liberation Mono, Lucida Console, monospace;\ -->
-} -->
 ```
 
 ```{r}
@@ -44,6 +34,8 @@ library(stargazer)
 library(plotly)
 library(ggridges)
 library(ggtext)
+library(showtext)
+library(gghighlight)
 library(viridis)
 library(patchwork)
 library(knitr)
@@ -52,169 +44,10 @@ library(lmtest)
 library(xaringanExtra)
 library(fontawesome)
 library(DT)
+
+font_add_google("Fira Sans", "firasans")
+showtext::showtext_auto()
 ```
-
-## Introduction
-
-"How I wish they would just shut up."
-
-Whether you are on a date, work meeting or family gathering, you can't help but sigh when someone takes too long to articulate their thought. You've already understood the main point of whatever that it is that they are trying to say, but you wait, let them finish - we need to show respect. After a certain threshold you can hear teeth grinding, eyes rolling, feet shuffling, fingers fidgeting and omnipresent yawning. You don't listen anymore, words fail to register flowing in and out of your head. All the while, the speaker (that someone) is oblivious to the damage he inflicts to others!
-
-Now this is an extreme case of bad communication of which we have all been the victim and the perpetrator. Good (effective) communication requires time to be taken into consideration. One doesn't have to talk for too long nor too short, but enough. When is enough? How to know how much one has to speak to deliver the message effectively? Also, what does effectiveness mean in the context of communication? Effectiveness in the military, for example, is about short and clear exchanges: "Roger that!", "Copy that!", "Tango down", "Enemy 12 o'clock" - its goal is to deliver information that can be acted upon immediately. For academics effective communication is about articulating hard science in such a way a 5 year old can understand. Depending on the context effectiveness means different things: getting away with a lie, convincing someone to partner up, getting a "yes", accurately giving a portrait of a criminal to the police.
-
-Coming back to the example above, there are many things that might make us think someone would just shut up. Being overtime is one of them. I once heard a speech that took too long, the speaker kept repeating the same things over and over again. Later, to my surprise, the speech was voted as the best by meeting attendees - turns out the story was relatable and majority liked it. Others were okay listening much longer, while I was sent to a different dimension by the speech. This situation got me thinking just how important is the time in communication?[^1]
-
-[^1]: No doubt it is, but **"can we quantify it?"** is the main question of this research.
-
-Measuring effectiveness of communication is not a straightforward task. In this article we study it via proxy with data from Toastmasters International, whose meetings have an impromptu session, where each participant is given 2 minutes to give a speech. After the last participant has concluded, everyone votes for the best speaker. Winning indicates an effective (good) speech, as it has achieved at least one of the following:
-
--   was better than others;
-
--   communicated idea clearly;
-
--   was memorable or relatable;
-
--   happened (!)
-
-The following research looks at the data gathered during Toastmasters meetings and looks at how time of the speech is associated with speeches' effectiveness (winning) and a slew of other interesting hypotheses.
-
-![](images/ua_clubs.png){width="720"}
-
-<div>
-
-### Toastmasters in a Nutshell
-
-\*For people who hear about Toastmasters for the first time.\*\* This is a place to practice your public speaking skills. Each meeting, which typically lasts for 90 minutes, has a structure:
-
-1.  **Prepared speeches session:** usually 5-7 mins long given by Club members;
-
-2.  **Table Topics (TT)** **session:** 2 mins impromptu speeches (everyone can participate), one can volunteer to answer a question or will be chosen by a toastmaster;
-
-3.  **Evaluation session:** everyone who came on stage during previous sessions is given feedback on how well they did.
-
-Toastmasters are more organized and formal compared to many speaking clubs. Many of its members are [middle-aged with higher education](https://www.toastmasters.org/resources/statistics-and-data-hub). These people value their time and that is why among the evaluators there is a Timer (Ta-da!). Timer's responsibility is to keep track of time and show colored signs to a speaker. Without going into much detail, [*green*]{style="color:green"} is an early warning, [*yellow*]{style="color:yellow"} - soon the time will be up, [*red*]{style="color:red"} - time is up, finish your speech. Timer also tracks the time of each speaker and presents the Timer Report - sine qua non[^2] of this article.
-
-</div>
-
-[^2]: A necessary condition without which something is not possible \[from Latin\]
-
-## Data
-
-Like a famished mouse looking for breadcrumbs under the baker's table, the author was open-sourcing these reports from Telegram `r fa("telegram", fill = "steelblue")`, Facebook `r fa("facebook", fill = "steelblue")`, some were written by author himself and other were transcribed from videos of the meetings.
-
-Most of the data was collected from Ukrainian TMCs: Chamber[^3], Arttalkers, Changemakers, Dniprohills, KOMA (UA-speaking) and Svoya Sorochka (UA-speaking). There are some reports from Japanese and Polish TMCs, but we will not be focusing on them.
-
-[^3]: Special thanks goes to Chamber and their Timer reports, without them this project would've taken much-much longer.
-
-<div>
-
-## Note on Timer reports
-
-Timer tracks everyone's time, as can be seen on the reports. Here we will be only looking at Table Topics **(TT)** session times. Reports usually have the following information useful for our analysis:
-
-1.  Speaker Name
-2.  Speech Time
-3.  Club
-4.  Date
-5.  TT winner[^4]
-
-I have looked at too much timer reports *(see examples by clicking on each Tab).* It is as boring as being a Timer - manual work, under-appreciated and no one really cares. However, I was delighted to come across some very fine reports - a bright spark in otherwise gloom sea of boringness. These people turned a mundane, just-get-it-over-with role and created something worthwhile - a memory. For a lurking, opportunistic Toastmasters anthropologist (author) that is for sure.
-
-But by and large, reports are nothing special. Some people have created a nice Excel sheet to track the time, others write on piece of paper.
-
-I sense that some of you keen readers might have a suspicion that the author is a little crazy - going through hundreds of reports himself! Yes, he is; and while you hold that thought, hear this: some timer went to the trouble of writing down time to milliseconds (!), yet another specimen had written a start time (to milliseconds of course) and end time and subtracted the two to get a total time. Aaaaaaaaaaaaaa! You think I'm crazy?
-
-But without these crazy reports, I wouldn't have went through with this article.
-
-::: panelset
-::: panel
-[1]{.panel-name}
-
-![](images/1.jpg){width="720"}
-:::
-
-::: panel
-[2]{.panel-name}
-
-![](images/2.jpg)
-:::
-
-::: panel
-[3]{.panel-name}
-
-![](images/3.jpg)
-:::
-
-::: panel
-[4]{.panel-name}
-
-![](images/4.jpg){width="720"}
-:::
-
-::: panel
-[5]{.panel-name}
-
-![](images/5.jpg)
-:::
-
-::: panel
-[6]{.panel-name}
-
-![](images/6.jpg){width="720"}
-:::
-
-::: panel
-[7]{.panel-name}
-
-![](images/7.jpg)
-:::
-
-::: panel
-[8]{.panel-name}
-
-![](images/8.jpg)
-:::
-
-::: panel
-[9]{.panel-name}
-
-![](images/9.jpg){width="720"}
-:::
-
-::: panel
-[10]{.panel-name}
-
-![](images/10.jpg){width="720"}
-:::
-
-::: panel
-[11]{.panel-name}
-
-![](images/11.jpg){width="720"}
-:::
-
-::: panel
-[12]{.panel-name}
-
-![](images/12.jpg){width="720"}
-:::
-
-::: panel
-[13]{.panel-name}
-
-![](images/13.jpg){width="500"}
-:::
-:::
-
-</div>
-
-[^4]: There are many reports that don't include TT winner or times of some speakers. Some speaker volunteer two or more times, which complicates analysis.
-
-In total there are 180 unique meetings in the dataset from 2018 till 2022. Some of the meetings were dropped due to NAs in at least one of the columns. Speaking of gender discrimination, there was none present in current dataset, as the number of men and women[^5] is almost equal.
-
-[^5]: The gender of the speaker was assigned post hoc, based on the reports/photos of the meeting, common sense and a little bit of prejudice :)
-
-    In cases where it was impossible to establish the gender of a speaker - the whole meeting was excluded.
 
 ```{r, cache=TRUE}
 data <- read.csv("data.csv")
@@ -236,16 +69,141 @@ data <- data %>%
     tt_prev_speaker = lag(Time, default = 0), # How long has the previous speaker spoken?
     tt_next_speaker = lead(Time, default = 0), # How long has the next speaker spoken?
     tt_next_speaker_change = Time - lag(Time, default = 0), # The difference between speakers
-    speaker_order = row_number() # Order of paricipants
+    speaker_order = row_number() # Order of participants
   ) %>%
   ungroup()
 
 data_models <- data %>% 
   filter(Time < 150) %>% 
   select(2,3,6,7,12:18)
-
-
 ```
+
+## Introduction
+
+Consider time as the invisible thread weaving through the fabric of every conversation, the silent drumbeat to which all effective communication must sync. It's not just about being on time --- though punctuality certainly speaks volumes --- it's also about respecting the rhythm of discourse, whether it's a brief exchange or a lengthy dialogue.
+
+Imagine the different scenarios: a toast at a family gathering, where brevity is laced with warmth; a debate, where each second is a battle for conviction; an elevator pitch, where within a minute, careers could be made or opportunities lost. While these situations differ wildly in content and context, one rule remains universally unchallenged: overrun your allotted time, and your message may fall on deaf ears --- or worse, you might find yourself 'toasted'!
+
+Moving beyond anecdotal evidence, we dive into the realm of data. To understand the practical implications of time (being in time, on time, overtime ) in communication, we've turned to a domain where time isn't just a factor --- it's a contestant: the Toastmasters International meetings, specifically Table Topics session!
+
+If you're familiar with Toastmasters International, then jump straight to the [**results**](#analysis). If not - keep reading.
+
+### Toastmasters in a Nutshell
+
+Toastmasters is a place to practice your public speaking skills. Each meeting, which typically lasts for 90 minutes, has a structure:
+
+1.  **Prepared speeches session:** usually 5-7 minutes long speeches on various topics, these speeches are for members of the organization;
+
+2.  **Table Topics (TT) session:** 2 minutes log impromptu speeches, everyone can participate, and the best speech is voted for;
+
+3.  **Evaluation session:** everyone who came on stage during previous sessions is given feedback on how well they did.
+
+Most Toastmasters members are working professionals from different fields who want to network, be confident presenting, make new connections, and have a great time. Delivering prepared speeches allows members to structure their thoughts and practice their delivery. The Table Topics session, on the other hand, challenges members to speak impromptu. In this session, you can either volunteer to answer a question or be selected by the Table Topics Master. The essence of this activity is to encourage speaking "on your feet" rather than from the comfort of your seat.
+
+During the Evaluation session a Timer of the meeting - a person specifically assigned to the timetracking task - presents their report, sine qua non[^1] of this article. Timer's responsibility is to keep track of time and indicate to the speakers how much time they have left before they have to wrap up. Without going into much detail, [*green*]{style="color:green"} is an early warning, [*yellow*]{style="color:yellow"} - soon the time will be up, [*red*]{style="color:red"} - time is up, finish your speech. At the end of the meeting a time has a report of speakers and their timings
+
+[^1]: A necessary condition without which something is not possible \[from Latin\]
+
+## Note on Timer reports
+
+Timer tracks time of each speaker, as can be seen on the reports. Reports usually have the following information useful for our analysis:
+
+1.  Speaker Name
+2.  Speech Time
+3.  Club
+4.  Date
+5.  TT winner
+
+::: panel-tabset
+## 1
+
+![](images/1.jpg){width="720"}
+
+## 2
+
+![](images/2.jpg)
+
+## 3
+
+![](images/3.jpg)
+
+## 4
+
+![](images/4.jpg){width="720"}
+
+## 5
+
+![](images/5.jpg)
+
+## 6
+
+![](images/6.jpg){width="720"}
+
+## 7
+
+![](images/7.jpg)
+
+## 8
+
+![](images/8.jpg)
+
+## 9
+
+![](images/9.jpg){width="720"}
+
+## 10
+
+![](images/10.jpg){width="720"}
+
+## 11
+
+![](images/11.jpg){width="720"}
+
+## 12
+
+![](images/12.jpg){width="720"}
+
+## 13
+
+![](images/13.jpg){width="500"}
+:::
+
+<br>
+
+## Data
+
+Like a famished mouse looking for breadcrumbs under the baker's table, the author was open-sourcing these reports from Telegram `r fa("telegram", fill = "steelblue")`, Facebook `r fa("facebook", fill = "steelblue")`, some were written by author himself and other were transcribed from videos of the meetings.
+
+Most of the data was collected from Ukrainian TMCs: Chamber[^2], Arttalkers, Changemakers, Dniprohills, KOMA (UA-speaking) and Svoya Sorochka (UA-speaking). There are some reports from Japanese and Polish TMCs, but we will not be focusing on them.
+
+[^2]: Special thanks goes to Chamber and their Timer reports, without them this project would've taken much-much longer.
+
+![](images/ua_clubs.png){width="720"}
+
+<br>
+
+```{r}
+data %>%
+   group_by(Club) %>%
+   summarise(unique_days = n_distinct(Date)) %>%
+   mutate(Club = reorder(Club, unique_days)) %>%
+   ggplot(aes(x = unique_days, y = Club)) +
+   geom_bar(stat = "identity") +
+   geom_text(aes(label = unique_days), hjust = -.2, family = "firasans",  size = 3) +  # Add the annotation
+   labs(x = "Number of Unique Meetings") +
+   ggtitle("Where do reports come from?") +
+   theme_classic() +
+     theme(text = element_text(family = 'firasans'),
+       plot.title = element_text(family = "firasans", hjust = 0.5),
+         axis.text = element_text(family = "firasans"),
+         axis.title.y = element_blank())
+```
+
+In total there are 180 unique meetings in the dataset from 2018 till 2022. Some of the meetings were dropped due to NAs in at least one of the columns. Speaking of gender discrimination, there was none present, as the number of men and women[^3] is equal.
+
+[^3]: The gender of the speaker was assigned post hoc, based on the reports/photos of the meeting, common sense and a little bit of prejudice :)
+
+    In cases where it was impossible to establish the gender of a speaker - the whole meeting was excluded.
 
 ```{r}
 sex_freq <- table(ifelse(is.na(data$Sex), "NA", ifelse(data$Sex == 0, "Female", "Male")))
@@ -256,9 +214,9 @@ kable(sex_data, align = "c", format = "html") %>%
   kable_styling(bootstrap_options = "striped")
 ```
 
-With regards to TT participants' names there are a total of 312 unique names[^6].
+With regards to TT participant's names there are a total of 312 unique names [^4].
 
-[^6]: In reports the same people were reported under slightly different names. For example: Alexey/Aleksey/Alex/Oleksiy/Oleksey.... and their counterpart Cyrillic versions. To deal with this issue, all versions were renamed to Alex. Similar approach was taken with other names.
+[^4]: In reports the same people were reported under slightly different names. For example: Alexey/Aleksey/Alex/Oleksiy/Oleksey.... and their counterpart Cyrillic versions. To deal with this issue, all versions were renamed to Alex. Similar approach was taken with other names.
 
     All Ukrainian names were translated to English.
 
@@ -278,37 +236,23 @@ ggplot(name_counts_df, aes(x = reorder(Speaker, Frequency), y = Frequency)) +
   labs(x = "Frequency", y = "Name", title = "Top 25 Name Counts") +
   coord_flip() +
   theme_classic() +
-  theme(
-    plot.title = element_text(hjust = 0.5, size = 14, face = "bold", family = "Roboto"),
+  theme(text = element_text(family = 'firasans'),
+    plot.title = element_text(hjust = 0.5, size = 14, face = "bold", family = "firasans"),
     axis.title = element_blank(),
     panel.grid.major = element_line(),
-    plot.subtitle = element_text(hjust = 0.5, size = 8, face = "italic", family = "Roboto"),
-    axis.text = element_text(size = 10, family = "Roboto"),
-    plot.caption = element_text(face = "bold", family = "Roboto")
+    plot.subtitle = element_text(hjust = 0.5, size = 8, face = "italic", family = "firasans"),
+    axis.text = element_text(size = 10, family = "firasans"),
+    plot.caption = element_text(face = "bold", family = "firasans")
   )
 ```
 
-```{r}
-# data %>%
-#   group_by(Club) %>%
-#   summarise(unique_days = n_distinct(Date)) %>%
-#   mutate(Club = reorder(Club, -unique_days)) %>%
-#   ggplot(aes(x = unique_days, y = Club)) +
-#   geom_bar(stat = "identity") +
-#   geom_text(aes(label = unique_days), hjust = -.2, family = "Roboto",  size = 3) +  # Add the annotation
-#   labs(x = "Number of Unique Meetings") +
-#   ggtitle("Where do reports come from?") +
-#   theme_classic() +
-#     theme(plot.title = element_text(family = "Roboto", hjust = 0.5),
-#         axis.text = element_text(family = "Roboto"),
-#         axis.title = element_text(family = "Roboto"))
-```
+<br>
 
 And lastly we have Time of Table Topics (TT)! How TT works:
 
 You have 2 minutes to answer a question or speak on the given topic. **To stay within time limits, the timer will show you [*green*]{style="color:green"} sign when there is 1 minute left, [*yellow*]{style="color:yellow"} when 30 seconds and [*red*]{style="color:red"} when time is up.**
 
-Ideally you want to have an opening-body-conclusion short speech, but this isn't always possible. You can volunteer or be dragged on stage. The question may be familiar to you or something you haven't even thought about. That is all to say, there are many different things happening during TT sessions and winning it requires achieving many things. At the end of TT everyone votes for "the best speech" - **this is our dependent variable of interest.**
+Ideally you want to have an opening-body-conclusion short speech, but this isn't always possible. You can volunteer or be dragged on stage. The question may be familiar to you or something you haven't even thought about. That is all to say, there are many different things happening during TT sessions and winning it requires achieving many things. At the end of TT everyone votes for "the best speech" - **this is our dependent variable.**
 
 ::: {.callout-tip title="Question!"}
 Before we get to figuring out what it takes to win TT, given the information above how does the distribution of TT times look like? A, B, C or D?
@@ -344,7 +288,8 @@ generate_plot <- function(distribution) {
     ggtitle(title) +
     xlab("Time, seconds") +
     theme_minimal() +
-    theme(axis.title.y = element_blank())
+    theme(axis.title.y = element_blank(),
+          text = element_text(family = 'firasans'))
 }
 
 # Generate the plots for each distribution
@@ -358,11 +303,7 @@ combined_plots <- uniform_plot + bimodal_plot + mixed_normal_plot + normal_plot
 combined_plots <- combined_plots + plot_layout(ncol = 2)
 
 combined_plots
-
-
 ```
-
-:::
 
 ::: {.callout-tip title="Answer" collapse="true" icon="false" style="text-align: center;"}
 ```{r}
@@ -375,14 +316,16 @@ density_plot <- ggplot(data, aes(x=Time)) +
   labs(X = "Time, seconds", title = "Distribution of TT time",
        subtitle = "Correct answer is D - Normal Distibution*") +
   theme_classic() +
-  theme(plot.title = element_text(hjust = 0.5, size = 14, face = "bold", family = "Roboto"),
+  theme(text = element_text(family = 'firasans'),
+    plot.title = element_text(hjust = 0.5, size = 14, face = "bold", family = "firasans"),
         axis.title = element_blank(),
         panel.grid.major = element_line(),
-        plot.subtitle = element_text(hjust = 0.5, size = 8, face = "italic", family = "Roboto"),
-        axis.text = element_text(size = 10, family = "Roboto"),
+        plot.subtitle = element_text(hjust = 0.5, size = 8, face = "italic", family = "firasans"),
+        axis.text = element_text(size = 10, family = "firasans"),
         axis.text.x = element_blank(),
         axis.text.y = element_blank(),
-        plot.caption = element_text(face = "bold", family = "Roboto"))
+        axis.ticks.y = element_blank(),
+        plot.caption = element_text(face = "bold", family = "firasans"))
 
 
 box_plot <- ggplot(data, aes(x=Time)) +
@@ -393,15 +336,17 @@ box_plot <- ggplot(data, aes(x=Time)) +
   geom_vline(aes(xintercept=60), color="green", linetype="dotted", size=1) +
   annotate("rect", xmin=120, xmax=Inf, ymin=-Inf, ymax=Inf, alpha=0.1, fill="red") +
   theme_classic() +
-  labs(caption = "Shapiro-Wilk Test < 0.001 - Time isn't normally distributed, 
-       despite resembeling Normal distribution") +
-  theme(plot.title = element_text(hjust = 0.5, size = 14, face = "bold", family = "Roboto"),
+  labs(caption = "Shapiro-Wilk Test < 0.001 - visually normal,
+       but don't have normal properties.") +
+  theme(text = element_text(family = 'firasans'),
+    plot.title = element_text(hjust = 0.5, size = 14, face = "bold", family = "firasans"),
         panel.grid.major = element_line(),
-        plot.subtitle = element_text(hjust = 0.5, size = 8, face = "italic", family = "Roboto"),
-        axis.text = element_text(size = 10, family = "Roboto"),
+        plot.subtitle = element_text(hjust = 0.5, size = 8, face = "italic", family = "firasans"),
+        axis.text = element_text(size = 10, family = "firasans"),
         axis.text.x = element_text(angle = 0, hjust = 0.5),
         axis.text.y = element_blank(),
-        plot.caption = element_text(face = "italic", family = "Roboto"))
+        axis.ticks.y = element_blank(),
+        plot.caption = element_text(face = "italic", family = "firasans"))
 
 
 # Arrange the plots vertically
@@ -410,11 +355,11 @@ combined_plots1
 ```
 :::
 
-Surprising? Either way, it is peculiar how these times fall into one of natures patterns! One can also notice that there is a [fat?](https://en.wikipedia.org/wiki/Fat-tailed_distribution) right-tail - outliers.
+Surprising? Either way, it is peculiar how these times fall into one of nature's patterns!
 
-## Analysis
+## Analysis {#analysis}
 
-In this part we are going to try and answer some of the hardest philosophical questions, most pertinent questions! Starting with...
+In this part we get to know more about our dataset, whilst answering some of the hardest philosophical questions! Starting with...
 
 ### Who likes to talk more, women or men?
 
@@ -425,17 +370,19 @@ ggplot() +
   scale_x_continuous(breaks = seq(30, max(data$Time, na.rm = TRUE), by = 30)) +
   geom_vline(aes(xintercept = 120), color = "red", linetype = "dashed", size = 1) +
   annotate("rect", xmin = 120, xmax = Inf, ymin = -Inf, ymax = Inf, alpha = 0.1, fill = "red") +
-  labs(title = "Do women speak longer than men?", fill = "Gender") +
+  labs(fill = "Gender") +
   theme_classic() +
-  theme(
-    plot.title = element_text(hjust = 0.5, size = 14, face = "bold", family = "Roboto"),
+  theme(text = element_text(family = 'firasans'),
+    plot.title = element_text(hjust = 0.5, size = 14, face = "bold", family = "firasans"),
     panel.grid.major = element_blank(),
     panel.grid.minor = element_blank(),
     axis.title = element_blank(),
-    plot.subtitle = element_text(hjust = 0.5, size = 8, face = "italic", family = "Roboto"),
-    axis.text = element_text(size = 10, family = "Roboto"),
+    plot.subtitle = element_text(hjust = 0.5, size = 8, face = "italic", family = "firasans"),
+    axis.text = element_text(size = 10, family = "firasans"),
     axis.text.x = element_text(angle = 0, hjust = 0.5),
-    plot.caption = element_text(face = "bold", family = "Roboto")
+    axis.text.y = element_blank(),
+    axis.ticks.y = element_blank(),
+    plot.caption = element_text(face = "bold", family = "firasans")
   ) +
   scale_fill_manual(values = c("blue", "red"), labels = c("Women", "Men"))
 ```
@@ -462,15 +409,15 @@ stargazer(mod1, mod11,
 
 The answer? The difference is not significant! The distributions closely resemble each other. *Women don't speak longer than men!*
 
-Women actually speak a little less than men. However we cannot say that women ACTUALLY talk less! In the current study we only observe time taken to speak, however within these 2 minutes on stage, they might talk more (on average) than men. There seem to be report that women communicate ideas differently and [use more words](https://www.imd.org/research-knowledge/leadership/articles/women-talk-too-much-simply-isnt-true-data-show/) like ah/uh/m-m-m/you know/so/like[^7].
+Women actually speak a little less than men. However, we cannot say that women ACTUALLY talk less! In the current study we only observe time taken, but within these 2 minutes on stage, they might say more (on average) than men. There seem to be reports that women communicate ideas differently and [use more words](https://www.imd.org/research-knowledge/leadership/articles/women-talk-too-much-simply-isnt-true-data-show/) like ah/uh/m-m-m/you know/so/like[^5].
 
-[^7]: Foreshadowing a future ah-counter perspective on winning TT?!
+[^5]: Foreshadowing a future ah-counter perspective on winning TT?!
 
 Strangely enough, if the proportion of men in TT session increases - then TT session will be be shorter. Also, having more men speak during TT session is associated with lower TT times.
 
 ### Do we speak longer online?
 
-In-person conversations/presentation have you deal with people - you see/hear/feel/smell them every second of your speech. There are so many signals communicated non-verbally that we don't even notice them. During in-person meetings when you take too long to finish people start fidgeting, yawning, looking away, and you know you don't want to make them uncomfortable so you quickly wrap up your speech. Online you deal with avatars, the only means of communication with them (your audience) is by observing their reaction. Perhaps this makes you go overtime more often than you would've had you given a particular speech in person. We test this below:
+In-person conversations and presentations require you to engage with people directly; you see, hear, feel, and even smell them throughout your speech. There are countless non-verbal signals that are communicated without us even noticing. During face-to-face meetings, if you take too long to finish, people may start fidgeting, yawning, or looking away. This indicates discomfort, prompting you to wrap up your speech quickly. In contrast, when interacting online, you are dealing with avatars, and the only means of gauging your audience's reactions is by observing their responses. This may lead to a tendency to go overtime more often than if you were delivering the same speech in person. We will explore this further below.
 
 ```{r}
 ggplot() +
@@ -481,15 +428,16 @@ ggplot() +
   annotate("rect", xmin = 120, xmax = Inf, ymin = -Inf, ymax = Inf, alpha = 0.1, fill = "red") +
   labs(title = "Do we speak longer online?", fill = "Meeting Type") +
   theme_classic() +
-  theme(
-    plot.title = element_text(hjust = 0.5, size = 14, face = "bold", family = "Roboto"),
+  theme(text = element_text(family = 'firasans'),
+    plot.title = element_text(hjust = 0.5, size = 14, face = "bold"),
     axis.title = element_blank(),
     panel.grid.major = element_blank(),
     panel.grid.minor = element_blank(),
-    plot.subtitle = element_text(hjust = 0.5, size = 8, face = "italic", family = "Roboto"),
-    axis.text = element_text(size = 10, family = "Roboto"),
+    plot.subtitle = element_text(hjust = 0.5, size = 8, face = "italic"),
+    axis.text.y = element_blank(),
+    axis.ticks.y = element_blank(),
     axis.text.x = element_text(angle = 0, hjust = 0.5),
-    plot.caption = element_text(face = "bold", family = "Roboto")
+    plot.caption = element_text(face = "bold")
   ) +
   scale_fill_manual(values = c("yellow", "green"), labels = c("In-person", "Online"))
 
@@ -515,9 +463,11 @@ stargazer(mod2, mod22,
 ```
 :::
 
-Whether the meeting is online or offline has no effect on speech lengths, however there is a strong association with total TT session time: on average online TT sessions are longer than in-person ones by 160 secs (\~1.5 speakers). One possible explanation for this is the fact that one doesn't have to go home after the meeting, working from home and joining the meeting without spending hours commuting enables all participants to answer a question during TT.
+Whether the meeting is online or offline does not affect the length of TT speeches. However, there is a significant association with the total duration of TT sessions: on average, online TT sessions are longer than in-person ones by approximately 160 seconds (equivalent to about 1.5 speakers). One potential explanation for this is the influence of the global pandemic. Now, participants do not need to be physically present in a specific location to join a meeting, and, perhaps most significantly, there is no commute involved afterward---one is likely already home.
 
 ```{r}
+#| column: screen-inset
+#| layout-nrow: 1
 data %>% 
   filter(Year > 2017) %>% 
   ggplot(aes(x = Time, y = Year, fill = Year)) +
@@ -529,15 +479,15 @@ data %>%
   annotate("rect", xmin=120, xmax=Inf, ymin=-Inf, ymax=Inf, alpha=0.1, fill="red") +
   labs(title = 'Lengths of TT speeches from 2018 to 2022', x = "Time, seconds") +
   theme_classic() +
-  theme(plot.title = element_text(hjust = 0.5, size = 14, face = "bold", family = "Roboto"),
+  theme(text = element_text(family = 'firasans'),
+    plot.title = element_text(hjust = 0.5, size = 14, face = "bold", family = "firasans"),
         panel.grid.major = element_line(),
-        plot.subtitle = element_text(hjust = 0.5, size = 8, face = "italic", family = "Roboto"),
-        axis.text = element_text(size = 10, family = "Roboto"),
+        plot.subtitle = element_text(hjust = 0.5, size = 8, face = "italic", family = "firasans"),
+        axis.text = element_text(size = 10, family = "firasans"),
         axis.title.y  = element_blank(),
-        plot.caption = element_text(face = "bold", family = "Roboto"))
-```
+        plot.caption = element_text(face = "bold", family = "firasans"),
+    legend.position = "none")
 
-```{r}
 data %>% 
   filter(Year > 2017) %>% 
   ggplot(aes(x = tt_time, y = Year, fill = Year)) +
@@ -545,13 +495,15 @@ data %>%
   scale_x_continuous(breaks = seq(0, max(data$tt_time, na.rm = TRUE), by = 300)) +
   labs(title = 'Lengths of TT sessions from 2018 to 2022', x = "TT session length, seconds") +
   theme_classic() +
-  theme(plot.title = element_text(hjust = 0.5, size = 14, face = "bold", family = "Roboto"),
+  theme(text = element_text(family = 'firasans'),
+    plot.title = element_text(hjust = 0.5, size = 14, face = "bold", family = "firasans"),
         axis.title.y = element_blank(),
         panel.grid.major = element_line(),
-        plot.subtitle = element_text(hjust = 0.5, size = 8, face = "italic", family = "Roboto"),
-        axis.text = element_text(size = 10, family = "Roboto"),
+        plot.subtitle = element_text(hjust = 0.5, size = 8, face = "italic", family = "firasans"),
+        axis.text = element_text(size = 10, family = "firasans"),
         axis.text.x = element_text(angle = 0, hjust = 0.5),
-        plot.caption = element_text(face = "bold", family = "Roboto"))
+        plot.caption = element_text(face = "bold", family = "firasans"),
+    legend.position = "none")
 ```
 
 While the distribution of individual speeches remains "Normal" throughout the years, TT sessions became longer and take up to 40(!) minutes.
@@ -576,15 +528,14 @@ stargazer(mod_q3, mod_q31,
 
 ### Are there differences on the club level?
 
-Further exploring the data, we look at whether some of the differences can be explained by looking at distributions on club levels.
+Further exploring the data, we look at whether some of the differences can be explained by looking at distributions at the club level.
 
-::: panelset
-::: panel
-[Individual Time]{.panel-name}
+::: panel-tabset
+## Individual Time
 
 ```{r}
 data %>% 
-  filter(Club %in% c("Chamber", "Dniprohills", "Arttalkers", "Dniprohills/Arttalkers", "KOMA", "Changemakers", "Svoya Rubashka")) %>% 
+  filter(Club %in% c("Chamber", "Dniprohills", "Arttalkers", "Dniprohills/Arttalkers", "KOMA", "Svoya Rubashka")) %>% 
   ggplot(aes(x = Time, y = Club, fill = Club)) +
   geom_density_ridges_gradient(scale = 3, rel_min_height = 0.01) +
   geom_vline(aes(xintercept=120), color="red", linetype="dashed", size=1) +
@@ -592,77 +543,192 @@ data %>%
   geom_vline(aes(xintercept=60), color="green", linetype="dashed", size=1) +
   scale_x_continuous(breaks = seq(30, max(data$Time, na.rm = TRUE), by = 30)) +
   annotate("rect", xmin=120, xmax=Inf, ymin=-Inf, ymax=Inf, alpha=0.1, fill="red") +
-  labs(title = 'Which club respects the time?') +
+  labs(title = 'Which club usually speaks overtime?') +
   theme_classic() +
-  theme(plot.title = element_text(hjust = 0.5, size = 14, face = "bold", family = "Roboto"),
+  theme(text = element_text(family = 'firasans'),
+    plot.title = element_text(hjust = 0.5, size = 14, face = "bold", family = "firasans"),
         axis.title = element_blank(),
         panel.grid.major = element_line(),
-        plot.subtitle = element_text(hjust = 0.5, size = 8, face = "italic", family = "Roboto"),
-        axis.text = element_text(size = 10, family = "Roboto"),
+        plot.subtitle = element_text(hjust = 0.5, size = 8, face = "italic", family = "firasans"),
+        axis.text = element_text(size = 10, family = "firasans"),
         axis.text.x = element_text(hjust = 0.5),
-        plot.caption = element_text(face = "bold", family = "Roboto"),
+        plot.caption = element_text(face = "bold", family = "firasans"),
         legend.position = "none")
 ```
-:::
 
-::: panel
-[TT Session Time]{.panel-name}
+## TT Session Time
 
 ```{r}
 data %>% 
-  filter(Club %in% c("Chamber", "Dniprohills", "Arttalkers", "Dniprohills/Arttalkers", "KOMA", "Changemakers", "Svoya Rubashka")) %>% 
+  filter(Club %in% c("Chamber", "Dniprohills", "Arttalkers", "Dniprohills/Arttalkers", "KOMA", "Svoya Rubashka")) %>% 
   ggplot(aes(x = tt_time, y = Club, fill = Club)) +
   geom_density_ridges_gradient(scale = 3, rel_min_height = 0.01) +
   scale_x_continuous(breaks = seq(0, max(data$tt_time, na.rm = TRUE), by = 500)) +
-  labs(title = 'Length of TT session') +
+  labs(title = 'Lengths of TT sessions') +
   theme_classic() +
-  theme(plot.title = element_text(hjust = 0.5, size = 14, face = "bold", family = "Roboto"),
+  theme(text = element_text(family = 'firasans'),
+    plot.title = element_text(hjust = 0.5, size = 14, face = "bold", family = "firasans"),
         axis.title = element_blank(),
         panel.grid.major = element_line(),
-        plot.subtitle = element_text(hjust = 0.5, size = 8, face = "italic", family = "Roboto"),
-        axis.text = element_text(size = 10, family = "Roboto"),
+        plot.subtitle = element_text(hjust = 0.5, size = 8, face = "italic", family = "firasans"),
+        axis.text = element_text(size = 10, family = "firasans"),
         axis.text.x = element_text(hjust = 0.5),
-        plot.caption = element_text(face = "bold", family = "Roboto"),
+        plot.caption = element_text(face = "bold", family = "firasans"),
         legend.position = "none")
 ```
-:::
 
-::: panel
-[Men/Women Club]{.panel-name}
+## Men/Women Club
 
 ```{r}
 # Custom function to convert x-axis values to "Women majority" and "Male majority"
 convert_to_labels <- function(x) {
-  ifelse(x <= 0.5, "Women majority", "Male majority")
+  ifelse(x <= 0.5, "Female majority", "Male majority")
 }
 
 data %>%
-  filter(Club %in% c("Chamber", "Dniprohills", "Arttalkers", "Dniprohills/Arttalkers", "KOMA", "Changemakers", "Svoya Rubashka")) %>%
+  filter(Club %in% c("Chamber", "Dniprohills", "Arttalkers", "Dniprohills/Arttalkers", "KOMA", "Svoya Rubashka")) %>%
   ggplot(aes(x = tt_participant_sex_prop, y = Club, fill = Club)) +
   geom_density_ridges_gradient(scale = 3, rel_min_height = 0.01) +
   scale_x_continuous(
     breaks = seq(0, max(data$tt_participant_sex_prop, na.rm = TRUE), by = 1),
     labels = convert_to_labels
   ) +
-  labs(title = 'Are women and men well represented 
+  labs(title = 'Are women and men well-represented 
        in all clubs?') +
   theme_classic() +
-  theme(
-    plot.title = element_text(hjust = 0.5, size = 14, face = "bold", family = "Roboto"),
+  theme(text = element_text(family = 'firasans'),
+    plot.title = element_text(hjust = 0.5, size = 14, face = "bold", family = "firasans"),
     axis.title = element_blank(),
     panel.grid.major = element_line(),
-    plot.subtitle = element_text(hjust = 0.5, size = 8, face = "italic", family = "Roboto"),
-    axis.text = element_text(size = 10, family = "Roboto"),
+    plot.subtitle = element_text(hjust = 0.5, size = 8, face = "italic", family = "firasans"),
+    axis.text = element_text(size = 10, family = "firasans"),
     axis.text.x = element_text(hjust = 0.5),
-    plot.caption = element_text(face = "bold", family = "Roboto"),
+    plot.caption = element_text(face = "bold", family = "firasans"),
     legend.position = "none")
 ```
-
-Individual times don't seem to vary that much across clubs, however KOMA (Ukrainian-speaking club) is an exception. The mean of their speakers' Time is higher and variance is even higher. As for distribution of gender of participants one can see the clubs that have more women or men participating. This part could be improved with more data.
-:::
 :::
 
-## How to win at TT?
+Individual times don't seem to vary that much across clubs, however KOMA (Ukrainian-speaking club) is an exception. As for distribution of gender of participants one can see the clubs that have more women or men participating.
+
+<br> <br><hr> <br> <br>
+
+```{r}
+#| column: screen-inset
+#| layout-nrow: 1
+text_plot <- glue::glue(
+  "<span style = 'color:darkgray;'>Many</span> try their luck <br> at impromptu speeches <br> but only <span style = 'color:gold;'>the best ones</span> win."
+)
+
+text_plot1 <- glue::glue(
+  "And <span style = 'color:gold;'>winners</span> know the rule <br> which <span style = 'color:darkgray;'>others</span> don't..."
+)
+
+data %>%
+  filter(Year > 2019) %>%
+  mutate(TT = ifelse(is.na(TT), 0, TT)) %>%  # Replace NA values with 0
+  ggplot(aes(x = Time, y = Date, fill = as.factor(TT))) +
+  geom_jitter(aes(text = str_replace_all(paste0(
+        "Speaker: ", "<b>", Speaker, "</b><br>",
+        "Time: ", Time, "<br>", 
+        "Club: ", Club, "<br>"), "NA", "missing"),
+        size = ifelse(TT == 1, 1.1, 1),  # Make gold circles bigger
+        color = ifelse(TT == 1, "gold", NA)  # Add outline to gold circles
+        )) +
+  scale_x_continuous(breaks = seq(30, max(data$Time, na.rm = TRUE), by = 30)) +
+  # Set fill colors for TT values
+  scale_fill_manual(values = c("0" = "darkgray", "1" = "#FFD700")) + 
+
+  # Set color for the outline of the points
+  scale_color_manual(values = c("gold")) +
+  
+  labs(x = "Time, seconds") +
+  theme_void() +
+  theme(legend.position = "none") +
+  annotate('richtext',
+    x = 190,
+    y = 90,
+    label = text_plot,
+    hjust = 0,
+    vjust = 0,
+    family = 'firasans',
+    lineheight = 1.25,
+    size = 5.5,
+    label.color = NA)
+
+data %>%
+  filter(Year > 2019) %>%
+  mutate(Sex = ifelse(is.na(Sex), 0, Sex)) %>%  
+  ggplot(aes(x = Time, y = TT, fill = ifelse(Sex == 1, "blue", "red"))) +
+  geom_jitter(aes(text = str_replace_all(paste0(
+        "Speaker: ", "<b>", Speaker, "</b><br>",
+        "Time: ", Time, "<br>", 
+        "Club: ", Club, "<br>"), "NA", "missing"),
+        size = ifelse(TT == 1, 1.1, 1),  
+        color = ifelse(TT == 1, "gold", NA)  
+        )) +
+  scale_x_continuous(breaks = seq(30, max(data$Time, na.rm = TRUE), by = 30)) +
+  scale_fill_manual(values = c("0" = "darkgray", "1" = "#FFD700")) + 
+  scale_color_manual(values = c("gold")) +
+  labs(x = "Time, seconds") +
+  theme_void() +
+  theme(legend.position = "none") +
+  annotate('richtext',
+    x = 190,
+    y = 0.25,
+    label = text_plot1,
+    hjust = 0,
+    vjust = 0,
+    family = 'firasans',
+    lineheight = 1.25,
+    size = 5.5,
+    label.color = NA)
+```
+
+<br> <br>
+
+::: column-screen
+```{r}
+p <- data %>%
+  filter(Year > 2019) %>%
+  mutate(TT = ifelse(is.na(TT), 0, TT)) %>%  # Replace NA values with 0
+  ggplot(aes(x = Time, y = date, fill = as.factor(TT))) +  # Use date instead of Date
+  geom_jitter(aes(text = str_replace_all(paste0(
+        "Speaker: ", "<b>", Speaker, "</b><br>",
+        "Time: ", Time, "<br>",
+        "Club: ", Club, "<br>"), "NA", "missing"),
+        size = ifelse(TT == 1, 1.1, 1),  # Make gold circles bigger
+        color = ifelse(TT == 1, "gold", NA)  # Add outline to gold circles
+        )) +
+  scale_x_continuous(breaks = seq(30, max(data$Time, na.rm = TRUE), by = 30)) +
+  scale_fill_manual(values = c("0" = "gray", "1" = "gold")) +  # Set fill colors for TT values
+  labs(x = "Time, seconds", y = "", title = "Winning Table Topics") +  # y-axis label remains "Date"
+  theme_classic() +
+  theme(text = element_text(family = 'firasans', size = 16),
+        panel.grid.major = element_blank(),  # Remove major gridlines
+        panel.grid.minor = element_blank(),  # Remove minor gridlines
+        axis.ticks.y = element_blank(),
+        plot.title = element_text(hjust = 0.5, size = 24, face = "bold"),
+        axis.text = element_blank(),
+        axis.text.y = element_blank(),
+        axis.title.y  = element_blank(),
+        axis.line.y = element_blank(),
+        plot.caption = element_text(face = "bold", family = "firasans"),
+        legend.position = "none")
+
+ggplotly(p, tooltip = "text") %>%
+  plotly::config(
+    displayModeBar = TRUE,
+    displaylogo = FALSE,
+    modeBarButtonsToRemove = c("zoom2d", "pan2d", "zoomIn2d", "zoomOut2d",
+                               "autoScale2d", "toggleSpikelines", "hoverClosestCartesian",
+                               "hoverCompareCartesian", "toImage"),
+    staticPlot = FALSE,
+    height = 800  # Adjust the height of the plot
+  )
+```
+:::
+
+## How to win Table Topics session?
 
 In this last section we will find out what it takes to win TT session!
 
@@ -686,7 +752,7 @@ ggflowchart(flowchart,
             colour = "blue",
             text_colour = "black",
             arrow_colour = "black",
-            family = "Garamond",
+            family = "firasans",
             x_nudge = 0.25,
             horizontal = T)
 
@@ -697,7 +763,7 @@ ggflowchart(flowchart,
 
 Flowchart made with [ggflowchart](https://nrennie.rbind.io/blog/introducing-ggflowchart/)
 
-::: {.callout-warning title="What do you think plays the biggest role in winning TT?"}
+::: {.callout-warning title="What plays the biggest role in winning TT?"}
 ```{r, results='asis'}
 #| warning: false
 #| echo: false
@@ -712,6 +778,8 @@ check_question(c("Being on time"), options = c("Eye contact", "Being on time", "
 -   [The last speaker has a higher probability of winning TT](#heading1);
 
 -   [The longer the speech the less likely is winning](#heading2);
+
+-   [Time of other speakers has no effect on probability of winning](#heading3)
 
 -   [Bonus: how to name your baby so it wins TT](#heading4)
 
@@ -740,21 +808,33 @@ data_logit <- data %>%
     black = ifelse(Time >= 180, 1, 0)) %>% 
   filter(!is.na(TT))
 
+text_plot2 <- glue::glue("Speaking order doesn't have an effect <br> on <span style = 'color:blue;'>winning</span> or <span style = 'color:orange;'>losing</span>.")
+
 data %>%
   filter(!is.na(TT)) %>%
   ggplot(aes(x = factor(speaker_order), fill = factor(TT))) +
   geom_bar() +
   scale_fill_manual(values = c("orange", "blue"), labels = c("Lose", "Win"), name = "Outcome") +
-  labs(x = "Speaker Order", y = "Count", title = "When do you speak to win
-       with highest probability?") +
+  labs(x = "Speaker Order", y = "Count") +
   theme_classic() +
-  theme(plot.title = element_text(hjust = 0.5, size = 14, face = "bold", family = "Roboto"),
+  theme(text = element_text(family = 'firasans'),
         axis.title = element_blank(),
         panel.grid.major = element_blank(),
-        plot.subtitle = element_text(hjust = 0.5, size = 8, face = "italic", family = "Roboto"),
-        axis.text = element_text(size = 10, family = "Roboto"),
+        plot.subtitle = element_text(hjust = 0.5, size = 8, face = "italic", family = "firasans"),
+        axis.text = element_text(size = 10, family = "firasans"),
         axis.text.x = element_text(angle = 0, hjust = 0.5),
-        plot.caption = element_text(face = "bold", family = "Roboto")) 
+        plot.caption = element_text(face = "bold", family = "firasans"),
+        legend.position = "none") +
+    annotate('richtext',
+    x = 8,
+    y = 50,
+    label = text_plot2,
+    hjust = 0,
+    vjust = 0,
+    family = 'firasans',
+    lineheight = 1.25,
+    size = 5.5,
+    label.color = NA)
 ```
 
 ::: {.callout-tip title="Win ~ Speaker Order" collapse="true" icon="false" style="text-align: center;"}
@@ -779,38 +859,50 @@ stargazer(mod10, mod11,
 
 Waiting and speaking later during TT session does indeed increases the probability of winning by a whopping 0.9%!
 
-This is a great news, because you can't expect to win by just waiting and giving a speech at the end of TT session. There a lot that goes into giving a great speech and a lot more into winning, but speaker order doesn't seem to be it. But one thing is clear as day here - the only people who don't win are those that don't try!
+This is a great news, because you can't expect to win by just waiting and giving a speech at the end of TT session. There a lot that goes into giving a great speech and a lot more into winning, but speaker order doesn't seem to be it. But one thing is clear here - [**the only people who don't win are those that don't try!**]{.underline}
 
 ### Hypothesis 2: {#heading2}
 
-**The longer the speech the less likely is winning**
+**The likelihood of winning decreases as the length of the speech increases**
 
 ```{r}
-st <- "In TM those who speak for longer than 150 seconds
-          are disqualified - they cannot win. However,
-          in clubs in this sample such a practice is not present."
+st <- "In TM those who speak for longer than 150 seconds <br>
+          are disqualified - they cannot win. However, <br>
+          in clubs in this sample such practice is not present."
 
 ggplot() +
   geom_histogram(data = filter(data, TT == "1"), aes(x = Time), fill = "blue", alpha = 0.5) +
   geom_vline(aes(xintercept=120), color="red", linetype="dashed", size=1) +
   geom_vline(aes(xintercept=90), color="yellow", linetype="dashed", size=1) +
   geom_vline(aes(xintercept=60), color="green", linetype="dashed", size=1) +
+  geom_vline(aes(xintercept=150), color="black", linetype="dashed", size=1) +
   scale_x_continuous(breaks = seq(30, max(data$Time, na.rm = TRUE), by = 30)) +
   scale_y_continuous(breaks = seq(0, 12, by = 2)) +
-  annotate("rect", xmin=120, xmax=Inf, ymin=-Inf, ymax=Inf, alpha=0.1, fill="red") +
-  labs(title = "Lengths of Winning Speeches",
-       subtitle = str_wrap(st, 85)) +
+  annotate("rect", xmin=115, xmax=Inf, ymin=-Inf, ymax=Inf, alpha=0.2, fill="red") +
+  labs(title = "Lengths of Winning Speeches") +
   theme_classic() +
-  theme(plot.title = element_text(hjust = 0.5, size = 14, face = "bold", family = "Roboto"),
-        axis.title = element_blank(),
+  theme(text = element_text(family = 'firasans'),
+    plot.title = element_text(hjust = 0.5, size = 14, face = "bold", family = "firasans"),
+        axis.title = element_markdown(),
         panel.grid.major = element_line(),
-        plot.subtitle = element_text(hjust = 0.5, size = 8, face = "italic", family = "Roboto"),
-        axis.text = element_text(size = 10, family = "Roboto"),
+        plot.subtitle = element_text(hjust = 0.5, size = 8, face = "italic", family = "firasans"),
+        axis.text = element_markdown(size = 10, family = "Garamond"),
+        axis.title.y = element_blank(),
         axis.text.x = element_text(angle = 0, hjust = 0.5),
-        plot.caption = element_text(face = "bold", family = "Roboto"))
+        plot.caption = element_text(face = "bold", family = "firasans")) +
+    annotate('richtext',
+    x = 165,
+    y = 8,
+    label = st,
+    hjust = 0,
+    vjust = 0,
+    family = 'firasans',
+    lineheight = 1.25,
+    size = 4,
+    label.color = NA)
 ```
 
-Since we have a dozen of TT winners who spoke over 150 seconds, we will remove them from our regression and run regression with and w/o outliers.
+Since we have a dozen of TT winners who spoke over 150 seconds, we will remove them from our analysis and run regression with and w/o outliers.
 
 ::: {.callout-tip title="Win ~ Time" collapse="true" icon="false" style="text-align: center;"}
 ```{r, code_folding=TRUE}
@@ -835,7 +927,7 @@ stargazer(mod5, mod6,
 # plot data
 plot(x = data_logit$Time, 
      y = data_logit$TT,
-     main = "Probit and Logit Models Model of the P(Winning TT | Time)",
+     main = "Logit Model of P(Winning TT | Time)",
      xlab = "Speech time, seconds",
      ylab = "Win probability",
      pch = 20,
@@ -853,28 +945,99 @@ x <- seq(1, max(data_logit$Time), 10)
 y_logit6 <- predict(mod6, list(Time = x), type = "response")
 y_logit5 <- predict(mod5, list(Time = x), type = "response")
 
-
-
 lines(x, y_logit5, lwd = 3, col = "blue")
 lines(x, y_logit6, lwd = 3, col = "red")
 
 # add a legend
-legend("topleft",
+legend("bottomright",
        horiz = TRUE,
-       legend = c("Logit with outliers", "Logit w/o outliers"),
+       legend = c("with outliers", "w/o outliers"),
        col = c("blue", "red"), 
        lty = c(1, 1))
 ```
 
-Regardless of outliers, model is statistically significant. Interestingly, that probability of winning TT is increasing with every second (!) removing outliers (150 seconds or higher) doesn't change the probability. Conclusion: you want to speak for as long as and not a second more! Otherwise you'll be disqualified.
+Interestingly that [probability of winning TT is increasing with every second!]{.underline} Even removing outliers (150 seconds or higher) doesn't change the significance. You still better speak for as long as and not a second more! Otherwise you'll be disqualified!
 
 Think about how this finding plays out in your life.
 
-When you have someones attention you have to be mindful of time. You are not given their attention indefinitely, you have to use this opportunity exhaustively making every second count. Speak fast and blurt out your thought and they will not understand it fully. Speak too much and they switch off and feel like you can't properly articulate your thoughts. You have to finish by the time they lose focus!
+When you have someone's attention, you have to be mindful of time. You are not given their attention indefinitely, you have to use this opportunity exhaustively, making every second count. Speak fast and blurt out your thought and they will not understand it fully. Speak too slow and they might switch off and think that you can't properly articulate your thoughts. Place yourself in between these 2 extremes and finish by the time they lose focus!
+
+### Hypothesis 3: {#heading3}
+
+**Time of other speakers has no effect on probability of winning**
+
+```{r}
+# Reshape data to long format
+data_long <- data %>%
+  gather(key = "type", value = "value", Time, tt_prev_speaker, tt_next_speaker)
+
+# Compute statistics
+stats <- data_long %>%
+  filter(!is.na(TT)) %>% 
+  group_by(type) %>%
+  summarise(
+    median = median(value, na.rm = TRUE),
+    Q1 = quantile(value, 0.25, na.rm = TRUE),
+    Q3 = quantile(value, 0.75, na.rm = TRUE),
+    IQR = Q3 - Q1
+  )
+
+# Plot using geom_boxplot
+ggplot(data_long, aes(x = type, y = value, fill = type)) +
+  geom_boxplot() +
+  scale_x_discrete(labels = c("Time", "Previous Speaker", "Next Speaker")) +
+  scale_fill_discrete(name = "Type", labels = c("Time", "Previous Speaker", "Next Speaker")) +
+  labs(y = "Speech length, seconds") +
+  theme_classic() +
+  theme(text = element_text(family = 'firasans'),
+        plot.title = element_text(hjust = 0.5, size = 14, face = "bold"),
+        axis.title.x = element_blank(),
+        axis.title.y = element_text(),
+        panel.grid.major = element_blank(),
+        panel.grid.minor = element_blank(),
+        plot.subtitle = element_text(hjust = 0.5, size = 8, face = "italic"),
+        axis.text.x = element_text(size = 15, angle = 0, hjust = 0.5),
+        plot.caption = element_text(face = "bold"),
+        legend.position = "none") +
+  
+  geom_text(data = stats, aes(x = type, y = Q1, label = paste("Q1:", round(Q1, 2))),
+              vjust = -1, size = 3) +
+  geom_text(data = stats, aes(x = type, y = median, label = paste("Median:", round(median, 2))),
+            vjust = 1.5, size = 3) +
+  geom_text(data = stats, aes(x = type, y = Q3, label = paste("Q3:", round(Q3, 2))),
+            vjust = 2, size = 3) +
+  geom_text(data = stats, aes(x = type, y = Q1 - 1.5*IQR, label = paste("IQR:", round(IQR, 2))),
+            vjust = -1.5, size = 3)
+```
+
+::: {.callout-tip title="Win ~ Name" collapse="true" icon="false" style="text-align: center;"}
+```{r}
+data_logit_filt <- data_logit %>% 
+  filter(tt_next_speaker != 0) %>% 
+  filter(tt_prev_speaker != 0)
+
+mod7 <- glm(TT ~ Time + tt_prev_speaker + tt_next_speaker, data = data_logit_filt, family=binomial(link="logit"))
+mod8 <- glm(TT ~ Time + tt_prev_speaker + tt_next_speaker, data = filter(data_logit_filt, Time < 150), family=binomial(link="logit"))
+stargazer(mod7, mod8,
+          column.labels = c("Model with outliers", "Model w/o outliers"),
+          covariate.labels = c("Individual time", "Time of previous speaker", "Time of next speaker"),
+          header=FALSE, 
+          title="Regression results", 
+          type='text', 
+          digits=3,
+          style = "aer",
+          font.size = "large",
+          align = TRUE,
+          omit.stat=c("f", "ser"),
+          no.space=TRUE)
+```
+:::
+
+We can't always give our best speeches, especially impromptu. Sometimes what beats a competition is competition itself. You can never underestimate your opponents, even when it fails miserably. Restricting our analysis to length of impromptu speech, the failure would be not using enough time ([see H2](#heading2)). And our foes failing miserably would mean them not using enough time, which we don't find to be significant in predicting winning TT.
 
 ### Bonus: {#heading4}
 
-**How to name your baby so that it has a higher chances of winning?**
+**How to name your baby so that it has a higher chances of winning TT?**
 
 ```{r}
 # Filter names that appear more than 3 times
@@ -898,12 +1061,12 @@ data1 <- data %>%
 #   coord_flip() +
 #   theme_classic() +
 #   theme(
-#     plot.title = element_text(hjust = 0.5, size = 14, face = "bold", family = "Roboto"),
+#     plot.title = element_text(hjust = 0.5, size = 14, face = "bold", family = "firasans"),
 #     axis.title = element_blank(),
 #     panel.grid.major = element_line(),
-#     plot.subtitle = element_text(hjust = 0.5, size = 8, face = "italic", family = "Roboto"),
-#     axis.text = element_text(size = 10, family = "Roboto"),
-#     plot.caption = element_text(face = "bold", family = "Roboto")
+#     plot.subtitle = element_text(hjust = 0.5, size = 8, face = "italic", family = "firasans"),
+#     axis.text = element_text(size = 10, family = "firasans"),
+#     plot.caption = element_text(face = "bold", family = "firasans")
 #   )
 ```
 
@@ -913,7 +1076,7 @@ colnames(data1) <- c("Speaker", "Total Appearances", "Total Wins", "Win Percenta
 datatable(data1, options = list(pageLength = 10))
 ```
 
-::: {.callout-tip title="Win ~ Name" collapse="true" icon="false" style="text-align: center;"}
+::: {.callout-tip title="Win ~ Time + Prev + Next" collapse="true" icon="false" style="text-align: center;"}
 ```{r}
 mod4 <- glm(TT ~ timur + vadym + nataly + alex + andrew, data = data_logit, family=binomial(link="logit"))
 mod44 <- glm(TT ~ timur + vadym + nataly + alex + andrew, data = data_logit, family=binomial(link="probit"))
@@ -934,18 +1097,20 @@ stargazer(mod4, mod44,
 
 It is true that not everyone can win and one must use every trick to their advantage. And if your name is Alex or Andrew you should use it to your advantage.
 
-If your name is not Alex or Andrew, than maybe it is not for you. Go apply yourself in some other domain, for you are against the odds when it comes to winning TT session.
+If your name is not Alex or Andrew, than maybe it is not for you. Go apply yourself in some other domain, for you are against the odds when it comes to winning TT session.[^6]
 
-> "Consider naming your baby Alex or Andrew - this will set them up for good life" - Vadym Yudenko[^8]
-
-[^8]: FYI, this is a joke and not meant to be taken seriously.
+[^6]: FYI, this is a joke and not meant to be taken seriously.
 
 ## Conclusions
 
--   Time does affect the effectiveness of one's speech. In situations where going overtime isn't punished, you better take as much time as possible. If you have time, use it.
+-   Time does affect whether your speech is successful or not. In situations where going overtime isn't punished, you better take as much time as possible, but not a second more!
 
--   You cannot cheat others by choosing to speak in any specific order. On average you are just as likely to win speaking first as speaking last.
+-   You can't cheat the system by choosing to speak in any specific order. On average, you're just as likely to win speaking first as you are speaking last.
 
--   There are no differences in speaking patters between men and women - they speak on average the same amount.
+-   There are no differences in speaking patterns between men and women - they speak on average the same amount.
 
-I do hope that you, the keen reader, have found this piece entertaining and useful. Be mindful of time and learn to use it to its utmost limit and not a second more - good things will come your way!
+I do hope that you, the keen reader, have found this piece entertaining and useful. Be mindful of time, and learn to use it to its fullest extent---and not a second more. Good things will come your way!
+
+## Before you go...
+
+If you like this project and feel like you can contribute with data and/or advise, please send me an <a href="mailto:vyudenko@kse.org.ua">**EMAIL**</a> 😊

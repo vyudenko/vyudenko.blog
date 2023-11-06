@@ -1,8 +1,6 @@
 ---
 title: "Research"
 toc: false
-description: | 
-  PAGE UNDER CONSTRUCTION
 page-layout: full
 listing:
   contents: index.qmd
@@ -16,12 +14,10 @@ listing:
 <!-- .quarto-title { -->
 <!--     display: none; -->
 <!--   } -->
-
 <!-- .description { -->
 <!--     display: none; -->
 <!--   } -->
 <!-- ``` -->
-
 <!-- ```{r} -->
 <!-- #| echo: FALSE -->
 <!-- #| out.width: 50% -->
