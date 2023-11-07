@@ -4,8 +4,9 @@ description: |
    Investigating Temporal Preferences in Wartime
 author: 
  - name: Vadym Yudenko
-   affiliation: Kyiv School of Economics
-   affiliation-url: https://kse.ua/
+   affiliations:
+    - name: Kyiv School of Economics
+      url: https://kse.ua/
 date: 2023-07-14
 draft: true 
 categories:
