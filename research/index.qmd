@@ -11,15 +11,27 @@ listing:
 ---
 
 <!-- ```{css, echo=FALSE} -->
+
 <!-- .quarto-title { -->
+
 <!--     display: none; -->
+
 <!--   } -->
+
 <!-- .description { -->
+
 <!--     display: none; -->
+
 <!--   } -->
+
 <!-- ``` -->
+
 <!-- ```{r} -->
+
 <!-- #| echo: FALSE -->
+
 <!-- #| out.width: 50% -->
+
 <!-- knitr::include_graphics('background.jpg') -->
+
 <!-- ``` -->

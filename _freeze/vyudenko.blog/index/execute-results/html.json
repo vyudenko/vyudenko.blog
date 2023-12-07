@@ -1,0 +1,14 @@
+{
+  "hash": "e091de127d0cccac23f1ce4470de9337",
+  "result": {
+    "markdown": "---\nopen-graph: true\ntitle: \"Vadym Yudenko\"\nlisting:\n  contents: \n    - posts/index.qmd\n    - writings/index.qmd\n  id: front-list\n  sort: \"order\"\n  type: default\n  grid-columns: 1\n  categories: false\n  image-align: 'right'\n  image-height: '100%'\nformat:\n  html:\n    page-layout: full\n---\n\n\n\n::: {.cell}\n<style type=\"text/css\">\n.quarto-title {\n    display: none;\n  }\n  \n.description {\n    display: none;\n  }\n  \ndiv.quarto-post .metadata {\n    display: none;\n  }\n  \ndiv.quarto-post .thumbnail {\n    flex-basis: 50%;\n}\n</style>\n:::\n\n\n![](kotori.png){fig-align=\"center\" width=\"250\"}\n\n::: {style=\"text-align: center\"}\n[<strong>Vadym Yudenko</strong>]{style=\"font-size: 36px; font-style: bold; color: black; font-family: Garamond;\"} <br> <br> I'm a Junior Researcher at the Institute for Behavioral Studies at [American University Kyiv](https://auk.edu.ua/en/) and a MSc student at [KSE](https://kse.ua/). <br> My research focuses on how war experiences impact decision-making, particularly regarding forced relocation, financial wellbeing, and perception of safety.\n\nTrying to explain the world with data! <br> <br>\n:::\n\n::: {#front-list}\n:::\n",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

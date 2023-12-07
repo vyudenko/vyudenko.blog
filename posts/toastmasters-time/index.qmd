@@ -50,10 +50,10 @@ showtext::showtext_auto()
 ```
 
 ```{r, cache=TRUE}
-data <- read.csv("data.csv")
+data_tm <- read.csv("data.csv")
 
 # Convert the 'Date' column to a date format and extract Year and Month columns
-data <- data %>%
+data_tm <- data_tm %>%
   mutate(
     date = as.Date(Date, "%m/%d/%Y"),
     Year = format(date, "%Y"),
@@ -73,7 +73,7 @@ data <- data %>%
   ) %>%
   ungroup()
 
-data_models <- data %>% 
+data_models <- data_tm %>% 
   filter(Time < 150) %>% 
   select(2,3,6,7,12:18)
 ```
@@ -182,23 +182,6 @@ Most of the data was collected from Ukrainian TMCs: Chamber[^2], Arttalkers, Cha
 
 <br>
 
-```{r}
-data %>%
-   group_by(Club) %>%
-   summarise(unique_days = n_distinct(Date)) %>%
-   mutate(Club = reorder(Club, unique_days)) %>%
-   ggplot(aes(x = unique_days, y = Club)) +
-   geom_bar(stat = "identity") +
-   geom_text(aes(label = unique_days), hjust = -.2, family = "firasans",  size = 3) +  # Add the annotation
-   labs(x = "Number of Unique Meetings") +
-   ggtitle("Where do reports come from?") +
-   theme_classic() +
-     theme(text = element_text(family = 'firasans'),
-       plot.title = element_text(family = "firasans", hjust = 0.5),
-         axis.text = element_text(family = "firasans"),
-         axis.title.y = element_blank())
-```
-
 In total there are 180 unique meetings in the dataset from 2018 till 2022. Some of the meetings were dropped due to NAs in at least one of the columns. Speaking of gender discrimination, there was none present, as the number of men and women[^3] is equal.
 
 [^3]: The gender of the speaker was assigned post hoc, based on the reports/photos of the meeting, common sense and a little bit of prejudice :)
@@ -206,7 +189,7 @@ In total there are 180 unique meetings in the dataset from 2018 till 2022. Some 
     In cases where it was impossible to establish the gender of a speaker - the whole meeting was excluded.
 
 ```{r}
-sex_freq <- table(ifelse(is.na(data$Sex), "NA", ifelse(data$Sex == 0, "Female", "Male")))
+sex_freq <- table(ifelse(is.na(data_tm$Sex), "NA", ifelse(data_tm$Sex == 0, "Female", "Male")))
 sex_data <- as.data.frame(sex_freq)
 sex_data$Proportion <- round(100*sex_data$Freq/sum(sex_data$Freq),2)
 colnames(sex_data) <- c("Gender", "# of TT paticipants", "Proportion, %")
@@ -221,7 +204,7 @@ With regards to TT participant's names there are a total of 312 unique names [^4
     All Ukrainian names were translated to English.
 
 ```{r}
-name_counts_df <- data %>%
+name_counts_df <- data_tm %>%
   count(Speaker, name = "Frequency") %>%
   arrange(desc(Frequency)) %>%
   head(25)
@@ -307,7 +290,7 @@ combined_plots
 
 ::: {.callout-tip title="Answer" collapse="true" icon="false" style="text-align: center;"}
 ```{r}
-density_plot <- ggplot(data, aes(x=Time)) +
+density_plot <- ggplot(data_tm, aes(x=Time)) +
   geom_density(fill = "lightblue") +
   geom_vline(aes(xintercept=120), color="red", linetype="dotted", size=1) +
   geom_vline(aes(xintercept=90), color="yellow", linetype="dotted", size=1) +
@@ -328,9 +311,9 @@ density_plot <- ggplot(data, aes(x=Time)) +
         plot.caption = element_text(face = "bold", family = "firasans"))
 
 
-box_plot <- ggplot(data, aes(x=Time)) +
+box_plot <- ggplot(data_tm, aes(x=Time)) +
   geom_boxplot(fill = "lightblue", color = "black") +  # Customize the box plot appearance
-  scale_x_continuous(breaks = seq(30, max(data$Time, na.rm = TRUE), by = 30)) +
+  scale_x_continuous(breaks = seq(30, max(data_tm$Time, na.rm = TRUE), by = 30)) +
   geom_vline(aes(xintercept=120), color="red", linetype="dotted", size=1) +
   geom_vline(aes(xintercept=90), color="yellow", linetype="dotted", size=1) +
   geom_vline(aes(xintercept=60), color="green", linetype="dotted", size=1) +
@@ -365,9 +348,9 @@ In this part we get to know more about our dataset, whilst answering some of the
 
 ```{r}
 ggplot() +
-  geom_density(data = filter(data, Sex == 1), aes(x = Time, fill = "Women"), alpha = 0.5) +
-  geom_density(data = filter(data, Sex == 0), aes(x = Time, fill = "Men"), alpha = 0.5) +
-  scale_x_continuous(breaks = seq(30, max(data$Time, na.rm = TRUE), by = 30)) +
+  geom_density(data = filter(data_tm, Sex == 1), aes(x = Time, fill = "Women"), alpha = 0.5) +
+  geom_density(data = filter(data_tm, Sex == 0), aes(x = Time, fill = "Men"), alpha = 0.5) +
+  scale_x_continuous(breaks = seq(30, max(data_tm$Time, na.rm = TRUE), by = 30)) +
   geom_vline(aes(xintercept = 120), color = "red", linetype = "dashed", size = 1) +
   annotate("rect", xmin = 120, xmax = Inf, ymin = -Inf, ymax = Inf, alpha = 0.1, fill = "red") +
   labs(fill = "Gender") +
@@ -389,8 +372,8 @@ ggplot() +
 
 ::: {.callout-tip title="Time ~ Gender" collapse="true" icon="false" style="text-align: center;"}
 ```{r echo=FALSE}
-mod1 <- lm(Time ~ Sex + tt_participant_sex_prop, data = data)
-mod11 <- lm(tt_time ~ Sex + tt_participant_sex_prop, data = data)
+mod1 <- lm(Time ~ Sex + tt_participant_sex_prop, data = data_tm)
+mod11 <- lm(tt_time ~ Sex + tt_participant_sex_prop, data = data_tm)
 stargazer(mod1, mod11,
          header=FALSE,
          dep.var.labels=c("Individual Time", "TT Time"),
@@ -421,9 +404,9 @@ In-person conversations and presentations require you to engage with people dire
 
 ```{r}
 ggplot() +
-  geom_density(data = filter(data, ON_OFF == 1), aes(x = Time, fill = "In-person"), alpha = 0.5) +
-  geom_density(data = filter(data, ON_OFF == 0), aes(x = Time, fill = "Online"), alpha = 0.5) +
-  scale_x_continuous(breaks = seq(30, max(data$Time, na.rm = TRUE), by = 30)) +
+  geom_density(data = filter(data_tm, ON_OFF == 1), aes(x = Time, fill = "In-person"), alpha = 0.5) +
+  geom_density(data = filter(data_tm, ON_OFF == 0), aes(x = Time, fill = "Online"), alpha = 0.5) +
+  scale_x_continuous(breaks = seq(30, max(data_tm$Time, na.rm = TRUE), by = 30)) +
   geom_vline(aes(xintercept = 120), color = "red", linetype = "dashed", size = 1) +
   annotate("rect", xmin = 120, xmax = Inf, ymin = -Inf, ymax = Inf, alpha = 0.1, fill = "red") +
   labs(title = "Do we speak longer online?", fill = "Meeting Type") +
@@ -445,8 +428,8 @@ ggplot() +
 
 ::: {.callout-tip title="Time ~ Online/Offline" collapse="true" icon="false" style="text-align: center;"}
 ```{r}
-mod2 <- lm(Time ~ ON_OFF, data = data)
-mod22 <- lm(tt_time ~ ON_OFF, data = data)
+mod2 <- lm(Time ~ ON_OFF, data = data_tm)
+mod22 <- lm(tt_time ~ ON_OFF, data = data_tm)
 stargazer(mod2, mod22,
           header=FALSE, 
           dep.var.labels=c("Individual Time", "TT Time"),
@@ -468,14 +451,14 @@ Whether the meeting is online or offline does not affect the length of TT speech
 ```{r}
 #| column: screen-inset
 #| layout-nrow: 1
-data %>% 
+data_tm %>% 
   filter(Year > 2017) %>% 
   ggplot(aes(x = Time, y = Year, fill = Year)) +
   geom_density_ridges_gradient(scale = 3, rel_min_height = 0.01) +
   geom_vline(aes(xintercept=120), color="red", linetype="dashed", size=1) +
   geom_vline(aes(xintercept=90), color="yellow", linetype="dashed", size=1) +
   geom_vline(aes(xintercept=60), color="green", linetype="dashed", size=1) +
-  scale_x_continuous(breaks = seq(30, max(data$Time, na.rm = TRUE), by = 30)) +
+  scale_x_continuous(breaks = seq(30, max(data_tm$Time, na.rm = TRUE), by = 30)) +
   annotate("rect", xmin=120, xmax=Inf, ymin=-Inf, ymax=Inf, alpha=0.1, fill="red") +
   labs(title = 'Lengths of TT speeches from 2018 to 2022', x = "Time, seconds") +
   theme_classic() +
@@ -488,11 +471,11 @@ data %>%
         plot.caption = element_text(face = "bold", family = "firasans"),
     legend.position = "none")
 
-data %>% 
+data_tm %>% 
   filter(Year > 2017) %>% 
   ggplot(aes(x = tt_time, y = Year, fill = Year)) +
   geom_density_ridges_gradient(scale = 3, rel_min_height = 0.01) +
-  scale_x_continuous(breaks = seq(0, max(data$tt_time, na.rm = TRUE), by = 300)) +
+  scale_x_continuous(breaks = seq(0, max(data_tm$tt_time, na.rm = TRUE), by = 300)) +
   labs(title = 'Lengths of TT sessions from 2018 to 2022', x = "TT session length, seconds") +
   theme_classic() +
   theme(text = element_text(family = 'firasans'),
@@ -510,8 +493,8 @@ While the distribution of individual speeches remains "Normal" throughout the ye
 
 ::: {.callout-tip title="Time ~ Year" collapse="true" icon="false" style="text-align: center;"}
 ```{r}
-mod_q3 <- lm(Time ~ Year, data = data)
-mod_q31 <- lm(tt_time ~ Year, data = data)
+mod_q3 <- lm(Time ~ Year, data = data_tm)
+mod_q31 <- lm(tt_time ~ Year, data = data_tm)
 stargazer(mod_q3, mod_q31,
           header=FALSE, 
           dep.var.labels=c("Individual Time", "TT Time"),
@@ -534,14 +517,14 @@ Further exploring the data, we look at whether some of the differences can be ex
 ## Individual Time
 
 ```{r}
-data %>% 
+data_tm %>% 
   filter(Club %in% c("Chamber", "Dniprohills", "Arttalkers", "Dniprohills/Arttalkers", "KOMA", "Svoya Rubashka")) %>% 
   ggplot(aes(x = Time, y = Club, fill = Club)) +
   geom_density_ridges_gradient(scale = 3, rel_min_height = 0.01) +
   geom_vline(aes(xintercept=120), color="red", linetype="dashed", size=1) +
   geom_vline(aes(xintercept=90), color="yellow", linetype="dashed", size=1) +
   geom_vline(aes(xintercept=60), color="green", linetype="dashed", size=1) +
-  scale_x_continuous(breaks = seq(30, max(data$Time, na.rm = TRUE), by = 30)) +
+  scale_x_continuous(breaks = seq(30, max(data_tm$Time, na.rm = TRUE), by = 30)) +
   annotate("rect", xmin=120, xmax=Inf, ymin=-Inf, ymax=Inf, alpha=0.1, fill="red") +
   labs(title = 'Which club usually speaks overtime?') +
   theme_classic() +
@@ -559,11 +542,11 @@ data %>%
 ## TT Session Time
 
 ```{r}
-data %>% 
+data_tm %>% 
   filter(Club %in% c("Chamber", "Dniprohills", "Arttalkers", "Dniprohills/Arttalkers", "KOMA", "Svoya Rubashka")) %>% 
   ggplot(aes(x = tt_time, y = Club, fill = Club)) +
   geom_density_ridges_gradient(scale = 3, rel_min_height = 0.01) +
-  scale_x_continuous(breaks = seq(0, max(data$tt_time, na.rm = TRUE), by = 500)) +
+  scale_x_continuous(breaks = seq(0, max(data_tm$tt_time, na.rm = TRUE), by = 500)) +
   labs(title = 'Lengths of TT sessions') +
   theme_classic() +
   theme(text = element_text(family = 'firasans'),
@@ -585,12 +568,12 @@ convert_to_labels <- function(x) {
   ifelse(x <= 0.5, "Female majority", "Male majority")
 }
 
-data %>%
+data_tm %>%
   filter(Club %in% c("Chamber", "Dniprohills", "Arttalkers", "Dniprohills/Arttalkers", "KOMA", "Svoya Rubashka")) %>%
   ggplot(aes(x = tt_participant_sex_prop, y = Club, fill = Club)) +
   geom_density_ridges_gradient(scale = 3, rel_min_height = 0.01) +
   scale_x_continuous(
-    breaks = seq(0, max(data$tt_participant_sex_prop, na.rm = TRUE), by = 1),
+    breaks = seq(0, max(data_tm$tt_participant_sex_prop, na.rm = TRUE), by = 1),
     labels = convert_to_labels
   ) +
   labs(title = 'Are women and men well-represented 
@@ -610,7 +593,11 @@ data %>%
 
 Individual times don't seem to vary that much across clubs, however KOMA (Ukrainian-speaking club) is an exception. As for distribution of gender of participants one can see the clubs that have more women or men participating.
 
-<br> <br><hr> <br> <br>
+<br> <br>
+
+<hr>
+
+<br> <br>
 
 ```{r}
 #| column: screen-inset
@@ -623,7 +610,7 @@ text_plot1 <- glue::glue(
   "And <span style = 'color:gold;'>winners</span> know the rule <br> which <span style = 'color:darkgray;'>others</span> don't..."
 )
 
-data %>%
+data_tm %>%
   filter(Year > 2019) %>%
   mutate(TT = ifelse(is.na(TT), 0, TT)) %>%  # Replace NA values with 0
   ggplot(aes(x = Time, y = Date, fill = as.factor(TT))) +
@@ -634,7 +621,7 @@ data %>%
         size = ifelse(TT == 1, 1.1, 1),  # Make gold circles bigger
         color = ifelse(TT == 1, "gold", NA)  # Add outline to gold circles
         )) +
-  scale_x_continuous(breaks = seq(30, max(data$Time, na.rm = TRUE), by = 30)) +
+  scale_x_continuous(breaks = seq(30, max(data_tm$Time, na.rm = TRUE), by = 30)) +
   # Set fill colors for TT values
   scale_fill_manual(values = c("0" = "darkgray", "1" = "#FFD700")) + 
 
@@ -655,7 +642,7 @@ data %>%
     size = 5.5,
     label.color = NA)
 
-data %>%
+data_tm %>%
   filter(Year > 2019) %>%
   mutate(Sex = ifelse(is.na(Sex), 0, Sex)) %>%  
   ggplot(aes(x = Time, y = TT, fill = ifelse(Sex == 1, "blue", "red"))) +
@@ -666,7 +653,7 @@ data %>%
         size = ifelse(TT == 1, 1.1, 1),  
         color = ifelse(TT == 1, "gold", NA)  
         )) +
-  scale_x_continuous(breaks = seq(30, max(data$Time, na.rm = TRUE), by = 30)) +
+  scale_x_continuous(breaks = seq(30, max(data_tm$Time, na.rm = TRUE), by = 30)) +
   scale_fill_manual(values = c("0" = "darkgray", "1" = "#FFD700")) + 
   scale_color_manual(values = c("gold")) +
   labs(x = "Time, seconds") +
@@ -688,7 +675,7 @@ data %>%
 
 ::: column-screen
 ```{r}
-p <- data %>%
+p <- data_tm %>%
   filter(Year > 2019) %>%
   mutate(TT = ifelse(is.na(TT), 0, TT)) %>%  # Replace NA values with 0
   ggplot(aes(x = Time, y = date, fill = as.factor(TT))) +  # Use date instead of Date
@@ -699,7 +686,7 @@ p <- data %>%
         size = ifelse(TT == 1, 1.1, 1),  # Make gold circles bigger
         color = ifelse(TT == 1, "gold", NA)  # Add outline to gold circles
         )) +
-  scale_x_continuous(breaks = seq(30, max(data$Time, na.rm = TRUE), by = 30)) +
+  scale_x_continuous(breaks = seq(30, max(data_tm$Time, na.rm = TRUE), by = 30)) +
   scale_fill_manual(values = c("0" = "gray", "1" = "gold")) +  # Set fill colors for TT values
   labs(x = "Time, seconds", y = "", title = "Winning Table Topics") +  # y-axis label remains "Date"
   theme_classic() +
@@ -788,7 +775,7 @@ check_question(c("Being on time"), options = c("Eye contact", "Being on time", "
 **The last speaker has a higher probability of winning TT**
 
 ```{r}
-data_logit <- data %>%
+data_logit <- data_tm %>%
   mutate(alex = ifelse(str_detect(Speaker, "Alex"), 1, 0),
          timur = ifelse(str_detect(Speaker, "Timur"), 1, 0),
          vadym = ifelse(str_detect(Speaker, "Vadym"), 1, 0),
@@ -810,7 +797,7 @@ data_logit <- data %>%
 
 text_plot2 <- glue::glue("Speaking order doesn't have an effect <br> on <span style = 'color:blue;'>winning</span> or <span style = 'color:orange;'>losing</span>.")
 
-data %>%
+data_tm %>%
   filter(!is.na(TT)) %>%
   ggplot(aes(x = factor(speaker_order), fill = factor(TT))) +
   geom_bar() +
@@ -871,12 +858,12 @@ st <- "In TM those who speak for longer than 150 seconds <br>
           in clubs in this sample such practice is not present."
 
 ggplot() +
-  geom_histogram(data = filter(data, TT == "1"), aes(x = Time), fill = "blue", alpha = 0.5) +
+  geom_histogram(data = filter(data_tm, TT == "1"), aes(x = Time), fill = "blue", alpha = 0.5) +
   geom_vline(aes(xintercept=120), color="red", linetype="dashed", size=1) +
   geom_vline(aes(xintercept=90), color="yellow", linetype="dashed", size=1) +
   geom_vline(aes(xintercept=60), color="green", linetype="dashed", size=1) +
   geom_vline(aes(xintercept=150), color="black", linetype="dashed", size=1) +
-  scale_x_continuous(breaks = seq(30, max(data$Time, na.rm = TRUE), by = 30)) +
+  scale_x_continuous(breaks = seq(30, max(data_tm$Time, na.rm = TRUE), by = 30)) +
   scale_y_continuous(breaks = seq(0, 12, by = 2)) +
   annotate("rect", xmin=115, xmax=Inf, ymin=-Inf, ymax=Inf, alpha=0.2, fill="red") +
   labs(title = "Lengths of Winning Speeches") +
@@ -968,7 +955,7 @@ When you have someone's attention, you have to be mindful of time. You are not g
 
 ```{r}
 # Reshape data to long format
-data_long <- data %>%
+data_long <- data_tm %>%
   gather(key = "type", value = "value", Time, tt_prev_speaker, tt_next_speaker)
 
 # Compute statistics
@@ -1044,8 +1031,8 @@ We can't always give our best speeches, especially impromptu. Sometimes what bea
 filtered_name_counts_df <- name_counts_df %>%
   filter(Frequency > 3)
 
-data1 <- data %>%
-  filter(!is.na(data$TT)) %>% 
+data1 <- data_tm %>%
+  filter(!is.na(data_tm$TT)) %>% 
   group_by(Speaker) %>%
   summarise(total_appearances = n(),
             total_wins = sum(TT)) %>%
@@ -1103,7 +1090,7 @@ If your name is not Alex or Andrew, than maybe it is not for you. Go apply yours
 
 ## Conclusions
 
--   Time does affect whether your speech is successful or not. In situations where going overtime isn't punished, you better take as much time as possible, but not a second more!
+-   Time does affect whether your speech is successful or not. In situations where you have limited time, you better take as much time as possible, but not a second more!
 
 -   You can't cheat the system by choosing to speak in any specific order. On average, you're just as likely to win speaking first as you are speaking last.
 

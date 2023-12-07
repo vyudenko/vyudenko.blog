@@ -17,14 +17,14 @@ categories:
   - Mediation Analysis
 ---
 
-
 <!-- ```{=html} -->
+
 <!-- <iframe class="slide-deck" src="reveal_js_presentaion.html"></iframe> -->
+
 <!-- ``` -->
 
-
 <!-- [{{< fa file-pdf >}} MA Thesis](ma_thesis_vyudenko.pdf) &nbsp; -->
-<!-- [ {{< fa chalkboard-teacher >}} Slides ](pres_thesis_vyudenko.pdf) -->
 
+<!-- [ {{< fa chalkboard-teacher >}} Slides ](pres_thesis_vyudenko.pdf) -->
 
 ## Abstract

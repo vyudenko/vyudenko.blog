@@ -10,17 +10,26 @@ categories:
   - Experiences
 ---
 
-
 <!-- 1. Embed the YouTube Player using the YouTube IFrame Player API -->
-<div id="player"></div>
+
+::: {#player}
+:::
 
 <!-- 2. Add HTML controls wrapped in a container -->
-<div id="musicControls">
-  <button id="toggleButton" onclick="toggleMusic()">Turn on/off</button>
-  <input type="range" id="volumeSlider" min="0" max="100" step="1" oninput="setVolume(this.value)" value="2">
-</div>
+
+::: {#musicControls}
+<button id="toggleButton" onclick="toggleMusic()">
+
+Turn on/off
+
+</button>
+
+<input type="range" id="volumeSlider" min="0" max="100" step="1" oninput="setVolume(this.value)" value="2">
+:::
 
 <!-- 3. Use JavaScript to control the player -->
+
+```{=html}
 <script>
   // Load the IFrame Player API code asynchronously
   var tag = document.createElement('script');
@@ -58,8 +67,10 @@ categories:
     player.setVolume(value);
   }
 </script>
-
+```
 <!-- 4. Add CSS to style the controls -->
+
+```{=html}
 <style>
   #musicControls {
     position: fixed;
@@ -92,14 +103,17 @@ categories:
     background: linear-gradient(to right, #5b86e5, #36d1dc);
   }
 </style>
-
-
-
-
-
-
-
+```
 https://en.wikipedia.org/wiki/True_north
+
+
+
+
+
+
+
+As we figure these questions as a society, we keep looking for `North East`иний
+
 
 $$Д=(В*1000)/У$$
 
@@ -117,7 +131,7 @@ A guy comes from a battle, having carried his comrade to evacuation point... He 
 
 Where do we go from here?
 
-As we figure these questions as a society, we keep looking for `North East`иний
+
 
 Where are we going.
 
@@ -128,3 +142,7 @@ Where are we going.
 One thing that surprised me is that medics have to photograph arriving casualties. No photo - no payouts for soldier and his family. If there were no gear/weapon of the soldier he also doesn't get compensated (!)
 
 I am no soldier, I am a civilian.
+
+veteranswriting
+
+o-dark-thirty

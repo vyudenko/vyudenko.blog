@@ -2,7 +2,7 @@
 open-graph: true
 about:
   template: jolla
-  image: kotori.png
+  image: photo.jpg
   links:
     - icon: linkedin
       text: Linkedin
@@ -14,7 +14,6 @@ about:
       text: CV
       href: https://drive.google.com/file/d/1_m219XQMiiki18tZxKOvl1ICCw9h1jRe/view?usp=sharing
 toc: false
-      
 ---
 
 ## Vadym Yudenko
@@ -23,7 +22,7 @@ toc: false
 ## Experience
 
 |                                                       |                                                                                       |                   |                    |
-|-----------------|-----------------------------|-------------|-------------|
+|----------------|--------------------------|----------------|----------------|
 | ![AUK Logo](auk_logo.svg){alt="AUK Logo" width="150"} | [Institute of Behavioral Studies at American University Kyiv](https://auk.edu.ua/en/) | Junior Researcher | Aug 2023 - present |
 
 ::: {.callout-tip title="AUK projects" collapse="true" icon="false" style="text-align: left;"}
@@ -34,7 +33,7 @@ toc: false
 ## Education
 
 |                                                       |                                             |                  |                     |
-|------------------------|-------------------|---------------|---------------|
+|----------------------|-----------------|-----------------|-----------------|
 | ![KSE Logo](kse_logo.jpg){alt="KSE Logo" width="125"} | [Kyiv School of Economics](https://kse.ua/) | MSc of Economics | Sep 2022 - Jan 2024 |
 
 ::: {.callout-tip title="KSE" collapse="true" icon="false" style="text-align: left;"}
@@ -61,7 +60,7 @@ toc: false
 :::
 
 |                                                          |                                                               |                                |                     |
-|---------------------|----------------------|---------------|---------------|
+|-------------------|--------------------|-----------------|-----------------|
 | ![KNEU Logo](kneu_logo.png){alt="KNEU Logo" width="150"} | [Kyiv National Economics University](https://kneu.edu.ua/en/) | BSc of Business and Management | Sep 2018 - Jun 2022 |
 
 ::: {.callout-tip title="KNEU" collapse="true" icon="false" style="text-align: left;"}

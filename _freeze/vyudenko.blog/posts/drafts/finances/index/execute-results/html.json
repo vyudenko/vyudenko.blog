@@ -1,0 +1,16 @@
+{
+  "hash": "ad24f8b6f60a07024340efa5b8682248",
+  "result": {
+    "markdown": "---\ntitle: \"Finances\"\nauthor: \n - name: Vadym Yudenko\n   affiliation: American University Kyiv\n   affiliation-url: https://auk.edu.ua/en/\ndate: 2023-07-14\ndraft: true \ncategories:\n  - money\n  - budget\n---\n\n\n\n::: {.cell}\n\n:::\n\n::: {.cell}\n\n:::\n\n::: {.cell}\n::: {.cell-output-display}\n![](index_files/figure-html/unnamed-chunk-1-1.png){width=672}\n:::\n\n::: {.cell-output .cell-output-stdout}\n```\n[1] \"2018-07-06 16:36:00 EEST\" \"2023-09-14 11:22:00 EEST\"\n```\n:::\n:::\n",
+    "supporting": [
+      "index_files"
+    ],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

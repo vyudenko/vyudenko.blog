@@ -1,0 +1,14 @@
+{
+  "hash": "680c58caca983c789e2a2a3543516036",
+  "result": {
+    "markdown": "---\ntitle: \"Lessons learned\"\ndescription: |\n  Looking back at my self-surveillance journey and discussing the results. \n  Timetracking part 7 of N \nauthor: \n - name: Vadym Yudenko\n   affiliation: American University Kyiv\n   affiliation-url: https://auk.edu.ua/en/\ndate: 2023-07-14\ntoc-depth: 4\ndraft: true \ncategories:\n  - timetracking\n  - self-surveillance\n---\n\n\n\n::: {.cell}\n\n:::\n\n::: {.cell}\n\n:::\n\n::: {.cell}\n\n:::\n\n\n::: {.callout-tip title=\"Part 1. Thinking about life\" collapse=\"true\" icon=\"false\" style=\"text-align: center;\"}\nThis a part 1 of N of my series of time tracking. This part serves as a brief introduction to the project and it's rationale. Other parts will go in depth and answer specific questions.\n:::\n\n::: {.callout-tip title=\"Part 2. Why track your daily life?\" collapse=\"true\" icon=\"false\" style=\"text-align: center;\"}\nIn this part we go over some of the reasons why you should and shouldn't track your daily activities. Who will benefit from using it...\n:::\n\n::: {.callout-tip title=\"Part 3. How to track your daily life?\" collapse=\"true\" icon=\"false\" style=\"text-align: center;\"}\nIn this section you'll read about different approaches to tracking one's time based on the goals you have in mind. Not everyone should do it the same way!\n:::\n\n::: {.callout-tip title=\"Part 4. Answering questions with data\" collapse=\"true\" icon=\"false\" style=\"text-align: center;\"}\nPart 4 provides examples of what kind of data-driven answers you can get by tracking your time.\n:::\n\n::: {.callout-tip title=\"Part 5. Predicting behavior with data\" collapse=\"true\" icon=\"false\" style=\"text-align: center;\"}\nPart 5 as a continuation of part 4 explores way of predicting one's own time spending.\n:::\n\n::: {.callout-tip title=\"Part 6. TBA\" collapse=\"true\" icon=\"false\" style=\"text-align: center;\"}\nMore dataviz\n:::\n\n::: {.callout-tip title=\"Part 7. Lessons learned\" collapse=\"true\" icon=\"false\" style=\"text-align: center;\"}\nLooking back at my self-surveillance journey and discussing the results.\n:::\n\n## Goodhart's law\n\n\"When a measure becomes a target, it ceases to be a good measure\".\n\n-   how fixation on measuring/tracking takes precedence over what you measure/track\n\n## Less is more\n\n-   how keeping things simple helps you long term\n\n## Reducing cognitive pressure\n\n-   make the process simple, brain-dead, easy to do\n\n## Enjoying life\n\n-   how being present in the moment is much more important than tracking\n\n## Closing thoughts\n",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

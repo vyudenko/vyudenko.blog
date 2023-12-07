@@ -33,6 +33,8 @@ website:
         text: Writings 
       - href: research/index.qmd
         text: Reserach
+      - href: til/index.qmd
+        text: TIL
       - href: about/index.qmd
         text: About
       - icon: github
@@ -70,6 +72,6 @@ format:
       - html/progress-bar.html
       - html/back-to-top.html
 
-editor: visual
+editor: source
 execute:
   freeze: auto

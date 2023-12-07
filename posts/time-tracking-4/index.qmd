@@ -1,0 +1,485 @@
+---
+title: "What can one learn from analysing your daily life"
+description: |
+  Applying statistics tools to study daily behavioral patterns.
+  Timetracking part 4 of 5
+author: 
+ - name: Vadym Yudenko
+   affiliation: American University Kyiv
+   affiliation-url: https://auk.edu.ua/en/
+date: 2023-07-14
+draft: true 
+categories:
+  - timetracking
+  - self-surveillance
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, warning = FALSE, message = FALSE)
+```
+
+```{r load libraries}
+# devtools::install_github("liamgilbey/ggwaffle")
+# library(ggwaffle)
+library(stargazer)
+library(tidyverse)
+library(ggExtra)
+library(ggtext)
+library(ggthemes)
+library(gganimate)
+library(ggnewscale)
+library(showtext)
+library(grid)
+library(transformr)
+library(corrr)
+library(corrplot)
+library(lubridate)
+library(reshape2)
+library(plotly)
+library(scales)
+library(ggiraph)
+library(glue)
+library(knitr)
+library(fontawesome)
+library(RColorBrewer)
+library(DT)
+library(patchwork)
+```
+
+```{r set theme}
+font_add_google("Fira Sans", "firasans")
+font_add_google("IBM Plex Mono", "ibmplex")
+# showtext::showtext_auto()
+
+blog_theme <-
+    theme_minimal(18, base_family = "IBM Plex Mono") +
+    theme(
+      plot.background = element_rect(fill = "white", color = NA),
+      plot.title.position = "plot",
+      plot.title = element_text(size = 24, margin = margin(b = 1, unit = "line")),
+      legend.position = c(0, 1),
+      legend.direction = "horizontal",
+      legend.justification = c(0, 1),
+      legend.title.align = 1,
+      axis.title.y = element_text(hjust = 0, size = 10),
+      axis.title.x = element_text(hjust = 0, size = 10),
+      panel.grid.major = element_line(color = "#d3d9db"),
+      panel.grid.minor = element_blank()
+    )
+  
+theme_set(blog_theme)
+```
+
+```{r load data}
+data_long <- read.csv("data.csv") %>%
+  mutate(
+    datetime = as.POSIXct(datetime, format="%m/%d/%Y %H:%M", tz="GMT+3"),
+    day_of_week = weekdays(datetime),
+    time_of_day = case_when(
+      hour(datetime) < 12 ~ "Morning",
+      hour(datetime) < 18 ~ "Day",
+      TRUE ~ "Night"
+    ),
+    time_column = if_else(substr(as.character(datetime), 12, 16) == "", "00:00", substr(as.character(datetime), 12, 16)),
+    category5 = case_when(
+      activity %in% c("Sleep", "Sport", "Communication", "Japanese") ~ activity,
+      activity %in% c("Study", "Work", "TM", "Planning", "Reading") ~ "Study/Work",
+      activity %in% c("Transportation", "Misc", "Waste", "Food") ~ "Rest"
+    ),
+    hour = hour(datetime),
+    day = wday(datetime, label = TRUE, abbr = TRUE, week_start = 1),
+    month = month(datetime, label = TRUE, abbr = FALSE),
+    date_char = as.character(datetime)
+  )
+
+activity_colors <- c(
+  "Sleep" = "#1E90FF",  # DodgerBlue
+  "Sport" = "#32CD32",  # LimeGreen
+  "Study" = "#DAA520",  # Goldenrod
+  "Communication" = "#87CEEB",  # SkyBlue
+  "Food" = "#FFD700",  # Gold
+  "Waste" = "black",
+  "Reading" = "#FFA07A",  # LightSalmon
+  "Japanese" = "#FF69B4",  # HotPink
+  "Misc" = "#8FBC8F",  # DarkSeaGreen
+  "TM" = "#9370DB",  # MediumPurple
+  "Transportation" = "#A9A9A9"  # DarkGray
+)
+
+time_ticks06 <- c(
+    "06:00", "06:20", "06:40", "07:00", "07:20", "07:40", "08:00", "08:20", "08:40", "09:00",
+    "09:20", "09:40", "10:00", "10:20", "10:40", "11:00", "11:20", "11:40", "12:00", "12:20",
+    "12:40", "13:00", "13:20", "13:40", "14:00", "14:20", "14:40", "15:00", "15:20", "15:40",
+    "16:00", "16:20", "16:40", "17:00", "17:20", "17:40", "18:00", "18:20", "18:40", "19:00",
+    "19:20", "19:40", "20:00", "20:20", "20:40", "21:00", "21:20", "21:40", "22:00", "22:20",
+    "22:40", "23:00", "23:20", "23:40", "00:00", "00:20", "00:40", "01:00", "01:20", "01:40",
+    "02:00", "02:20", "02:40", "03:00", "03:20", "03:40", "04:00", "04:20", "04:40", "05:00",
+    "05:20", "05:40"
+)
+
+
+time_ticks15 <- c("15:00", "15:20", "15:40", "16:00", "16:20", "16:40", "17:00",
+                "17:20", "17:40", "18:00", "18:20", "18:40", "19:00", "19:20",
+                "19:40", "20:00", "20:20", "20:40", "21:00", "21:20", "21:40",
+                "22:00", "22:20", "22:40", "23:00", "23:20", "23:40",
+                "00:00", "00:20", "00:40", "01:00", "01:20", "01:40",
+                "02:00", "02:20", "02:40", "03:00", "03:20", "03:40",
+                "04:00", "04:20", "04:40", "05:00", "05:20", "05:40",
+                "06:00", "06:20", "06:40", "07:00", "07:20", "07:40",
+                "08:00", "08:20", "08:40", "09:00", "09:20", "09:40",
+                "10:00", "10:20", "10:40", "11:00", "11:20", "11:40",
+                "12:00", "12:20", "12:40", "13:00", "13:20", "13:40", "14:00", "14:20", "14:40")
+```
+
+::: {.callout-tip title="Part 1. Every living hour" collapse="true" icon="false" style="text-align: center;"}
+[Part 1](https://vyudenko.blog/posts/time-tracking-1) of 5 of time tracking series. It serves as an introduction to the project and it's rationale. Other parts will go in depth and answer specific questions.
+:::
+
+::: {.callout-tip title="Part 2. Why track your daily life?" collapse="true" icon="false" style="text-align: center;"}
+[Part 2](https://vyudenko.blog/posts/time-tracking-2) explains timetracking and goes over some of the reasons why you should or shouldn't track your daily activities. Who will benefit from using it and who won't.
+:::
+
+::: {.callout-tip title="Part 3. How to track your daily life?" collapse="true" icon="false" style="text-align: center;"}
+[Part 3](https://vyudenko.blog/posts/time-tracking-3) lays out the approach and its set up. From choosing the categories to the actual tracking.
+:::
+
+::: {.callout-tip title="Part 4. Answering questions with data" collapse="true" icon="false" style="text-align: center;"}
+In this part we provide examples of what kind of data-driven answers you can get by tracking your time.
+:::
+
+::: {.callout-tip title="Part 5. Other" collapse="true" icon="false" style="text-align: center;"}
+[Part 5](https://vyudenko.blog/posts/time-tracking-5) looks at other projects....
+:::
+
+Non-linear regressions
+
+categorical-categorical \[check CHATGDP\]
+
+```{r}
+library(ggalluvial)
+library(networkD3)
+
+data_long1 <- data_long %>%
+  mutate(activity = case_when(
+    activity %in% c("Japanese", "Reading", "Study", "Planning") ~ "Study",
+    activity %in% c("Transportation", "Misc") ~ "Misc",
+    TRUE ~ as.character(activity)
+  ))
+
+```
+
+```{r graveyard, echo=FALSE}
+# Balanced life
+# 
+# On the surface it might look like a a purely time tracking task that is no use in planning.
+# 
+# Yet, after some time one can do the following….
+# 
+# Think how much time do you have to spend communicating to feel fulfilled, how much time do you wish to spend doing sports? After all both sports and communications are important for your well being. Now, seeing how busy you are, how much time on average do you think you can feasibly speand on these activities.
+# 
+# (my thinking behind importance of having a balanced life) - you can't just invest all the time into work or family. - there has to be some sort of balance, which can be quantified with some precision
+# 
+# Reflection
+# 
+# (thinking behind importance of looking back) - to think through how have you spent one's day - to track one's progress -
+```
+
+Can you learn anything from daily tracking data other than when you did smth?
+
+## Time eaters
+
+-   where do you lose the most time?
+-   
+
+## Sleeping patterns
+
+```{r}
+df_activity_hours <- data_long %>%
+   mutate(date = as.Date(datetime)) %>%
+   group_by(date, activity) %>%
+   summarise(hours = n() * (20/60)) %>%
+   ungroup() 
+
+# Filter the data for "Sleep" activity and remove the first and last rows
+df_filtered_sleep <- df_activity_hours %>% 
+  filter(activity %in% "Sleep") %>%
+  arrange(date) %>%
+  slice(2:(n()-1))
+
+df_filtered_sleep %>%
+  ggplot(aes(x = date, y = hours)) +
+  geom_line() +
+  geom_smooth(method = "lm", se = FALSE) +
+  labs(title = "Sleeping patterns",
+       subtitle = "Linear regression",
+       x = "Date",
+       y = "Hours",
+       caption = "Source: vyudenko.blog") +
+  theme(plot.title = element_text(hjust = 0.5),
+        plot.subtitle = element_text(hjust = 0.5),
+        plot.caption = element_text(hjust = 0.5))
+```
+
+```{r}
+library(tsibble) #allowing temporal structures in tidy data frames
+library(tseries) #time series analysis
+library(feasts) #tools for analyzing TS
+library(fable) #models for TS
+library(tibble) #creates tidy data frames
+
+# dt_fit <- tsibble(df_filtered_sleep) %>%
+#   select(-activity) %>%
+#   model(arima110 = ARIMA(hour ~ pdq(1,1,0),greedy=F), 
+#         arima013 = ARIMA(hour ~ pdq(0,1,3),greedy=F),
+#         arima212 = ARIMA(hour ~ pdq(2,1,2),greedy=F))
+# 
+# glance(dt_fit) %>% arrange(AIC) %>% select(.model:BIC)
+# 
+# dt_fit %>%
+#   select(arima212) %>%
+#   gg_tsresiduals()
+# 
+# augment(dt_fit) %>%
+#   filter(.model=='arima212') %>%
+#   features(.innov, ljung_box, lag = 10, dof = 5) #10 - 2 - 2 - 1 = lag - p - q - k
+# 
+# dt_forecast <- tsibble(df_filtered_sleep) %>%
+#   model(arima212 = ARIMA(activity ~ pdq(2,1,2),greedy=F)) # we need this for the simulation to work 
+# 
+# sim <- dt_forecast %>% generate(h = 30, times = 5, bootstrap = TRUE)
+# head(sim,6)
+
+```
+
+```{r}
+#Visualize the distribution of sleep hours by day of the week from data_long
+data_long %>% 
+  group_by(activity, day_of_week) %>%
+  filter(activity %in% c("Sleep")) %>% 
+  summarise(hours = n() * (20/60),
+            mean = mean(hours)/52) %>%
+  mutate(weekend = ifelse(day_of_week %in% c("Saturday", "Sunday"), "Weekend", "Weekday"),
+         day_of_week = factor(day_of_week, levels = c("Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"))) %>% 
+  ungroup() %>% 
+  ggplot(aes(x = day_of_week, y = mean, fill = weekend)) +
+  geom_bar(stat = "identity") +
+  geom_point(size = 7) +
+  theme(legend.position = "none",
+        plot.title = element_text(hjust = 0.5),
+        plot.subtitle = element_text(hjust = 0.5),
+        plot.caption = element_text(hjust = 0.5))
+```
+
+```{r}
+#Visualize the distribution of activity hours by time of the day from data_long
+data_long %>% 
+  group_by(activity, time_of_day) %>%
+  summarise(hours = n() * (20/60)) %>%
+  ungroup() %>%
+  ggplot(aes(x = time_of_day, y = hours, fill = activity)) +
+  geom_bar(stat = "identity") +
+  theme(legend.position = "none",
+        plot.title = element_text(hjust = 0.5),
+        plot.subtitle = element_text(hjust = 0.5),
+        plot.caption = element_text(hjust = 0.5)) +
+  ggrepel::geom_text_repel(aes(label = activity), size = 3, show.legend = FALSE)
+```
+
+## Eating patterns
+
+```{r}
+data_long %>% 
+  group_by(activity, day_of_week) %>%
+  filter(activity %in% c("Food")) %>% 
+  summarise(hours = n() * (20/60),
+            mean = mean(hours)/52) %>%
+  mutate(weekend = ifelse(day_of_week %in% c("Saturday", "Sunday"), "Weekend", "Weekday"),
+         day_of_week = factor(day_of_week, levels = c("Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"))) %>% 
+  ungroup() %>% 
+  ggplot(aes(x = day_of_week, y = mean, fill = weekend)) +
+  geom_bar(stat = "identity") +
+  geom_point(size = 7) +
+  theme(legend.position = "none",
+        plot.title = element_text(hjust = 0.5),
+        plot.subtitle = element_text(hjust = 0.5),
+        plot.caption = element_text(hjust = 0.5))
+```
+
+```{r}
+data_long %>% 
+  filter(activity %in% "Food") %>% 
+  ggplot(aes(y=day_of_week, x=as.POSIXct(time_column, format="%H:%M"))) +  # Convert time_column to POSIXct
+  geom_bin2d(position = "identity", bins = c(72, 7)) +
+  scale_fill_gradient(low = "white", high = "yellow") +
+  scale_x_time(labels = scales::time_format("%H:%M"), 
+               expand = c(0, 0),
+               breaks = seq(from = as.POSIXct("00:00", format="%H:%M"), 
+                            to = as.POSIXct("23:40", format="%H:%M"), 
+                            by = "20 min")) +  # Add scale_y_time here
+  labs(y = "", x = "") +
+  theme(axis.text.y = element_text(size = 10),
+        axis.text.x = element_text(size = 5, , angle = 90),
+        axis.title = element_blank(),
+        legend.position = "none",
+        panel.grid.major = element_blank(),
+        panel.grid.minor = element_blank())
+```
+
+```{r}
+df_filtered_food <- df_activity_hours %>% 
+  filter(activity %in% "Food") %>%
+  arrange(date) %>%
+  slice(2:(n()-1)) %>% 
+  mutate(rolling_mean = zoo::rollmean(hours, k = 7, fill = NA, align = "right"))
+
+ggplot(df_filtered_food, aes(x = date)) +
+  geom_line(aes(y = hours, color = "Food"), size = 0.5) +  # Original data
+  geom_line(aes(y = rolling_mean, color = "Rolling Mean"), size = 1) +  # Rolling mean
+  scale_x_date(limits = c(min(df_filtered_food$date), max(df_filtered_food$date)), 
+                   expand = c(0, 0),
+                   date_breaks = "1 month",  # Display every month on the x-axis
+                   date_labels = "%B") +  # Format the date labels as "Month Year"
+  labs(title = "How much time have been spent eating each day in 2020?",
+       x = NULL,
+       y = "",
+       color = "Activity") +  # Labels
+  theme(legend.position = "none",
+        plot.title = element_text(family = "IBM Plex Mono", hjust = 0.5, size = 18),
+        axis.text = element_text(family = "IBM Plex Mono"),
+        axis.title = element_text(family = "IBM Plex Mono"),
+        axis.text.x = element_text(size = 7)) +
+  scale_color_manual(values = c("Food" = "gray", "Rolling Mean" = "#FFD700"))  # Custom colors
+```
+
+## Behavioral patterns
+
+-   you can't always lie "you can't lie consistently"
+
+```{r}
+# circle_plot <-
+#   data_long |>
+#   filter(activity == "Waste") |>
+#   count(day, hour) |>
+#   mutate(
+#     hour_label = case_when(
+#       hour == 12 ~ "12pm",
+#       hour == 0 ~ "12am",
+#       hour > 12 ~ paste0(hour - 12, "pm"),
+#       hour < 12 ~ paste0(hour, "am")
+#     ),
+#     pct = n / sum(n)
+#     )
+# 
+# 
+# tooltip_hour <- function(day, hour_label, ...) {
+#   this_hour_count <-
+#     circle_plot |>
+#     filter(hour_label == !!hour_label)
+# 
+#   this_hour_total <- sum(this_hour_count$n)
+#   this_hour_pct <- scales::percent(this_hour_total / sum(circle_plot$n), 0.1)
+#   this_hour_total <- trimws(format(this_hour_total, big.mark = ","))
+# 
+#   this_hour_days <-
+#     this_hour_count |>
+#     mutate(
+#       across(pct, scales::percent_format(0.1)),
+#       across(n, format, big.mark = ","),
+#       across(n, trimws),
+#       text = glue("{day}: {pct} ({n})"),
+#       text = if_else(day == !!day, glue("<strong>{text}</strong>"), text)
+#     ) |>
+#     glue_data("<li>{text}</li>") |>
+#     glue_collapse()
+# 
+#   glue::glue(
+#     "<p><strong>{hour_label}</strong><br><small>{this_hour_pct} of total ({this_hour_total})</small></p>",
+#     "<ul>{this_hour_days}</ul>"
+#   )
+# }
+# 
+# circle_plot$tooltip <- pmap_chr(circle_plot, tooltip_hour)
+# 
+# 
+# plot_time_of_day <-
+#   ggplot(circle_plot) +
+#   aes(y = n, fill = day, x = hour, data_id = hour, tooltip = tooltip) +
+#   geom_area(
+#     data = function(d) {
+#       # Shade from midnight-6am and 6pm-midnight, kinda like geom_step_area()
+#       max_count <- max(d$n)
+#       tibble(
+#         day = sort(rep(unique(d$day), 6)),
+#         # hour = rep(c(0, 6, 6.01, 18, 18.01, 24), 7),
+#         hour = rep(c(6, 12, 12.01, 6, 6.01, 12), 7),
+#         n = rep(c(max_count, max_count, 0, 0, max_count, max_count), 7),
+#         tooltip = ""
+#       )
+#     },
+#     fill = "#aaaaaa30",
+#   ) +
+#   ggiraph::geom_col_interactive(show.legend = FALSE, width = 1) +
+#   facet_wrap(vars(day), nrow = 2) +
+#   coord_polar(start = pi) +
+#   scale_x_continuous(
+#     breaks = seq(0, 23, 3),
+#     minor_breaks = 0:23,
+#     labels = c("12am", paste0(seq(3, 9, 3), "am"), "12pm", paste0(seq(3, 9, 3), "pm")),
+#     limits = c(0, 24),
+#     expand = expansion()
+#   ) +
+#   scale_y_continuous(expand = expansion(), breaks = seq(0, 100, 25)) +
+#   scale_fill_discrete() +
+#   labs(
+#     title = "Did I really waste more time in the morning??",
+#     x = NULL,
+#     y = NULL
+#   ) +
+# #  theme_classic() +
+#   theme(
+#     axis.text.y = element_blank(),
+#     axis.text.x = element_text(size = 10),
+#     panel.grid.major.y = element_blank()
+#   )
+# 
+# ggiraph::girafe(
+#   ggobj = plot_time_of_day,
+#   width_svg = 12,
+#   height_svg = 8,
+#   options = list(
+#     ggiraph::opts_hover_inv("filter: saturate(30%) brightness(125%)"),
+#     ggiraph::opts_hover(css = "opacity:1"),
+#     ggiraph::opts_tooltip(
+#       placement = "container",
+#       css = "width: 12rem; font-family: var(--font-monospace, 'IBM Plex Mono');",
+#       # These don't matter, position is set by CSS rules below
+#       offx = 1000,
+#       offy = 400,
+#       use_cursor_pos = FALSE
+#     )
+#   ),
+#   desc = knitr::opts_current$get("fig.alt")
+# )
+
+#Code taken and adapted from Garrick Aden's blog post [Visualizing mytime](https://www.garrickadenbuie.com/blog/visualizing-my-time/).
+```
+
+Why do I waste time?
+
+(what comes before wasting time)
+
+## Parting thoughts
+
+Tracking one's daily life has many merits:
+
+-   allows one to reflex in the moment if one has been doing what one wanted;
+
+-   gives you visual confirmation of how you spend your time;
+
+-   plan activities that can be achieved with some certainty when the $n$ hours has been spend on that activity
+
+but it doesn't provide answer as to whether you are living your best life.
+
+It can provide hints like having a routine, sleeping 7-8 hours a day, eating 3 meals a day, spending time communicating, socializing. But it can never tell you if that specific moment is significant or not.
+
+On its own a single cell in the middle of your day tells nothing, but if you look at the pattern or lack thereof, you can see which areas of your life you might want to look into.
