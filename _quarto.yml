@@ -6,7 +6,6 @@ website:
   title: "Vadym Yudenko"
   site-url: https://vyudenko.blog
   repo-url: https://github.com/vyudenko/vyudenko.github.io
-  favicon: kotori.png
   
   comments: 
     utterances: 
@@ -22,7 +21,7 @@ website:
   
   twitter-card:
     creator: "@vadym_yudenko"
-    image: "kotori.png"
+    image: "photo.jpg"
     
   open-graph: true
   navbar:
@@ -48,8 +47,7 @@ website:
       &copy; 2023 Vadym Yudenko. <br>
       Opinions are my own.
     right: |
-      License: [CC BY NC SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0). <br>
-      [Favicon image](https://lovepik.com/images/png-flying.html)
+      License: [CC BY NC SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0).
     border: true
 
 
