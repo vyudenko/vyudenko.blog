@@ -18,10 +18,6 @@ website:
   
   cookie-consent: 
     type: implied
-  
-  twitter-card:
-    creator: "@vadym_yudenko"
-    image: "photo.jpg"
     
   open-graph: true
   navbar:

@@ -1,0 +1,14 @@
+{
+  "hash": "adc613a7cf5564a8ab110be30442dece",
+  "result": {
+    "markdown": "---\ntitle: \"Daily life of KSE student\"\ndescription: |\n  Surviving and thriving in the most intense econ masters program in Ukraine.\nauthor: \n - name: Vadym Yudenko\n   affiliation: American University Kyiv\n   affiliation-url: https://auk.edu.ua/en/\ndate: 2023-07-14\ndraft: true \ncategories:\n  - timetracking\n  - self-surveillance\n---\n\n\n\n::: {.cell}\n\n:::\n\n::: {.cell}\n\n:::\n\n::: {.cell}\n\n:::\n\n\n## 2020 {#main_plot}\n\n::: column-screen\n\n::: {.cell}\n\n:::\n\n:::\n",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

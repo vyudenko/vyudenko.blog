@@ -34,7 +34,7 @@ Part 2 explains timetracking and goes over some of the reasons why you should or
 [Part 5](https://vyudenko.blog/posts/time-tracking-5) looks at other projects....
 :::
 
-# What is timetracking?
+## What is timetracking?
 
 It is a active practice of planning, capturing and measuring of one's daily life. It build upon the idea of a diary and a daily planner, and calendar. While your employer may disagree with this[^1], our timetracking, while using the same principles, is done for its own sake and should serves you needs.  
 
@@ -108,3 +108,5 @@ Eventually I have got my data-driven evidence-based answer as to...
 
 
 It depended on the day
+
+[Part 3](https://vyudenko.blog/posts/time-tracking-3)

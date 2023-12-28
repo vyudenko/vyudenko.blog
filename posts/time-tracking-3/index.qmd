@@ -182,4 +182,4 @@ There are many ways to track your time, which are all good in their own way. I h
 
 Read next:
 
-![](https://vyudenko.blog/posts/time-tracking-4
+[Part 4](https://vyudenko.blog/posts/time-tracking-4)

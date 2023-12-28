@@ -14,6 +14,8 @@ categories:
   - self-surveillance
 ---
 
+## UNDER CONSTRUCTION
+
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE, warning = FALSE, message = FALSE)
 ```
@@ -146,10 +148,6 @@ time_ticks15 <- c("15:00", "15:20", "15:40", "16:00", "16:20", "16:40", "17:00",
 #   left_join(atus.rostec, by = "TUCASEID") %>%
 #   left_join(atus.rost, by = "TUCASEID") %>%
 #   left_join(atus.case, by = "TUCASEID")
-```
-
-```{r}
-
 ```
 
 

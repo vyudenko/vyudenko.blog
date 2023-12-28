@@ -899,9 +899,9 @@ activity_hours_total %>%
   layout(title = "How much hours were spend on each activity?")
 ```
 
-Read next
 
-![](https://vyudenko.blog/posts/time-tracking-2)
+
+[Part 2](https://vyudenko.blog/posts/time-tracking-2)
 
 ::: {.callout-tip title="Check this out" collapse="true" icon="false" style="text-align: center;"}
 [Life timeline in a spreadsheet](https://flowingdata.com/2023/06/15/life-timeline-in-a-spreadsheet/) <br> [Ze Frank on Counting Jellybeans](https://youtu.be/BOksW_NabEk)

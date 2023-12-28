@@ -46,6 +46,7 @@ library(fontawesome)
 library(DT)
 
 font_add_google("Fira Sans", "firasans")
+font_add_google("IBM Plex Mono", "ibmplex")
 showtext::showtext_auto()
 ```
 
@@ -347,6 +348,7 @@ In this part we get to know more about our dataset, whilst answering some of the
 ### Who likes to talk more, women or men?
 
 ```{r}
+#| classes: preview-image
 ggplot() +
   geom_density(data = filter(data_tm, Sex == 1), aes(x = Time, fill = "Women"), alpha = 0.5) +
   geom_density(data = filter(data_tm, Sex == 0), aes(x = Time, fill = "Men"), alpha = 0.5) +
