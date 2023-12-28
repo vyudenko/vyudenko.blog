@@ -7,12 +7,11 @@ author:
  - name: Vadym Yudenko
    affiliation: American University Kyiv
    affiliation-url: https://auk.edu.ua/en/
-date: 2023-11-01
+date: 2023-12-28
 toc-depth: 4
-draft: true 
 categories:
-  - timetracking
-  - self-surveillance
+  - Timetracking
+  - Self-surveillance
 ---
 
 ```{r setup, include=FALSE}
