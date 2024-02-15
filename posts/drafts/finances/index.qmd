@@ -61,18 +61,18 @@ theme_set(blog_theme)
 
 ```{r}
 # Read the CSV data
-data <- read.csv("Money.csv", stringsAsFactors = FALSE)
+data <- read.csv("Money_copy.csv")
 
 # Convert Date and Time columns to a single datetime column
 data$Datetime <- as.POSIXct(paste(data$Date, data$Time), format="%d.%m.%Y %H:%M")
 
 # Convert "Total Sum" and "Transaction sum" from character to numerical
-data$Total.Sum <- gsub(" ", "", data$Total.Sum) %>% as.numeric()
-data$Transaction <- gsub(" ", "", data$Transaction) %>%  as.numeric()
+data$Balance <- gsub(" ", "", data$Balance) %>% as.numeric()
+data$Sum <- gsub(" ", "", data$Sum) %>%  as.numeric()
 
 
 # Time series plot for Total Sum after transaction over time
-ggplot(data, aes(x = Datetime, y = Transaction)) +
+ggplot(data, aes(x = Datetime, y = Sum)) +
   geom_line() +
   labs(title = "Time Series Plot of Total Sum", x = "Date", y = "Total Sum after Transaction") +
   theme_minimal()
@@ -82,8 +82,11 @@ range(data$Datetime)
 # Pie chart for categories
 category_sum <- data %>%
   group_by(Category) %>%
-  summarise(Total = sum(Transaction))
+  summarise(Total = sum(Sum))
 
+missing <- data %>% 
+  filter(Datetime > "2022-09-30 11:21:00" & Datetime < "2023-01-22 11:21:00") %>% 
+  select(Datetime, Category, Description, Sum)
 # Plot
 #pie(category_sum$Total, labels = category_sum$Category, main = "Proportion of Categories in Budget")
 ```

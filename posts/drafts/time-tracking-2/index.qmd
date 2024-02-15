@@ -1,0 +1,90 @@
+---
+title: "Why track your daily life?"
+description: |
+  Thinking about tracking your daily life and most importantly, why would you do that.
+  Timetracking part 2 of 5
+author: 
+ - name: Vadym Yudenko
+   affiliation: American University Kyiv
+   affiliation-url: https://auk.edu.ua/en/
+date: 2023-07-14
+draft: true 
+categories:
+  - timetracking
+  - self-surveillance
+---
+
+::: {.callout-tip title="Part 1. Every living hour" collapse="true" icon="false" style="text-align: center;"}
+[Part 1](https://vyudenko.blog/posts/time-tracking-1) of N of my series of time tracking. This part serves as a brief introduction to the project and it's rationale. Other parts will go in depth and answer specific questions.
+:::
+
+::: {.callout-tip title="Part 2. Why track your daily life?" collapse="false" icon="false" style="text-align: center;"}
+Part 2 explains timetracking and goes over some of the reasons why you should or shouldn't track your daily activities. Who will benefit from using it and who won't.
+:::
+
+::: {.callout-tip title="Part 3. How to track your daily life?" collapse="true" icon="false" style="text-align: center;"}
+[Part 3](https://vyudenko.blog/posts/time-tracking-3) lays out the approach and its set up. From choosing the categories to the actual tracking.
+:::
+
+::: {.callout-tip title="Part 4. Answering questions with data" collapse="true" icon="false" style="text-align: center;"}
+[Part 4](https://vyudenko.blog/posts/time-tracking-4) provides examples of what kind of data-driven answers you can get by tracking your time.
+:::
+
+::: {.callout-tip title="Part 5. Other" collapse="true" icon="false" style="text-align: center;"}
+[Part 5](https://vyudenko.blog/posts/time-tracking-5) looks at other projects....
+:::
+
+## What is timetracking?
+
+It is a active practice of planning, capturing and measuring of one's daily life. It build upon the idea of a diary and a daily planner, and calendar. While your employer may disagree with this[^1], our timetracking, while using the same principles, is done for its own sake and should serves you needs.  
+
+Tracking time can be done in many different ways from writing out everything by hand in a daily planner to filling out one's online calendar. Both these ways allow one to plan and record, but with these methods measuring is complicated, as one has to extract the data.
+
+[^1]: The timetracking is more prevalent at a workplace, where it is used to measure one's productivity and billable hours. Some of these apps are free and can be used for personal use. See [Forbes](https://www.forbes.com/advisor/business/software/free-time-tracking-apps/) 
+
+In the following parts I'll be advocating for a practice in general, for specifics of my approach see [Part 3](https://vyudenko.blog/posts/time-tracking-3).
+
+## Why would you want to track your daily life? {#why-track}
+
+*Why would anyone in their right mind, stable job, social life, and hobbies want to track their daily life or part of it?* You keep yourself occupied, you may know your goals and steadily work towards them. You may have a good idea of how you spend your time, and you may be right. You could be tracking your progress on the results basis instead of the process basis. This all is very good, this timetracking thing may not be for you and it is okay! 
+
+Why have I started timetracking?
+
+Sometime in Summer 2019 I was bored and wasted days doing a whole lot of nothing. This was slowly dawning on me so I decided to change. Among other things that I have tried to improve my life was introduction of planning and time tracking. I have been journaling for a year already, and this seemed like a great continuation. Essentially, I have started tracking my time to improve my life - to waste less time, plan ahead, track your progress in hours spent on a task, and to have a better idea of how I spend my time. 
+
+
+## What time tracking is good for?
+
+1.  Time management
+
+Timetracking allows you to plan, prioritize and estimate the time taken to complete a task. In this sense timetracking approach can complement a calendar app or daily planner. 
+
+2.  Reflection
+
+Looking back at how you have spent your day allows you to reflect on how well this day went. It may be unorthodox, but it does provide a beautiful visual!
+
+{{visual}}
+
+3.  Planing activities that can be achieved with high certainty when the $n$ hours has been spent on it.
+
+Online courses provide an estimated amount of time needed per week to successfuly finish the course. You  can use this information to plan your week and see if you have enough time to complete the course. With timetracking you not only can plan ahead, but also track how much time you actually end up spending on the course. 
+
+Another example is learning a [foreign language](https://www.state.gov/foreign-language-training/). For me to pass JLPT N3, I needed to clock ~1000 hours of study time in 8 months. If I fall behind, then I will have to spend more time studying closer to the exam date. This doesn't guarranty that I will pass the exam, but it does give me a good idea of how much time I need to spend on studying. 
+
+## What time tracking is not good for?
+
+Tracking one's productivity (!)
+
+Companies usually track their employees time and based on the time spent determine the payments and productivity (number of tasks / hour). While you can try doing this for yourself, I'd advice against it, because you might fall victim to Goodheart's Law - measure becomes a target. We don't track for it's own sake, but to reflect on our life and improve it.
+
+
+
+## Conclusions:
+
+
+
+
+
+[Part 3](https://vyudenko.blog/posts/time-tracking-3)
+
+

@@ -1,47 +1,43 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://vyudenko.blog/writings/weloveyou/index.html</loc>
-    <lastmod>2023-12-28T17:16:08.759Z</lastmod>
-  </url>
-  <url>
-    <loc>https://vyudenko.blog/writings/backtonormal/index.html</loc>
-    <lastmod>2023-12-28T17:15:57.297Z</lastmod>
-  </url>
-  <url>
-    <loc>https://vyudenko.blog/til/index.html</loc>
-    <lastmod>2023-12-28T17:15:54.910Z</lastmod>
-  </url>
-  <url>
-    <loc>https://vyudenko.blog/research/index.html</loc>
-    <lastmod>2023-12-28T17:15:52.711Z</lastmod>
-  </url>
-  <url>
-    <loc>https://vyudenko.blog/posts/time-tracking-1/index.html</loc>
-    <lastmod>2023-12-28T17:15:34.833Z</lastmod>
-  </url>
-  <url>
-    <loc>https://vyudenko.blog/posts/index.html</loc>
-    <lastmod>2023-12-28T17:35:47.764Z</lastmod>
-  </url>
-  <url>
-    <loc>https://vyudenko.blog/index.html</loc>
-    <lastmod>2023-12-28T17:14:55.496Z</lastmod>
-  </url>
-  <url>
-    <loc>https://vyudenko.blog/about/index.html</loc>
-    <lastmod>2023-12-28T17:34:36.831Z</lastmod>
+    <loc>https://vyudenko.blog/til/qalmri/index.html</loc>
+    <lastmod>2024-02-15T20:04:07.168Z</lastmod>
   </url>
   <url>
     <loc>https://vyudenko.blog/posts/toastmasters-time/index.html</loc>
-    <lastmod>2023-12-28T17:15:48.394Z</lastmod>
+    <lastmod>2024-02-15T20:04:05.044Z</lastmod>
   </url>
   <url>
-    <loc>https://vyudenko.blog/til/qalmri/index.html</loc>
-    <lastmod>2023-12-28T17:15:56.040Z</lastmod>
+    <loc>https://vyudenko.blog/essays/weloveyou/index.html</loc>
+    <lastmod>2024-02-15T20:03:01.506Z</lastmod>
   </url>
   <url>
-    <loc>https://vyudenko.blog/writings/index.html</loc>
-    <lastmod>2023-12-28T17:34:29.425Z</lastmod>
+    <loc>https://vyudenko.blog/essays/index.html</loc>
+    <lastmod>2024-02-15T20:02:57.078Z</lastmod>
+  </url>
+  <url>
+    <loc>https://vyudenko.blog/about/index.html</loc>
+    <lastmod>2024-02-15T20:02:48.038Z</lastmod>
+  </url>
+  <url>
+    <loc>https://vyudenko.blog/essays/backtonormal/index.html</loc>
+    <lastmod>2024-02-15T20:02:49.109Z</lastmod>
+  </url>
+  <url>
+    <loc>https://vyudenko.blog/index.html</loc>
+    <lastmod>2024-02-15T20:03:07.639Z</lastmod>
+  </url>
+  <url>
+    <loc>https://vyudenko.blog/posts/index.html</loc>
+    <lastmod>2024-02-15T20:03:43.849Z</lastmod>
+  </url>
+  <url>
+    <loc>https://vyudenko.blog/posts/time-tracking-1/index.html</loc>
+    <lastmod>2024-02-15T20:04:01.104Z</lastmod>
+  </url>
+  <url>
+    <loc>https://vyudenko.blog/til/index.html</loc>
+    <lastmod>2024-02-15T20:04:06.089Z</lastmod>
   </url>
 </urlset>

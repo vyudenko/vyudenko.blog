@@ -1,13 +1,17 @@
 [
   {
-    "listing": "/til/index.html",
+    "listing": "/essays/index.html",
     "items": [
-      "/til/qalmri/index.html"
+      "/essays/weloveyou/index.html",
+      "/essays/backtonormal/index.html"
     ]
   },
   {
-    "listing": "/research/index.html",
-    "items": []
+    "listing": "/index.html",
+    "items": [
+      "/posts/index.html",
+      "/essays/index.html"
+    ]
   },
   {
     "listing": "/posts/index.html",
@@ -17,18 +21,9 @@
     ]
   },
   {
-    "listing": "/index.html",
+    "listing": "/til/index.html",
     "items": [
-      "/posts/index.html",
-      "/writings/index.html"
-    ]
-  },
-  {
-    "listing": "/writings/index.html",
-    "items": [
-      "/writings/forthesakeofeverylife/index.html",
-      "/writings/weloveyou/index.html",
-      "/writings/backtonormal/index.html"
+      "/til/qalmri/index.html"
     ]
   }
 ]

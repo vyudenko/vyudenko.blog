@@ -4,7 +4,7 @@ title: "Vadym Yudenko"
 listing:
   contents: 
     - posts/index.qmd
-    - writings/index.qmd
+    - essays/index.qmd
   id: front-list
   sort: "order"
   type: default
@@ -46,9 +46,8 @@ div.quarto-post .thumbnail {
 
 
 ::: {style="text-align: center"}
-[<strong>Vadym Yudenko</strong>]{style="font-size: 36px; font-style: bold; color: black; font-family: Fira Mono;"} <br> <br> I'm a Junior Researcher at the Institute for Behavioral Studies at [American University Kyiv](https://auk.edu.ua/en/) and a MSc student at [KSE](https://kse.ua/). <br> My research focuses on how war experiences impact decision-making, particularly regarding forced relocation, financial wellbeing, and perception of safety.
-
-Trying to explain the world with data! <br> <br>
+[<strong>Vadym Yudenko</strong>]{style="font-size: 36px; font-style: bold; color: black; font-family: Fira Mono;"} <br> <br> I'm a Junior Researcher at the Institute for Behavioral Studies at [American University Kyiv](https://ibs.auk.edu.ua/en/) and a MSc student at [KSE](https://kse.ua/). <br> My research focuses on how war experiences impact decision-making, particularly regarding financial wellbeing, and perception of safety.
+<br> <br>
 :::
 
 ::: {#front-list}

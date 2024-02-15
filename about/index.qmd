@@ -37,6 +37,11 @@ toc: false
 | ![KSE Logo](kse_logo.jpg){alt="KSE Logo" width="125"} | [Kyiv School of Economics](https://kse.ua/) | MSc of Economics | Sep 2022 - Jan 2024 |
 
 ::: {.callout-tip title="KSE" collapse="true" icon="false" style="text-align: left;"}
+
+**Thesis:**
+
+[Turbulent Times: Investigating Temporal Choices In Wartime](https://kse.ua/wp-content/uploads/2024/01/Vadym-Yudenko-Thesis_ammended.pdf)
+
 **Courses:**
 
 -   [Statistics & Econometrics:]{.underline}

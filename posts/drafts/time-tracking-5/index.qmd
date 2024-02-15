@@ -1,0 +1,183 @@
+---
+title: "Other resource"
+description: |
+ .....
+  Timetracking part 5 of 5
+author: 
+ - name: Vadym Yudenko
+   affiliation: American University Kyiv
+   affiliation-url: https://auk.edu.ua/en/
+date: 2023-07-14
+draft: true 
+categories:
+  - timetracking
+  - self-surveillance
+---
+
+## UNDER CONSTRUCTION
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, warning = FALSE, message = FALSE)
+```
+
+```{r load libraries}
+# devtools::install_github("liamgilbey/ggwaffle")
+# library(ggwaffle)
+library(stargazer)
+library(tidyverse)
+library(ggExtra)
+library(ggtext)
+library(ggthemes)
+library(gganimate)
+library(ggnewscale)
+library(showtext)
+library(grid)
+library(transformr)
+library(corrr)
+library(corrplot)
+library(lubridate)
+library(reshape2)
+library(plotly)
+library(scales)
+library(ggiraph)
+library(glue)
+library(knitr)
+library(fontawesome)
+library(RColorBrewer)
+library(DT)
+library(patchwork)
+```
+
+```{r set theme}
+font_add_google("Fira Sans", "firasans")
+font_add_google("IBM Plex Mono", "ibmplex")
+# showtext::showtext_auto()
+
+blog_theme <-
+   theme_minimal(18, base_family = "IBM Plex Mono") +
+   theme(
+     plot.background = element_rect(fill = "white", color = NA),
+     plot.title.position = "plot",
+     plot.title = element_text(size = 24, margin = margin(b = 1, unit = "line")),
+     legend.position = c(0, 1),
+     legend.direction = "horizontal",
+     legend.justification = c(0, 1),
+     legend.title.align = 1,
+     axis.title.y = element_text(hjust = 0, size = 10),
+     axis.title.x = element_text(hjust = 0, size = 10),
+     panel.grid.major = element_line(color = "#d3d9db"),
+     panel.grid.minor = element_blank()
+   )
+ 
+theme_set(blog_theme)
+```
+
+```{r load data}
+# data_long <- read.csv("data/data.csv") %>%
+#   mutate(
+#     datetime = as.POSIXct(datetime, format="%m/%d/%Y %H:%M", tz="GMT+3"),
+#     day_of_week = weekdays(datetime),
+#     time_of_day = case_when(
+#       hour(datetime) < 12 ~ "Morning",
+#       hour(datetime) < 18 ~ "Day",
+#       TRUE ~ "Night"
+#     ),
+#     time_column = if_else(substr(as.character(datetime), 12, 16) == "", "00:00", substr(as.character(datetime), 12, 16)),
+#     category5 = case_when(
+#       activity %in% c("Sleep", "Sport", "Communication", "Japanese") ~ activity,
+#       activity %in% c("Study", "Work", "TM", "Planning", "Reading") ~ "Study/Work",
+#       activity %in% c("Transportation", "Misc", "Waste", "Food") ~ "Rest"
+#     ),
+#     hour = hour(datetime),
+#     day = wday(datetime, label = TRUE, abbr = TRUE, week_start = 1),
+#     month = month(datetime, label = TRUE, abbr = FALSE),
+#     date_char = as.character(datetime)
+#   )
+
+activity_colors <- c(
+  "Sleep" = "#1E90FF",  # DodgerBlue
+  "Sport" = "#32CD32",  # LimeGreen
+  "Study" = "#DAA520",  # Goldenrod
+  "Communication" = "#87CEEB",  # SkyBlue
+  "Food" = "#FFD700",  # Gold
+  "Waste" = "black",
+  "Reading" = "#FFA07A",  # LightSalmon
+  "Japanese" = "#FF69B4",  # HotPink
+  "Misc" = "#8FBC8F",  # DarkSeaGreen
+  "TM" = "#9370DB",  # MediumPurple
+  "Transportation" = "#A9A9A9"  # DarkGray
+)
+
+time_ticks06 <- c(
+    "06:00", "06:20", "06:40", "07:00", "07:20", "07:40", "08:00", "08:20", "08:40", "09:00",
+    "09:20", "09:40", "10:00", "10:20", "10:40", "11:00", "11:20", "11:40", "12:00", "12:20",
+    "12:40", "13:00", "13:20", "13:40", "14:00", "14:20", "14:40", "15:00", "15:20", "15:40",
+    "16:00", "16:20", "16:40", "17:00", "17:20", "17:40", "18:00", "18:20", "18:40", "19:00",
+    "19:20", "19:40", "20:00", "20:20", "20:40", "21:00", "21:20", "21:40", "22:00", "22:20",
+    "22:40", "23:00", "23:20", "23:40", "00:00", "00:20", "00:40", "01:00", "01:20", "01:40",
+    "02:00", "02:20", "02:40", "03:00", "03:20", "03:40", "04:00", "04:20", "04:40", "05:00",
+    "05:20", "05:40"
+)
+
+
+time_ticks15 <- c("15:00", "15:20", "15:40", "16:00", "16:20", "16:40", "17:00",
+                "17:20", "17:40", "18:00", "18:20", "18:40", "19:00", "19:20",
+                "19:40", "20:00", "20:20", "20:40", "21:00", "21:20", "21:40",
+                "22:00", "22:20", "22:40", "23:00", "23:20", "23:40",
+                "00:00", "00:20", "00:40", "01:00", "01:20", "01:40",
+                "02:00", "02:20", "02:40", "03:00", "03:20", "03:40",
+                "04:00", "04:20", "04:40", "05:00", "05:20", "05:40",
+                "06:00", "06:20", "06:40", "07:00", "07:20", "07:40",
+                "08:00", "08:20", "08:40", "09:00", "09:20", "09:40",
+                "10:00", "10:20", "10:40", "11:00", "11:20", "11:40",
+                "12:00", "12:20", "12:40", "13:00", "13:20", "13:40", "14:00", "14:20", "14:40")
+```
+
+```{r atus}
+#sources: https://rpubs.com/Ryder/555470
+# atus.sum <- read.delim('data/atussum_0322.dat', sep=",")
+# atus.who <- read.delim('data/atuswho_0322.dat', sep=",")
+# atus.act <- read.delim('data/atusact_0322.dat', sep=",")
+# atus.rostec <- read.delim('data/atusrostec_1122.dat', sep=",")
+# atus.rost <- read.delim('data/atusrost_0322.dat', sep=",")
+# atus.case <- read.delim('data/atuscase_0522.dat', sep=",")
+# # Joining these by TUCASEID
+# atus <- atus.sum %>%
+#   left_join(atus.who, by = "TUCASEID") %>%
+#   left_join(atus.act, by = "TUCASEID") %>%
+#   left_join(atus.rostec, by = "TUCASEID") %>%
+#   left_join(atus.rost, by = "TUCASEID") %>%
+#   left_join(atus.case, by = "TUCASEID")
+```
+
+
+::: {.callout-tip title="Part 1. Every living hour" collapse="true" icon="false" style="text-align: center;"}
+[Part 1](https://vyudenko.blog/posts/time-tracking-1) of 5 of time tracking series. It serves as an introduction to the project and it's rationale. Other parts will go in depth and answer specific questions.
+:::
+
+::: {.callout-tip title="Part 2. Why track your daily life?" collapse="true" icon="false" style="text-align: center;"}
+[Part 2](https://vyudenko.blog/posts/time-tracking-2) explains timetracking and goes over some of the reasons why you should or shouldn't track your daily activities. Who will benefit from using it and who won't.
+:::
+
+::: {.callout-tip title="Part 3. How to track your daily life?" collapse="true" icon="false" style="text-align: center;"}
+[Part 3](https://vyudenko.blog/posts/time-tracking-3) lays out the approach and its set up. From choosing the categories to the actual tracking.
+:::
+
+::: {.callout-tip title="Part 4. Answering questions with data" collapse="true" icon="false" style="text-align: center;"}
+[Part 4](https://vyudenko.blog/posts/time-tracking-4) provides examples of what kind of data-driven answers you can get by tracking your time.
+:::
+
+::: {.callout-tip title="Part 5. Other" collapse="false" icon="false" style="text-align: center;"}
+In this part we look at other projects....
+:::
+
+Sources: https://flowingdata.com/2022/09/01/looking-for-meaning-in-the-everyday/ https://flowingdata.com/2021/11/23/most-common-daily-schedules-for-different-groups/ 
+https://flowingdata.com/2017/10/19/american-daily-routine/ 
+https://flowingdata.com/2023/07/25/when-is-dinner-by-state/ 
+https://flowingdata.com/2011/03/20/daily-schedule-of-benjamin-franklin/ https://flowingdata.com/2019/07/16/how-the-american-work-day-changed-in-15-years/ https://lifehacker.com/how-to-track-everything-in-your-life-without-going-craz-1466537828 
+https://en.wikipedia.org/wiki/Lifelog#cite_note-1 
+https://www.nytimes.com/2007/10/29/us/29shields.html 
+https://flowingdata.com/2014/09/04/when-people-work-by-job-category/ 
+https://flowingdata.com/2019/04/02/data-comic-shows-an-average-american-day/ 
+https://flowingdata.com/2021/08/19/daily-routine-2020/ 
+https://flowingdata.com/2015/11/30/most-common-use-of-time-by-age-and-sex/

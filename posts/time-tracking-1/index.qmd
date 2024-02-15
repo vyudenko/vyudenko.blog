@@ -2,7 +2,6 @@
 title: "Every living hour"
 description: |
   Categorizing, Tracking and Visualizing one's daily life. 
-  Timetracking part 1 of 5 
 author: 
  - name: Vadym Yudenko
    affiliation: American University Kyiv
@@ -95,8 +94,7 @@ data_long <- read.csv("data.csv") %>%
     hour = hour(datetime),
     day = wday(datetime, label = TRUE, abbr = TRUE, week_start = 1),
     month = month(datetime, label = TRUE, abbr = FALSE),
-    date_char = as.character(datetime)
-  )
+    date_char = as.character(datetime))
 
 activity_colors <- c(
   "Sleep" = "#1E90FF",  # DodgerBlue
@@ -240,13 +238,13 @@ There is a short and long answer.
 
 **Short answer is:**
 
-Sometime in Summer 2019[^1] I, a university freshmen, was bored and wasted days doing a whole lot of nothing. There was no need to work, so I tried just about everything to apply myself to some task. Reading, learning languages, reflecting on what I want to do next - good things to do, but not for weeks on end. At some point I felt I was wasting my life, and I knew it. It is this fatigue when you wake up, but you don't want to wake up, and just stay in bed for hours on end.
+Sometime in Summer 2019[^1] I, a university freshman, was bored and wasted days doing a whole lot of nothing. There was no need to work, so I tried just about everything to apply myself to some task. Reading, learning languages, reflecting on what I want to do next - good things to do, but not for weeks on end. At some point I felt I was wasting my life, and I knew it. It is this fatigue when you wake up, but you don't want to wake up, and just stay in bed for hours on end.
 
 [^1]: Original file is lost, but I continued in December 2019, which is what is analyzed here.
 
 On one such morning, having woken up at 12am hopelessly fatigued I had had enough. At that time I realized I needed meaning in my life - a sense of accomplishment and pride in myself. I was reading motivational books like "7 Habits" and thinking about what to do with my life. This is the WHY, now about the HOW.
 
-In addition to reading motivational books I watched miscellaneous videos Youtube throws at me. Sensing the shift in my preferences, the algorithm has offered me numerous videos on life-improvement, confidence, meaning, and time management. One of them was by [Coffee Break](https://youtu.be/Owgxw8d4L84?si=I_LeilyayUu2o1LH), in which he mention that time management is crucial skill to have, and shows how he does it in Excel file. I was fascinated with an idea and decided to try it myself. I have sinse built upon his file and added things that make this process easier.
+In addition to reading motivational books I watched miscellaneous videos YouTube throws at me. Sensing the shift in my preferences, the algorithm has offered me numerous videos on life-improvement, confidence, meaning, and time management. One of them was by [Coffee Break](https://youtu.be/Owgxw8d4L84?si=I_LeilyayUu2o1LH), in which he mentions that time management is crucial skill to have, and shows how he does it in Excel file. I was fascinated with an idea and decided to try it myself. I have since built upon his file and added things that make this process easier.
 
 Initial goals were:
 
@@ -261,28 +259,6 @@ Initial goals were:
 [^2]: Work = Study. Before I had a full-time job, I regarded studying as full-time job.
 
 Regardless of the initial goals and expectations, I had managed to carry on tracking my daily life for a year.
-
-## About
-
-::: {.callout-tip title="Part 1. Every living hour" collapse="false" icon="false" style="text-align: center;"}
-This a part 1 of 5 of time tracking series. It serves as an introduction to the project and it's rationale. Other parts will go in depth and answer specific questions.
-:::
-
-::: {.callout-tip title="Part 2. Why track your daily life?" collapse="true" icon="false" style="text-align: center;"}
-[Part 2](https://vyudenko.blog/posts/time-tracking-2) explains timetracking and goes over some of the reasons why you should or shouldn't track your daily activities. Who will benefit from using it and who won't.
-:::
-
-::: {.callout-tip title="Part 3. How to track your daily life?" collapse="true" icon="false" style="text-align: center;"}
-[Part 3](https://vyudenko.blog/posts/time-tracking-3) lays out the approach and its set up. From choosing the categories to the actual tracking.
-:::
-
-::: {.callout-tip title="Part 4. Answering questions with data" collapse="true" icon="false" style="text-align: center;"}
-[Part 4](https://vyudenko.blog/posts/time-tracking-4) provides examples of what kind of data-driven answers you can get by tracking your time.
-:::
-
-::: {.callout-tip title="Part 5. Other" collapse="true" icon="false" style="text-align: center;"}
-[Part 5](https://vyudenko.blog/posts/time-tracking-5) looks at other projects....
-:::
 
 ## Rationale
 
@@ -327,7 +303,7 @@ At the time I have been studying Japanese and attending TM meetings, both were t
 
 ### Sleep {#sleep}
 
-It has been determined that humans need to sleep 8 hours a day. \[source?\] Some need less, some more, but there is no escaping it :)
+It has been determined that humans need to sleep 8 hours a day. Some need less, some more, but there is no escaping it :)
 
 ```{r}
 # Sleep
@@ -389,7 +365,7 @@ dygraph(xts_data_sleep) %>%
 
 Apart from Sleep, another thing without which one cannot live is Food.
 
-With Food I not necessarily wanted to capture the time spent eating, but rather capture eating patterns. When and how often. Because, again, having a healthy and stable eating routine is important for a healthy life. \[source\]
+With Food I didn't necessarily want to capture the time spent eating, but rather eating patterns. When and how often. Because, again, having a healthy and stable eating routine is important for a healthy life.
 
 ```{r}
 data_long %>% 
@@ -415,8 +391,6 @@ data_long %>%
   )
 ```
 
-....
-
 ```{r}
 df_filtered_food <- df_activity_hours %>% 
   filter(activity %in% "Food") %>%
@@ -431,9 +405,9 @@ ggplot(df_filtered_food, aes(x = date)) +
                    expand = c(0, 0),
                    date_breaks = "1 month",  # Display every month on the x-axis
                    date_labels = "%B") +  # Format the date labels as "Month Year"
-  labs(title = "How much time have been spent eating each day in 2020?",
+  labs(title = "Time spent eating each day",
        x = NULL,
-       y = "",
+       y = "Hours",
        color = "Activity") +  # Labels
   theme(legend.position = "none",
         plot.title = element_text(family = "IBM Plex Mono", hjust = 0.5, size = 18),
@@ -443,7 +417,7 @@ ggplot(df_filtered_food, aes(x = date)) +
   scale_color_manual(values = c("Food" = "gray", "Rolling Mean" = "#FFD700"))  # Custom colors
 ```
 
-If you think about it the number of hours of sleep and food are great examples of a stationary time series. (reminder to make a post about predicting sleeping patterns)
+If you think about it the number of hours of sleep and food are great examples of a stationary time series.
 
 ### Friends and Family {#friends}
 
@@ -463,9 +437,9 @@ ggplot(df_filtered_comm, aes(x = date)) +
                    expand = c(0, 0),
                    date_breaks = "1 month",  # Display every month on the x-axis
                    date_labels = "%B") +  # Format the date labels as "Month Year"
-  labs(title = "How much time has been spent communicating/socializing?",
+  labs(title = "Spending time with friends and family",
        x = NULL,
-       y = "",
+       y = "Hours",
        color = "Activity") +  # Labels
   theme(legend.position = "none",
         plot.title = element_text(family = "IBM Plex Mono", hjust = 0.5, size = 18),
@@ -477,7 +451,7 @@ ggplot(df_filtered_comm, aes(x = date)) +
 
 ### Transportation {#transport}
 
-Transportation may not be the most obvious of categories, but I traveled a lot between the cities, so it wa natural that I include it as a separate category. Mind you that while I was travelling, I could be doing other things, like reading, listening to podcasts, or sleeping. So the time spent on transportation is not necessarily the time spent on the activity, but rather it is a background to any activities that come alongside it.
+Transportation may not be the most obvious of categories, but I traveled a lot between the cities, so it was natural that I include it as a separate category. Mind you that while I was travelling, I could be doing other things, like reading, listening to podcasts, or sleeping. So the time spent on transportation is not necessarily the time spent on the activity, but rather it is a background to any activities that come alongside it.
 
 ```{r}
 df_filtered_trans <- df_activity_hours %>% 
@@ -511,7 +485,7 @@ ggplot(df_combined_1, aes(x = date)) +
   
   labs(title = "When do you find time for Communication and Transportation?",
        x = NULL,
-       y = "",
+       y = "Hours",
        color = "Activity") +  # Labels
 
   theme(legend.position = "none",
@@ -523,20 +497,14 @@ ggplot(df_combined_1, aes(x = date)) +
         panel.grid.minor = element_blank()) +  # Remove minor grid
   
   scale_color_manual(values = c("Communication Rolling Mean" = "blue", 
-                                "Transportation Rolling Mean" = "green")) +  # Custom colors
-  
-  # Add prettified labels for the rolling means
-  annotate("richtext", x = latest_date_comm - 80, y = comm_rollmean_value + 5.5, 
-           label = "Notice, how <span style = 'color:blue;'>Communication</span> follows <br>
-           <span style = 'color:green;'>Transportation</span> in some cases.", 
-           hjust = 0.5, color = "black", size = 4, fontface = "bold")
+                                "Transportation Rolling Mean" = "green")) # Custom colors
 ```
 
 Transportation is supposed to capture my movements to and from point A to point B, be it from university to home, from trainings home or taking a train to visit my parents in a different city.
 
 ### Sport {#sport}
 
-Straightforward category, but I wanted to see how much time I spend on sport. Being physically active is also important for health.
+Straightforward category, I wanted to see how much time I spend on sport. Being physically active is also important for health.
 
 ```{r}
 df_filtered_sport <- df_activity_hours %>% 
@@ -552,9 +520,9 @@ ggplot(df_filtered_sport, aes(x = date)) +
                    expand = c(0, 0),
                    date_breaks = "1 month",  # Display every month on the x-axis
                    date_labels = "%B") +  # Format the date labels as "Month Year"
-  labs(title = "How much time has been spent doing Sports?",
+  labs(title = "Doing sports",
        x = NULL,
-       y = "",
+       y = "Hours",
        color = "Activity") +  # Labels
   theme(legend.position = "none",
         plot.title = element_text(family = "IBM Plex Mono", hjust = 0.5, size = 18),
@@ -588,9 +556,9 @@ ggplot(df_filtered_study, aes(x = date)) +
                    expand = c(0, 0),
                    date_breaks = "1 month",  # Display every month on the x-axis
                    date_labels = "%B") +  # Format the date labels as "Month Year"
-  labs(title = "How much time has been spent Studying?",
+  labs(title = "Studying, studying, studying...",
        x = NULL,
-       y = "",
+       y = "Hours",
        color = "Activity") +  # Labels
   theme(legend.position = "none",
         plot.title = element_text(family = "IBM Plex Mono", hjust = 0.5, size = 18),
@@ -620,7 +588,7 @@ data_long %>%
 
 ```
 
-In early Spring 2020, I found out I had passed [JLPT N4](https://www.jlpt.jp/e/about/levelsummary.html) and was planning to pass N3 next year. Based on the discussions online, I figured I need to spend 1000 hours with the language untill December 2020, when the test was scheduled, to successfully pass. I didn't specify how I would spend this time - speaking, writing, learning [Kanji](https://en.wikipedia.org/wiki/Kanji) - but that I had to dedicate it. This allowed me to calculate how much time on average I needed to dedicate to the language a day to achieve those 1000 hours.
+In early Spring 2020, I found out I had passed [JLPT N4](https://www.jlpt.jp/e/about/levelsummary.html) and was planning to pass N3 next year. Based on the discussions online, I figured I need to spend 1000 hours with the language until December 2020, when the test was scheduled, to successfully pass. I didn't specify how I would spend this time - speaking, writing, learning [Kanji](https://en.wikipedia.org/wiki/Kanji) - but that I had to dedicate it. This allowed me to calculate how much time on average I needed to dedicate to the language a day to achieve those 1000 hours.
 
 ```{r}
 df_filtered_jap <- df_activity_hours %>% 
@@ -638,7 +606,7 @@ ggplot(df_filtered_jap, aes(x = date)) +
                    date_labels = "%B") +  # Format the date labels as "Month Year"
   labs(title = "How much time has been spent learning Japanese?",
        x = NULL,
-       y = "",
+       y = "Hours",
        color = "Activity") +  # Labels
   theme(legend.position = "none",
         plot.title = element_text(family = "IBM Plex Mono", hjust = 0.5, size = 18),
@@ -677,7 +645,7 @@ ggplot(df_combined, aes(x = date)) +
   
   labs(title = "When do you find time to learn Japanese?",
        x = NULL,
-       y = "",
+       y = "Hours",
        color = "Activity") +  # Labels
   
   theme(legend.position = "none",
@@ -704,7 +672,7 @@ I have sacrificed my main studies in the university. Covid started, everything w
 
 ### Waste {#waste}
 
-Waste of Time is when I wish I had spent this time better. Like when you binge watch videos instead of getting some rest. This category was mostly used when I spent a little too much time on the internet. Of course, watching videos as a leisure is normal, but when I go beyond "enough gotta get back to work" is when I consider it a Waste of Time.
+Waste of Time is when I wish I had spent this time better. Like when you binge watch videos instead of getting some rest. This category was mostly used when I spent a little too much time on the internet. Of course, watching videos as a leisure is normal, but catch myself thinking "that was too much" is when I consider it a Waste of Time.
 
 ```{r}
 data_long %>% 
@@ -729,11 +697,11 @@ One of the initial goals was to reduce wasted time, which I think I did.
 
 ### Miscellaneous {#misc}
 
-We come to what I think is the most mysterious category of all. The one that encapsulates everything else - Miscellaneous. (I think it will deserve a separate post later).
+We come to what I think is the most mysterious category of all. The one that encapsulates everything else - Miscellaneous.[^3] (I think it will deserve a separate post later).
 
-Miscellaneous is activities that don't contribute to one's daily productivity, but something one has to do or just does, as it is a part of one's life. Brushing teeth, medical check up, vacuum cleaning, shopping, watching videos....[^3]
+[^3]: After working, studying, eating, I sometimes watch videos. It is neither relaxing, nor wasting time, it is just what I do - it is a part of my life. So, it goes into Miscellaneous. But if I overdo it, then it goes to Waste of Time. [Aster Hu's blog](https://www.asterhu.com/post/2023-09-18-time-tracking-analysis/) on tracking of spare time has a great descriptions of what comprises this category.
 
-[^3]: After working, studying, eating, I sometimes watch videos for myself. This I can't consider relaxing, nor can I say that I'm wasting my time, it is just what I do - it is a part of my life. So, it goes into Miscellaneous. But if I overdo it, then it goes to Waste of Time. [Aster Hu's blog](https://www.asterhu.com/post/2023-09-18-time-tracking-analysis/) on tracking of spare time has a great descriptions of what comprises this category.
+Miscellaneous is activities that don't contribute to one's daily productivity, but something one has to do or just does, as it is a part of one's life. Brushing teeth, medical check up, vacuum cleaning, shopping, watching videos....
 
 Look at the heat maps below...
 
@@ -804,7 +772,7 @@ data_long %>%
                    date_breaks = "1 month",  # Display every month on the x-axis
                    date_labels = "%b") +  # Format the date labels as "Month Year"
   theme(
-    axis.text.x = element_blank(),  # Adjusted the angle for better visibility
+    axis.text.x = element_text(size = 8, angle = 0),  # Adjusted the angle for better visibility
     axis.text.y = element_text(size = 3),
     axis.title = element_blank(),
     legend.position = "none"
@@ -897,10 +865,6 @@ activity_hours_total %>%
           text = ~paste(activity, ": ", sprintf("%.2f", total_hours), " hours")) %>%
   layout(title = "How much hours were spend on each activity?")
 ```
-
-
-
-[Part 2](https://vyudenko.blog/posts/time-tracking-2)
 
 ::: {.callout-tip title="Check this out" collapse="true" icon="false" style="text-align: center;"}
 [Life timeline in a spreadsheet](https://flowingdata.com/2023/06/15/life-timeline-in-a-spreadsheet/) <br> [Ze Frank on Counting Jellybeans](https://youtu.be/BOksW_NabEk)

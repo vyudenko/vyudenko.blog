@@ -16,9 +16,10 @@ knitr::opts_chunk$set(echo = FALSE, warning = FALSE, message = FALSE)
 ```
 
 ```{r}
-library(rvest)
-library(httr)
-library(xml2)
+# library(rvest)
+# library(httr)
+# library(xml2)
+# library(pdftools)
 library(ggplot2)
 library(tidyverse)
 library(writexl)
@@ -29,48 +30,55 @@ library(DT)
 library(lubridate)
 library(extrafont)
 library(tm)
-library(pdftools)
 library(stringr)
 ```
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ```{r}
 #code works, but pdfs are empty 
-
-# base_url <- "https://kse.ua/community/stories/"
 # 
+# base_url <- "https://kse.ua/community/stories/"
+#  
 # # Define a custom function to construct the URL based on the year
 # construct_url <- function(year) {
-#   if (year == 2020) {
-#     return(paste0(base_url, "magisterski-diplomni-proyekti-", year, "/"))
-#   } else if (year == 2021) {
-#     return(paste0(base_url, "magisterski-diplomni-proyekti-", year, "/"))
-#   } else {
-#     return(paste0(base_url, "ma-theses-", year, "/"))
-#   }
-# }
+#    if (year == 2020) {
+#      return(paste0(base_url, "magisterski-diplomni-proyekti-", year, "/"))
+#    } else if (year == 2021) {
+#      return(paste0(base_url, "magisterski-diplomni-proyekti-", year, "/"))
+#    } else {
+#      return(paste0(base_url, "ma-theses-", year, "/"))
+#    }
+#  }
+#  
+# for(year in 1998:2020) {
+#     url <- construct_url(year)
+#     webpage <- read_html(url)
+#     pdf_links <- webpage %>% html_nodes("a[href$='.pdf']") %>% html_attr("href")
 # 
-# # Loop through years
-# for(year in 1998:2023) {
-#   # Construct the URL
-#   url <- construct_url(year)
-#   
-#   # Scrape the page
-#   webpage <- read_html(url)
-#   
-#   # Extract PDF links (this is a hypothetical CSS selector; the actual selector might differ)
-#   pdf_links <- webpage %>% html_nodes("a[href$='.pdf']") %>% html_attr("href")
-#   
-#   # Download each PDF using httr to handle redirects
-#   for(link in pdf_links) {
-#     response <- GET(link)
-#     
-#     # Check if the request was successful
-#     if(http_status(response)$category == "Success") {
-#       write_disk(paste0(year, "-", basename(link)), overwrite = TRUE)(response)
-#     } else {
-#       warning(paste("Failed to download", link, "with status", http_status(response)$message))
+#     for(link in pdf_links) {
+#         response <- GET(link, write_disk(paste0(year, "-", basename(link)), overwrite = TRUE))
+# 
+#         if(http_status(response)$category != "Success") {
+#             warning(paste("Failed to download", link, "with status", http_status(response)$message))
+#         }
 #     }
-#   }
 # }
 
 ```

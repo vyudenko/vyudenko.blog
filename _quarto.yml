@@ -24,10 +24,8 @@ website:
     right:
       - href: posts/index.qmd
         text: Blog
-      - href: writings/index.qmd
-        text: Writings 
-      - href: research/index.qmd
-        text: Reserach
+      - href: essays/index.qmd
+        text: Essays 
       - href: til/index.qmd
         text: TIL
       - href: about/index.qmd
