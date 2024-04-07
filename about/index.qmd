@@ -14,7 +14,6 @@ about:
       text: CV
       href: https://drive.google.com/file/d/1_m219XQMiiki18tZxKOvl1ICCw9h1jRe/view?usp=sharing
 toc: false
-draft: true
 ---
 
 ## Vadym Yudenko
@@ -64,6 +63,7 @@ draft: true
 
     -   Used machine learning algorithms to predict regional GDP of Ukraine Economics
 :::
+
 
 ## Inspiration
 

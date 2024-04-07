@@ -1,10 +1,8 @@
 {
-  "hash": "7872db9ec8c43bffe7542305206ab4ad",
+  "hash": "2cf2293cfa977447db761ef2dbad1a93",
   "result": {
-    "markdown": "---\nopen-graph: true\ntitle: \"Vadym Yudenko\"\nlisting:\n  contents: \n    - posts/index.qmd\n    - essays/index.qmd\n  id: front-list\n  sort: \"order\"\n  type: default\n  grid-columns: 1\n  categories: false\n  image-align: 'right'\n  image-height: '100%'\nformat:\n  html:\n    page-layout: full\n---\n\n\n\n::: {.cell}\n<style type=\"text/css\">\n.quarto-title {\n    display: none;\n  }\n  \n.description {\n    display: none;\n  }\n  \ndiv.quarto-post .metadata {\n    display: none;\n  }\n  \ndiv.quarto-post .thumbnail {\n    flex-basis: 50%;\n}\n</style>\n:::\n\n\n\n::: {#front-list}\n:::\n",
-    "supporting": [
-      "index_files"
-    ],
+    "markdown": "---\nopen-graph: true\ntitle: \"Vadym Yudenko\"\nlisting:\n  contents: \n    - posts/index.qmd\n    - essays/index.qmd\n  id: front-list\n  sort: \"order\"\n  type: default\n  grid-columns: 1\n  categories: false\n  image-align: 'right'\n  image-height: '100%'\nformat:\n  html:\n    page-layout: full\n---\n\n\n\n::: {.cell}\n<style type=\"text/css\">\n.quarto-title {\n    display: none;\n  }\n  \n.description {\n    display: none;\n  }\n  \ndiv.quarto-post .metadata {\n    display: none;\n  }\n  \ndiv.quarto-post .thumbnail {\n    flex-basis: 50%;\n}\n</style>\n:::\n\n\n::: {#front-list}\n:::\n",
+    "supporting": [],
     "filters": [
       "rmarkdown/pagebreak.lua"
     ],
