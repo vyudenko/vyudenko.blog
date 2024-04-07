@@ -7,10 +7,6 @@ website:
   site-url: https://vyudenko.blog
   repo-url: https://github.com/vyudenko/vyudenko.github.io
   
-  comments: 
-    utterances: 
-      repo: vyudenko/vyudenko.blog
-  
   google-analytics: 
     tracking-id: "G-3871TXSQZ5"
     storage: cookies
@@ -38,7 +34,7 @@ website:
   page-footer:
     left: |
       Powered by [Quarto](https://quarto.org). <br>
-      &copy; 2023 Vadym Yudenko. <br>
+      &copy; 2024 Vadym Yudenko. <br>
       Opinions are my own.
     right: |
       License: [CC BY NC SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0).

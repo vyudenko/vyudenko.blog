@@ -87,9 +87,9 @@ data_long <- read.csv("data.csv") %>%
     ),
     time_column = if_else(substr(as.character(datetime), 12, 16) == "", "00:00", substr(as.character(datetime), 12, 16)),
     category5 = case_when(
-      activity %in% c("Sleep", "Sport", "Communication", "Japanese") ~ activity,
+      activity %in% c("Sleep", "Sport", "Communication", "Japanese", "Food") ~ activity,
       activity %in% c("Study", "Work", "TM", "Planning", "Reading") ~ "Study/Work",
-      activity %in% c("Transportation", "Misc", "Waste", "Food") ~ "Rest"
+      activity %in% c("Transportation", "Misc", "Waste") ~ "Rest"
     ),
     hour = hour(datetime),
     day = wday(datetime, label = TRUE, abbr = TRUE, week_start = 1),
@@ -109,6 +109,18 @@ activity_colors <- c(
   "TM" = "#9370DB",  # MediumPurple
   "Transportation" = "#A9A9A9"  # DarkGray
 )
+
+
+# activity_colors_grey_special <- c(
+#    "Sleep" = "navy",  # Indigo
+#    "Japanese" = "firebrick3",  # Gold
+#    "Study" = "yellow",  # Slate Blue
+#    "Communication" = "darkgreen",  # Light Blue
+#    "Sport" = "#5e5e5e",  # LimeGreen
+#    "Food" = "#d0d0d0",
+#    "Misc" = "#bababa") 
+# 
+# plot_color <- activity_colors_grey_special
 
 time_ticks06 <- c(
     "06:00", "06:20", "06:40", "07:00", "07:20", "07:40", "08:00", "08:20", "08:40", "09:00",
@@ -202,7 +214,6 @@ ggplotly(p, tooltip = "text") %>%
     staticPlot = FALSE,
     height = 800  # Adjust the height of the plot
   )
-
 ```
 :::
 

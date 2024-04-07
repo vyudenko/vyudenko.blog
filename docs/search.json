@@ -126,27 +126,6 @@
     "text": "We all love you, and so does Putin\n\n\n\n\n\n\n\n\n\n\n\n\nAug 10, 2022\n\n\n7 min\n\n\n\n\n\n\n  \n\n\n\n\nBack to normal\n\n\n\n\n\nRemembering Amstor Mall Airstrike\n\n\n\n\n\n\nJul 28, 2022\n\n\n5 min\n\n\n\n\n\n\nNo matching items"
   },
   {
-    "objectID": "about/index.html#experience",
-    "href": "about/index.html#experience",
-    "title": "Vadym Yudenko",
-    "section": "Experience",
-    "text": "Experience\n\n\n\n\nInstitute of Behavioral Studies at American University Kyiv\nJunior Researcher\nAug 2023 - present\n\n\n\n\n\n\n\n\n\nAUK projects\n\n\n\n\n\n\nEvaluating USAID AGRO programmes success from a behavioral perspective (work in progress)\nMeasuring the effects of mental health issues on productivity of workers (work in progress)"
-  },
-  {
-    "objectID": "about/index.html#education",
-    "href": "about/index.html#education",
-    "title": "Vadym Yudenko",
-    "section": "Education",
-    "text": "Education\n\n\n\n\nKyiv School of Economics\nMSc of Economics\nSep 2022 - Jan 2024\n\n\n\n\n\n\n\n\n\nKSE\n\n\n\n\n\nThesis:\nTurbulent Times: Investigating Temporal Choices In Wartime\nCourses:\n\nStatistics & Econometrics:\n\nHypothesis testing, data cleaning, data visualization with R and Tableau\nPanel, cross-sectional data and difference in differences\nTime series analysis and forecasting\n\nBehavioral Economics:\n\nResearched the effects of framing on the financial decision-making of students\nStudied seminal papers and latest finding of the field (Prospect Theory, Heuristics)\n\nTracking Warzone Economic Activity in Ukraine (with Duke University):\n\nUsed GoogleTrends & Nightlight data to estimate economic activity in Ukraine\nUsed machine learning algorithms to predict regional GDP of Ukraine Economics\n\n\n\n\n\n\n\n\n\nKyiv National Economics University\nBSc of Business and Management\nSep 2018 - Jun 2022\n\n\n\n\n\n\n\n\n\nKNEU\n\n\n\n\n\nWas doing something important :)"
-  },
-  {
-    "objectID": "about/index.html#inspiration",
-    "href": "about/index.html#inspiration",
-    "title": "Vadym Yudenko",
-    "section": "Inspiration",
-    "text": "Inspiration\nThis blog would have never been developed if not for the active community of Quarto-website aficionados, whose open-source websites helped me build one myself. If you’re looking for inspiration, ideas for your website check out these awesome pages!\n\n\n\n\n\n\nBlogs\n\n\n\n\n\n\nKazuharu Yanagimoto  Westchester Covid-19 Tracking by Matt Herman  Mickaël CANOUIL  Marvin Schmitt  Danielle Navarro  Taras Kaduk  werk.statt.codes  Gwern Branwen  crumplab  Andrew Heiss  Emil Hvitfeldt  Albert Rapp"
-  },
-  {
     "objectID": "essays/backtonormal/index.html",
     "href": "essays/backtonormal/index.html",
     "title": "Back to normal",
@@ -158,14 +137,14 @@
     "href": "index.html",
     "title": "Vadym Yudenko",
     "section": "",
-    "text": "Vadym Yudenko  I’m a Junior Researcher at the Institute for Behavioral Studies at American University Kyiv and a MSc student at KSE.  My research focuses on how war experiences impact decision-making, particularly regarding financial wellbeing, and perception of safety. \n\n\n\n\n\n  \n\n\n\n\nBlog\n\n\n\n\n\nMiscellaneous articles on data analysis and visualization.\n\n\n\n\n \n\n\n\n\n  \n\n\n\n\nEssays\n\n\n\n\n\nEssays on life during wartime and personal thoughts on life…\n\n\n\n\n \n\n\n\n\nNo matching items"
+    "text": "Blog\n\n\n\n\n\nMiscellaneous articles on data analysis and visualization.\n\n\n\n\n \n\n\n\n\n  \n\n\n\n\nEssays\n\n\n\n\n\nEssays on life during wartime and personal thoughts on life…\n\n\n\n\n \n\n\n\n\nNo matching items"
   },
   {
     "objectID": "posts/index.html",
     "href": "posts/index.html",
     "title": "Blog",
     "section": "",
-    "text": "Every living hour\n\n\n\n\n\nCategorizing, Tracking and Visualizing one’s daily life.\n\n\n\n\n\n\nDec 28, 2023\n\n\n39 min\n\n\n\n\n\n\n  \n\n\n\n\nAll the time in the world…\n\n\n\n\n\nMeasuring the effect time has on delivering a great speech using data from Toastmasters\n\n\n\n\n\n\nAug 4, 2023\n\n\n42 min\n\n\n\n\n\n\nNo matching items"
+    "text": "Every living hour\n\n\n\n\n\nCategorizing, Tracking and Visualizing one’s daily life.\n\n\n\n\n\n\nDec 28, 2023\n\n\n40 min\n\n\n\n\n\n\n  \n\n\n\n\nAll the time in the world…\n\n\n\n\n\nMeasuring the effect time has on delivering a great speech using data from Toastmasters\n\n\n\n\n\n\nAug 4, 2023\n\n\n42 min\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "posts/time-tracking-1/index.html#main_plot",

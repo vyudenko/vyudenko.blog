@@ -14,6 +14,7 @@ about:
       text: CV
       href: https://drive.google.com/file/d/1_m219XQMiiki18tZxKOvl1ICCw9h1jRe/view?usp=sharing
 toc: false
+draft: true
 ---
 
 ## Vadym Yudenko
@@ -62,14 +63,6 @@ toc: false
     -   Used GoogleTrends & Nightlight data to estimate economic activity in Ukraine
 
     -   Used machine learning algorithms to predict regional GDP of Ukraine Economics
-:::
-
-|                                                          |                                                               |                                |                     |
-|-------------------|--------------------|-----------------|-----------------|
-| ![KNEU Logo](kneu_logo.png){alt="KNEU Logo" width="150"} | [Kyiv National Economics University](https://kneu.edu.ua/en/) | BSc of Business and Management | Sep 2018 - Jun 2022 |
-
-::: {.callout-tip title="KNEU" collapse="true" icon="false" style="text-align: left;"}
-Was doing something important :)
 :::
 
 ## Inspiration
