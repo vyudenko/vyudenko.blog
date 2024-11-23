@@ -10,7 +10,6 @@ citation: true
 date: 2023-08-04
 date-modified: 2023-11-06
 format: html
-editor: visual
 categories:
   - Toastmasters
   - Time
@@ -1103,3 +1102,12 @@ I do hope that you, the keen reader, have found this piece entertaining and usef
 ## Before you go...
 
 If you like this project and feel like you can contribute with data and/or advise, please send me an <a href="mailto:vyudenko@kse.org.ua">**EMAIL**</a> 😊
+
+<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" >Session Information</button><div id="collapseOne" class="accordion-collapse collapse"><div>
+
+```{r}
+sessionInfo()
+```
+
+</div></div>
+
