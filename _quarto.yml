@@ -4,17 +4,9 @@ project:
 
 website:
   title: "Vadym Yudenko"
-  site-url: https://vyudenko.blog
-  repo-url: https://github.com/vyudenko/vyudenko.github.io
-  
-  google-analytics: 
-    tracking-id: "G-3871TXSQZ5"
-    storage: cookies
-    anonymize-ip: true
-  
-  cookie-consent: 
-    type: implied
-    
+  site-url: https://vadymyudenko.com
+  repo-url: https://github.com/vadymyudenko/vadymyudenko.com
+  favicon: speech-bubble.png
   open-graph: true
   navbar:
     right:
@@ -27,7 +19,7 @@ website:
       - href: about/index.qmd
         text: About
       - icon: github
-        href: https://github.com/vyudenko
+        href: https://github.com/vadymyudenko
       - icon: linkedin
         href: https://www.linkedin.com/in/vadym-yudenko/
         
