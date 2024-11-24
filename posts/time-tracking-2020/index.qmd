@@ -1,7 +1,7 @@
 ---
-title: "Student days"
+title: "Time Tracking 2020"
 description: |
-  Looking back on my time-tracking experience 
+  Looking back on my time tracking experience 
 author: 
  - name: Vadym Yudenko
 date: 2024-11-22
@@ -151,7 +151,7 @@ ggplotly(p, tooltip = "text") %>%
       tickangle = 0,  
       tickvals = seq(1, 72, by = 1) # Specify all 72 values
     ),
-    xaxis = list(),  # Remove fixedrange = TRUE to allow zooming in x direction
+    xaxis = list(), 
     font = list(family = "Fira Sans"),
     hoverlabel = list(font = list(family = "Fira Sans"), align = "left"),
     yaxis2 = list(  # Adjust yaxis2 settings
