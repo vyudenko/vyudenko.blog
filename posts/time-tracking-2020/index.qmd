@@ -126,7 +126,7 @@ p <- data_long %>%
   geom_bin2d(bins = c(367, 72),  
       aes(text = str_replace_all(paste0(
         "<b>", time_column, "</b><br>",
-        "Activity: ", activity, "<br>"), "NA", "missing")
+        activity, "<br>"), "NA", "missing")
       )
     ) +
   scale_fill_manual(values = activity_colors) +
@@ -327,7 +327,7 @@ p1 <- data_long %>%
   geom_bin2d(bins = c(367, 72),  
       aes(text = str_replace_all(paste0(
         "<b>", time_column, "</b><br>",
-        "Activity: ", activity, "<br>"), "NA", "missing")
+        activity, "<br>"), "NA", "missing")
       )
     ) +
   scale_fill_manual(values = activity_colors) +
@@ -402,7 +402,7 @@ plot1 <- data_long %>%
   geom_bin2d(bins = c(367, 72),  
       aes(text = str_replace_all(paste0(
         "<b>", time_column, "</b><br>",
-        "Activity: ", activity, "<br>"), "NA", "missing")
+        activity, "<br>"), "NA", "missing")
       )
     ) +
   scale_fill_manual(values = activity_colors) +
@@ -538,7 +538,7 @@ p2 <- data_long %>%
   geom_bin2d(bins = c(367, 72),  
       aes(text = str_replace_all(paste0(
         "<b>", time_column, "</b><br>",
-        "Activity: ", activity, "<br>"), "NA", "missing")
+        activity, "<br>"), "NA", "missing")
       )
     ) +
   scale_fill_manual(values = activity_colors) +
@@ -621,7 +621,7 @@ plot_ly() %>%   # Add original data for Japanese activity
     y = ~rolling_mean,   
     type = 'scatter',   
     mode = 'lines', 
-    name = 'Average Japanese',  
+    name = 'Average JAP',  
     line = list(width = 4, color = "#FF69B4")   
   ) %>%   # Add original data for Study activity   
   add_trace(    
@@ -703,7 +703,7 @@ p3 <- data_long %>%
   geom_bin2d(bins = c(367, 72),  
       aes(text = str_replace_all(paste0(
         "<b>", time_column, "</b><br>",
-        "Activity: ", activity, "<br>"), "NA", "missing")
+        activity, "<br>"), "NA", "missing")
       )
     ) +
   scale_fill_manual(values = activity_colors) +
@@ -790,7 +790,7 @@ plot_ly() %>%
     y = ~rolling_mean,
     type = 'scatter',
     mode = 'lines',
-    name = 'Average Japanese',
+    name = 'Average JAP',
     line = list(width = 4, color = "#FF69B4")
   ) %>%
   add_trace(
@@ -899,7 +899,7 @@ p4 <- data_long %>%
   geom_bin2d(bins = c(367, 72),  
       aes(text = str_replace_all(paste0(
         "<b>", time_column, "</b><br>",
-        "Activity: ", activity, "<br>"), "NA", "missing")
+        activity, "<br>"), "NA", "missing")
       )
     ) +
   scale_fill_manual(values = activity_colors) +

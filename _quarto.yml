@@ -45,7 +45,7 @@ format:
     fig-cap-location: margin
     reference-location: margin
     footnotes-hover: true
-    fontsize: 18px
+    fontsize: 14px
     mainfont: Fira Mono
     highlight-style: monokai
     include-in-header: 
